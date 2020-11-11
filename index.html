@@ -5,42 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Milktea-shop</title>
+
+    <link rel="stylesheet" media="screen and (max-width:850px)" href="css/mb.css">
+    <link rel="stylesheet" media="screen and (min-width:1024px)" href="css/pc.css">
+    <link rel="stylesheet" media="screen and (max-width:1024px)" href="css/pd.css">
 </head>
 
 <body>
+    <!--navigation bar-->
     <div class="topnavWrapper">
-    <div class="topnav" id="myTopnav">  
-        <img class='active' id="logo" src="img/Logo.png" onclick="showPage('?home')" filename="home.html"style="cursor:pointer" alt="profile" >
-        <a id="menu-icon" href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <img id ="menuIcon" src="img/menubut.PNG"></img>
-        </a>             
-        <div id="myMenu"class="menu-content"><!--display:inline-block to make everything align on the same line-->               
-            <div class="cornerBlock"><!--also need to remove style="overflow:auto"-->
-                <a class="cnButton" id="languageButton"onclick="showPage('?cn')" style="margin-top:-3px" filename="?cn.html">中文版</a>
-                <a id="login">Login</a>
-                <a class="phone" href="tel:022-381-7661"><i class="fa fa-phone"></i>&nbsp;022-381-7661</a>
+        <div class="topnav" id="myTopnav">  
+            <img class='active' id="logo" style="cursor:pointer" alt="profile" >
+            <a class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction()">
+                <img>menuIcon</img>
+            </a>             
+            <div id="myMenu"class="menu-content">
+                <a class="navButton">About Us</a>
+                <a class="navButton">Membership</a>  
+                <div class="dropdown" id="ourServices">
+                    <a style="text-transform: uppercase;" class="dropbtn" id="ourServicesButton">Follow
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a class="navButton">Facebook</a>
+                            <a class="navButton" >Instagram</a>
+                            <a class="navButton">Helpdesk</a>
+                        </div>
+                </div> 
+                <a class="navButton">Locations</a>
+                <a class="navButton">Blog</a>
+                <a class="navButton">Menu</a>
+                <a class="navButton">Covid-19</a>
+                <a class="navButton">Home</a>  
             </div>
-            <a class="navButton" onclick="showPage('?contactus')" id="contactUs" filename="contactus.html">Contact Us</a>
-            <a class="navButton" onclick="showPage('?faq')" id="faq" filename="faq.html">FAQ</a>
-            <a class="navButton" onclick="showPage('?whychooseus')" id="whyChooseUs" filename="whychooseus.html">Why Choose Us</a>
-            
-            <div class="dropdown" id="ourServices">
-                <button style="text-transform: uppercase;" onclick="serviceDropdownMenu()" class="dropbtn" id="ourServicesButton">Our Services
-                    <i class="fa fa-caret-down"></i>
-                </button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a class="navButton" onclick="showPage('?inbound')" id="inbound"filename="inbound.html">Inbound</a>
-                        <a class="navButton" onclick="showPage('?outbound')" id="outbound"filename="outbound.html">Outbound</a>
-                        <a class="navButton" onclick="showPage('?helpdesk')" id="helpdesk"filename="helpdesk.html">Helpdesk</a>
-                        <a class="navButton" onclick="showPage('?backendoffice')" id="backEndOffice"filename="backendoffice.html">Back end office</a>
-                    </div>
-            </div> 
-
-            <a class="navButton" onclick="showPage('?howitworks')" id='howItWorks' filename="howitworks.html">How it works</a>
-            <a class="navButton" onclick="showPage('?aboutus')" id="aboutUs" filename="aboutus.html">About us</a>   
         </div>
     </div>
-</div>
+    <br>
+
     <div class="menu">
         <h1>
             <div>This Menu div</div>
@@ -60,3 +61,14 @@
 </body>
 
 </html>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } 
+        else {
+            x.className = "topnav";
+        }
+    }
+</script>
