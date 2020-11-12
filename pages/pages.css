@@ -1,0 +1,10 @@
+.covid-19,
+.about {
+    background-color: lightgray;
+    max-width: 680px;
+    margin: 20px auto;
+}
+
+.container p {
+    margin: 10px 0;
+}
