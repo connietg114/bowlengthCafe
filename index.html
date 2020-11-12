@@ -9,27 +9,29 @@
     <link rel="stylesheet" media="screen and (max-width:850px)" href="css/mb.css">
     <link rel="stylesheet" media="screen and (min-width:1024px)" href="css/pc.css">
     <link rel="stylesheet" media="screen and (max-width:1024px)" href="css/pd.css">
+     <script src="js/index.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <!--navigation bar-->
     <div class="topnavWrapper">
         <div class="topnav" id="myTopnav">  
-            <img class='active' id="logo" style="cursor:pointer" alt="profile" >
-            <a class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction()">
+            <img class='active' id="logo" style="cursor:pointer" src="img/logo.png" alt="profile" >
+            <button class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction()">
                 <img>menuIcon</img>
-            </a>             
+            </button>             
             <div id="myMenu"class="menu-content">
-                <a class="navButton">About Us</a>
+                <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
                 <a class="navButton">Membership</a>  
+
                 <div class="dropdown" id="ourServices">
-                    <a style="text-transform: uppercase;" class="dropbtn" id="ourServicesButton">Follow
+                    <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
                         <i class="fa fa-caret-down"></i>
-                    </a>
+                    </button>
                         <div id="myDropdown" class="dropdown-content">
                             <a class="navButton">Facebook</a>
                             <a class="navButton" >Instagram</a>
-                            <a class="navButton">Helpdesk</a>
                         </div>
                 </div> 
                 <a class="navButton">Locations</a>
@@ -42,7 +44,7 @@
     </div>
     <br>
 
-    <div class="menu">
+    <div class="pageContent">
         <h1>
             <div>This Menu div</div>
         </h1>

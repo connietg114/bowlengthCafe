@@ -27,21 +27,20 @@ height: 60px;
 .topnav #menuIcon{
 height: 60px;
 }
-.topnav div a:hover, .topnav .icon:hover {
+.topnav div a:hover, .topnav .icon:hover, .topnav .dropbtn:hover {
     /* background-color:darkgray; */
     color: lightgray;
   }
 
 .topnav.responsive .menu-content{
     background-color: white;
+    text-transform: uppercase;
 }
 
 .topnav.responsive .active{
     float: none;
   }
-  .topnav.responsive .cornerBlock{
-    display: inline-flex;
-  }
+  
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     display: block;
@@ -57,22 +56,40 @@ height: 60px;
     display: block;
     text-align: center;
     border-radius: 0%;
+    cursor: pointer;
+    padding: 3px;
   }
   .topnav.responsive .menu-content{
-    width: 100%;
-    
+    width: 100%; 
   } 
   
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown .dropdown-content{position: relative;font-style: italic;}
+  .topnav.responsive .dropdown {
+      float: none;
+      overflow: hidden; 
+    }
+  .topnav.responsive .dropdown .dropdown-content{
+      display: none; 
+      position: relative;
+      font-style: italic;
+      z-index: 1;
+    }
+    .topnav.responsive .dropdown .dropbtn {
+        float: none;
+        text-align: center;
+        cursor: pointer;
+        font-size: 15px;  
+        border: none;
+        outline: none;
+        margin: 0;
+        background-color: white;
+        display: block;
+        width: 100%;
+      }
 
-  .topnav.responsive .dropdown .dropbtn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    float: none;
-    border-radius: 0;
+  .topnav.responsive .dropdown-content a {
+    padding: 0;
   }
+
   .topnav.responsive .active{
     height:60px;
     margin-top: 0;
@@ -83,3 +100,7 @@ height: 60px;
   .topnav.responsive #menuIcon{
     height: 60px;
   }
+ 
+  .topnav.responsive .dropdown-content.show {display: block;}
+
+  
