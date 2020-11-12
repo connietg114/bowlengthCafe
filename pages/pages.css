@@ -1,5 +1,6 @@
 .covid-19,
-.about {
+.about,
+.blog {
     background-color: lightgray;
     max-width: 680px;
     margin: 20px auto;
@@ -16,7 +17,7 @@
 
 .container img {
     display: block;
-    width: 100%;
+    width: 500px;
     margin: 50px auto;
     padding: 5px auto;
 }
