@@ -17,13 +17,19 @@
     <!--navigation bar-->
     <div class="topnavWrapper">
         <div class="topnav" id="myTopnav">  
-            <img class='active' id="logo" style="cursor:pointer" src="img/logo.png" alt="profile" >
+            <div class="logoDiv">
+                <img class='active' id="logo" src="img/logo.png" alt="profile" >
+            </div>
             <button class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction(), showPage('pages/home.html')">
                 <img>menuIcon</img>
-            </button>             
+            </button>  
+                     
             <div id="myMenu"class="menu-content">
-                <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
-                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>  
+                 <a class="navButton" onclick="showPage('pages/home.html')">Home</a>  
+                <a class="navButton" onclick="showPage('pages/covid-19.html')">Covid-19</a>
+                <a class="navButton" onclick="showPage('pages/menu.html')">Menu</a>
+                <a class="navButton" onclick="showPage('pages/blog.html')">Blog</a>
+                <a class="navButton" onclick="showPage('pages/location.html')">Locations</a>
 
                 <div class="dropdown" id="ourServices">
                     <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
@@ -34,12 +40,12 @@
                             <a class="navButton" onclick="showPage('pages/follow.html')">Instagram</a>
                         </div>
                 </div> 
-                <a class="navButton" onclick="showPage('pages/location.html')">Locations</a>
-                <a class="navButton" onclick="showPage('pages/blog.html')">Blog</a>
-                <a class="navButton" onclick="showPage('pages/menu.html')">Menu</a>
-                <a class="navButton" onclick="showPage('pages/covid-19.html')">Covid-19</a>
-                <a class="navButton" onclick="showPage('pages/home.html')">Home</a>  
+     
+                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>  
+                <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
+
             </div>
+            
         </div>
     </div>
     <br>
@@ -64,7 +70,9 @@
 
 </html>
 <script>
-
+$(document).ready(function(){
+  $(".pageContent").load("pages/home.html");
+});
     function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
