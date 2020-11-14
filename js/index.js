@@ -8,17 +8,15 @@ function scrollFunction() {
         $(".logoDiv").css("display", "inline-block");
         $(".topnav .menu-content").css("margin-top", "0");
         $(".topnav .menu-content").css("display", "inline-block");
+        $(".pageContent").css("padding-top", "150px");
     }
     else {
         $("#logo").css("height", "200px");
         $(".logoDiv").css("display", "block");
-        // $(".logoDiv").css("vertical-align", "middle");
-        // $(".logoDiv").css("text-align", "center");
 
         $(".topnav .menu-content").css("margin-top", "10px");
         $(".topnav .menu-content").css("display", "block");
-        // $(".topnav .menu-content").css("vertical-align", "middle");
-        // $(".topnav .menu-content").css("text-align", "center");
+        $(".pageContent").css("padding-top", "300px");
         
     }
 }

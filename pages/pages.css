@@ -1,6 +1,11 @@
 .covid-19,
 .about,
-.blog {
+.blog,
+.home,
+.membership,
+.contactus,
+.faq,
+.location {
     background-color: lightgray;
     max-width: 680px;
     margin: 20px auto;
@@ -18,7 +23,7 @@
 .container img {
     display: block;
     width: 500px;
-    margin: 50px auto;
+    margin: 0px auto;
     padding: 5px auto;
 }
 
@@ -40,3 +45,14 @@
     cursor: pointer;
     background-color: grey;
 }
+/* home */
+.slideShow{
+    display: block;
+    /* width: 500px; */
+    margin: 0 auto;   
+}
+.mySlides {
+    display:none;
+    padding: 5px auto;
+}
+/* home */

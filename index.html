@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" media="screen and (max-width:850px)" href="css/mb.css">
     <link rel="stylesheet" media="screen and (min-width:1024px)" href="css/pc.css">
-    <link rel="stylesheet" media="screen and (max-width:1024px)" href="css/pd.css">
+    <link rel="stylesheet" media="screen and (max-width:1024px) and (min-width:850px)" href="css/pd.css">
     <script src="js/index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -17,12 +17,12 @@
     <!--navigation bar-->
     <div class="topnavWrapper">
         <div class="topnav" id="myTopnav">  
-            <div class="logoDiv">
+            <div class="logoDiv" style="cursor:pointer" onclick="showPage('pages/home.html')">
                 <img class='active' id="logo" src="img/logo.png" alt="profile" >
             </div>
-            <button class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction(), showPage('pages/home.html')">
-                <img>menuIcon</img>
-            </button>  
+            <a class="icon" id="menu-icon" href="javascript:void(0);"  onclick="myFunction()">
+                <img class="menuImg"src="img/menubut.PNG"></img>
+            </a>  
                      
             <div id="myMenu"class="menu-content">
                  <a class="navButton" onclick="showPage('pages/home.html')">Home</a>  
@@ -37,15 +37,12 @@
                     </button>
 
                         <div id="myDropdown" class="dropdown-content">
-                            <a class="navButton" onclick="showPage('pages/follow.html')">Facebook</a>
-                            <a class="navButton" onclick="showPage('pages/follow.html')">Instagram</a>
+                            <a class="navButton" onclick="window.open('https://www.facebook.com/bubbleteawellington/')">Facebook</a>
+                            <a class="navButton" onclick="window.open('https://www.instagram.com/noahsarkteahouse/')">Instagram</a>
                         </div>
                 </div> 
-     
-                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>  
                 <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
-
-
+                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>  
             </div>
             
         </div>
@@ -53,19 +50,22 @@
     <br>
 
     <div class="pageContent">
-        <h1>
-            <div>This is pageContent div</div>
-        </h1>
     </div>
-    <div class="pagebody">
-        <h2>
-            <div>This is Pagebody div</div>
-        </h2>
-    </div>
-    <div class="footer">
-        <h3>
-            <div>This is footer div</div>
-        </h3>
+
+    <div class="footer" style="margin: 0 auto">
+        <div class="fbLink" style="display: flex;justify-content: center;align-items: center;font-weight: bold;">
+            <a onclick="window.open('https://www.facebook.com/bubbleteawellington/')">f</a>
+        </div>
+        <br/>
+        <div class="footerclass2" style="display: flex;justify-content: center;align-items: center;color: gray">
+            <a onclick="showPage('pages/about.html')">ABOUT US</a>
+            <a onclick="showPage('pages/contactus.html')">&nbsp;&nbsp;CONTACT</a>
+            <a onclick="showPage('pages/faq.html')">&nbsp;&nbsp;FAQ</a>
+        </div>
+        <br/>
+        <div class="copyright" style="display: flex;justify-content: center;align-items: center;">
+            <p id="copyrightText">Copyright © 2012-2020 NOAH'S ARK TEAHOUSE</p>
+        </div>
     </div>
 
 </body>

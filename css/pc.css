@@ -1,5 +1,6 @@
-body {
+body,html {
     margin: 0;
+    padding: 0;
   }
 .topnavWrapper{
     width: 100%;
@@ -34,6 +35,7 @@ body {
         margin-top: 40px;
         vertical-align: middle;
         text-align: center;
+        -webkit-transition: 0.5s ease;
     }
     .icon{
       display: none;
@@ -120,7 +122,14 @@ body {
 /* Page Content css */
 .pageContent{
     padding-top: 300px;
+    -webkit-transition: 0.5s ease;
 }
-      
+    
+.footerclass2 a:hover{
+    color:lightgray;
+}
+.fbLink:hover{
+    color:gray;
+}
       
   

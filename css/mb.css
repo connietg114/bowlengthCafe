@@ -1,3 +1,15 @@
+body,html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .topnavWrapper{
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-color: white;
+  }
+
 .topnav div a,
 .topnav .icon,
 .dropdown .dropbtn {
@@ -10,23 +22,45 @@ padding: 0;
 margin-top: 0;
 }
 
-.topnav.icon {
-position: absolute;
-right: 0;
-top: 0;
-padding: 0px;
-margin-top: 0 ;
+.topnav .menu-content{
+    margin-top: 0 !important;
 }
 .topnav .active{
-height:60px;
-margin-top: 0;
+height:60px !important;
+margin: 10px !important;
 }
+.topnav.responsive .active{
+    height:60px !important;
+    margin: 10px !important;
+  }
 .topnav{
-height: 60px;
+height: 60px !important;
 }
-.topnav #menuIcon{
-height: 60px;
+.topnav.responsive{
+    height: 60px !important;
 }
+
+.topnav .menuImg{
+height: 40px !important;
+margin: 20px !important;
+}
+.topnav.responsive .menuImg{
+    height: 40px !important;
+    margin: 20px !important;
+} 
+
+.topnav .menuImg:hover{
+    /* color: lightgray; */
+    background-color:lightgray;
+}
+
+.topnav .logoDiv{
+    display: inline-block !important;
+}
+.topnav.responsive .logoDiv{
+    display: inline-block !important;
+}
+
 .topnav div a:hover, .topnav .icon:hover, .topnav .dropbtn:hover {
     /* background-color:darkgray; */
     color: lightgray;
@@ -60,7 +94,7 @@ height: 60px;
     padding: 3px;
   }
   .topnav.responsive .menu-content{
-    width: 100%; 
+    /* width: 100%;  */
   } 
   
   .topnav.responsive .dropdown {
@@ -90,17 +124,18 @@ height: 60px;
     padding: 0;
   }
 
-  .topnav.responsive .active{
-    height:60px;
-    margin-top: 0;
-  }
-  .topnav.responsive{
-    height: 60px;
-  }
-  .topnav.responsive #menuIcon{
-    height: 60px;
-  }
- 
+  
   .topnav.responsive .dropdown-content.show {display: block;}
+  .pageContent{
+    padding-top: 45px !important ;
+    /* -webkit-transition: 0.5s ease; */
+}
+
+.footerclass2 a:hover{
+    color:lightgray;
+}
+.fbLink:hover{
+    color:gray;
+}
 
   
