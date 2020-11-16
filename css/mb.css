@@ -94,7 +94,7 @@ margin: 20px !important;
     padding: 3px;
   }
   .topnav.responsive .menu-content{
-    /* width: 100%;  */
+    width: 100% !important; 
   } 
   
   .topnav.responsive .dropdown {

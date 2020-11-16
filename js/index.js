@@ -52,5 +52,10 @@ window.onclick = function(event) {
 }
 
 function showPage(url){
-    $(".pageContent").load(url);
+    
+    if(url=="pages/locations/all.html"||url=="pages/locations/auckland.html"||url=="pages/locations/lowerhut.html"||url=="pages/locations/wellington.html"){
+        $(".locationPageContent").load(url);
+    }else{
+        $(".pageContent").load(url);
+    }
 }

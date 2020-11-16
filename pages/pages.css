@@ -26,6 +26,11 @@
     margin: 0px auto;
     padding: 5px auto;
 }
+@media screen and (max-width: 850px){
+    .container img {
+        width: 250px;
+    }
+}
 
 .content-text {
     max-width: 30em;
@@ -45,6 +50,7 @@
     cursor: pointer;
     background-color: grey;
 }
+
 /* home */
 .slideShow{
     display: block;
@@ -91,3 +97,9 @@ input[type=submit]:hover {
   padding: 20px;
 }
 /* contact */
+
+/* location */
+.locationTopnav a:hover{
+    color:gray
+}
+/* location */
