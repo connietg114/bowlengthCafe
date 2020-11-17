@@ -99,7 +99,27 @@ input[type=submit]:hover {
 /* contact */
 
 /* location */
+.location{
+    max-width: 1250px;
+}
 .locationTopnav a:hover{
     color:gray
 }
+.parent {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .child {
+    flex: 1 0 21%; 
+  }
+  .child p:hover{
+    color: gray;
+  }
+  .allImg{
+    margin: 10px !important;
+    height: 300px;
+    width: 280px !important;
+  }
+  
 /* location */

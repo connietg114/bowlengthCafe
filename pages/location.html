@@ -18,6 +18,7 @@
                     <a onclick="showPage('pages/locations/lowerhut.html')">&nbsp;&nbsp;&nbsp;LOWER HUT</a>
                     <a onclick="showPage('pages/locations/wellington.html')">&nbsp;&nbsp;&nbsp;WELLINGTON</a>
                 </div>
+                <br><br>
                 <div class="locationPageContent">
                 </div>
             </div>
@@ -25,3 +26,9 @@
     </div>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+  $(".locationPageContent").load("pages/locations/all.html");
+});
+
+</script>
