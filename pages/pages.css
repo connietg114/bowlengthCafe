@@ -99,6 +99,9 @@ input[type=submit]:hover {
 /* contact */
 
 /* location */
+.locationTopnav{
+  display: flex;justify-content: center;align-items: center;font-weight:bold;
+}
 .location{
     max-width: 1250px;
 }
@@ -121,5 +124,17 @@ input[type=submit]:hover {
     height: 300px;
     width: 280px !important;
   }
+  @media screen and (max-width: 850px){
+    .allImg{
+      margin-right: 2px !important;
+      /* margin-left: 2px !important; */
+      height: 200px;
+      width: 140px !important;
+    }
+    .locationTopnav{
+      display: none;
+    }
+}
+
   
 /* location */
