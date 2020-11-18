@@ -115,6 +115,7 @@ input[type=submit]:hover {
   
   .child {
     flex: 1 0 21%; 
+    cursor: pointer;
   }
   .child p:hover{
     color: gray;
@@ -135,6 +136,22 @@ input[type=submit]:hover {
       display: none;
     }
 }
-
-  
 /* location */
+
+/* locationDetails */
+.leftCol, .rightCol {
+  float: left;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+}
+
+.locationDetails:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#previousButton:hover,#nextButton:hover{
+  color:gray;
+}
+/* locationDetails */
