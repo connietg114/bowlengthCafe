@@ -1,6 +1,7 @@
 .covid-19,
 .about,
 .blog,
+.menu,
 .home,
 .membership,
 .contactus,
@@ -26,6 +27,51 @@
     margin: 0px auto;
     padding: 5px auto;
 }
+
+
+/* menu */
+
+menu {
+    background-color: lightgray;
+    max-width: 1080px;
+    margin: 30px auto;
+}
+
+.menu-h2 {
+    color: gray;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.menu-image {
+    background-color: white;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px auto;
+}
+
+.menu-image img {
+    display: inline;
+    height: 400px;
+    margin: 10px;
+}
+
+.menu-about {}
+
+.about-wraper {
+    display: flex;
+    margin: 0 auto;
+}
+
+.about-content {
+    width: 31%;
+    border-radius: 15px;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+
+/* menu end */
 
 
 /* footer */
