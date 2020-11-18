@@ -112,17 +112,28 @@ menu {
     text-align: center;
 }
 
-.a-button .check-creation {
-    font-size: 1em;
+.but-container {
     text-align: center;
-    width: 30em;
     margin: 50px auto;
-    padding: 25px;
-    border: 2px solid grey;
-    border-radius: 5px;
 }
 
-.a-button .check-creation:hover {
+.a-button {
+    text-align: center;
+    width: 45%;
+    font-size: 1em;
+    display: inline-block;
+    border: 2px solid grey;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.a-button:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+
+.a-button :hover {
     cursor: pointer;
     background-color: grey;
 }
@@ -154,20 +165,6 @@ menu {
 .content-text {
     max-width: 30em;
     margin: 5px auto;
-}
-
-.a-button li {
-    font-size: 2em;
-    display: inline-block;
-    border: 2px solid grey;
-    border-radius: 3px;
-    margin: 10px;
-    padding: 20px;
-}
-
-.a-button li:hover {
-    cursor: pointer;
-    background-color: grey;
 }
 
 
