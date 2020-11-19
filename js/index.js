@@ -1,13 +1,15 @@
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     topnavChange();
-
+    // console.log(document.documentElement.scrollTop);
+    
     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {//scroll up effective -> become smaller
-        // $(".topnav")
         $("#logo").css("height", "60px");
         $(".logoDiv").css("display", "inline-block");
+
         $(".topnav .menu-content").css("margin-top", "0");
         $(".topnav .menu-content").css("display", "inline-block");
+
         $(".pageContent").css("padding-top", "150px");
     }
     else {
@@ -16,10 +18,30 @@ function scrollFunction() {
 
         $(".topnav .menu-content").css("margin-top", "10px");
         $(".topnav .menu-content").css("display", "block");
-        $(".pageContent").css("padding-top", "300px");
-        
+
+        $(".pageContent").css("padding-top", "300px");    
     }
 }
+
+// $(document).ready(function(){
+//     $(window).scroll(function(){
+//         var x = $(this).scrollTop();
+//         if(x>200){
+//             $("#logo").css("height", "60px");
+//             $(".logoDiv").css("display", "inline-block");
+
+//             $(".topnav .menu-content").css("margin-top", "0");
+//             $(".topnav .menu-content").css("display", "inline-block");
+
+//         }else{
+//             $("#logo").css("height", "200px");
+//             $(".logoDiv").css("display", "block");
+
+//             $(".topnav .menu-content").css("margin-top", "10px");
+//             $(".topnav .menu-content").css("display", "block");
+//         }
+//     })
+// })
 
 function topnavChange(){
     var x = document.getElementById("myTopnav");
@@ -153,9 +175,25 @@ var locationDetails=[
 
 ];
 
-
 function renderLocationItem(index){
+    var mapAddress;
     var item = locationDetails[index];
+
+    var numArray = [];
+    var usedArray = [];
+    usedArray.push(index);
+    for(var i = 0; i < 5; i++) {
+        var num = generateRandom(0,7, usedArray);
+        usedArray.push(num);
+        numArray.push(num);
+        $(".othersChild" + (i+1).toString()).attr('id', locationDetails[num].id);
+        $(".othersImg" + (i+1).toString()).attr('src', locationDetails[num].img);
+        $(".othersChild" + (i+1).toString() + " p").text(locationDetails[num].locationTitle);
+
+    }
+    console.log(numArray);
+
+    
     $(".locationDetails").attr("Name", item.id);
     $(".leftColImg").attr('src', item.img);
     $(".locationTitle").text(item.locationTitle);
@@ -165,6 +203,13 @@ function renderLocationItem(index){
         $(".visitUs").css("display", "block");
         $(".telNo").text(item.telNo);
     }
+    if(item.address2 === null){
+        mapAddress=item.address
+    }else{
+        mapAddress=item.address2;
+    }
+    mapAddress = 'https://www.google.com/maps?q=' + mapAddress +'&output=embed';
+    $(".mapIframe").attr('src', mapAddress);
     
     $(".address").text(item.address);
     $(".address2").text(item.address2);
@@ -178,8 +223,6 @@ function renderLocationItem(index){
         $('.hours2').text(item.hours2);
         $('.hours3').text(item.hours3);
     }
-   
-
 }
 
 function showLocationDetails(id, url){
@@ -189,6 +232,34 @@ function showLocationDetails(id, url){
                 renderLocationItem(i);
             }  
         }
+        $('.leftColImg').click(function() {
+            $(this).toggleClass('normal-zoom zoom-in');
+        });
+
+        $('.leftColImg').on('mousemove', function(event) {
+            var bbox = event.target.getBoundingClientRect(); //position of the image on the page
+            
+            var mouseX = event.clientX - bbox.left;//measure how far into the image the mouse is in both x and y directions
+            var mouseY = event.clientY - bbox.top;
+           
+            var xPercent = (mouseX / bbox.width) * 100; //work out how far through the image as a percentage the mouse is
+            var yPercent = (mouseY / bbox.height) * 100;
+          
+            // Then we change the `transform-origin` css property on the image to center the zoom effect on the mouse position
+            //event.target.style.transformOrigin = xPercent + '% ' + yPercent + '%';
+            $(this).css('transform-origin', (xPercent+'% ' + yPercent+ '%') ); // We add the '%' units to make sure the string looks exactly like the css declaration it becomes.
+          });
+          
+          $('.leftColImg').on('mouseenter', function() {//want it to automatically trigger on hover
+            $(this).addClass('zoom-in');
+            $(this).removeClass('normal-zoom');
+          });
+          
+          $('.leftColImg').on('mouseleave', function() {//stop when not hovering
+            $(this).addClass('normal-zoom');
+            $(this).removeClass('zoom-in');
+          });
+          
     });
 }
 
@@ -214,4 +285,7 @@ function showNextOrPrevious(id){
     }
     renderLocationItem(index);
 }
-
+function generateRandom(min, max, array) {
+    var num = Math.floor(Math.random() * (max - min + 1)) + min;
+    return (array.includes(num)) ? generateRandom(min, max, array) : num;
+}

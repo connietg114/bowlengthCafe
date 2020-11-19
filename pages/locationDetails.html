@@ -4,7 +4,9 @@
 
     <div class="locationDetails" name="">
         <div class="leftCol">
-            <img class="leftColImg" src=""></img>
+            <div class="leftColImgWrapper">
+                <img class="leftColImg" src=""></img>
+            </div>
         </div>
 
         <div class="rightCol">
@@ -12,13 +14,53 @@
 
             <h4 class="visitUs">Visit Us</h4>
             <p style="color:gray"class="telNo"></p>
-            <p style="color:gray" class="address"></p>
+            <p style="color:gray" class="address" id="locationAddress"></p>
             <p style="color:gray" class="address2"></p>
 
             <h4 class="openingHours">Opening Hours</h4>
             <p style="color:gray" class="hours"></p>
             <p style="color:gray" class="hours2"></p>
             <p style="color:gray" class="hours3"></p>
+
+            <div>
+                <a></a>
+                <a></a>
+                <a></a>
+                <a></a>
+            </div>
+        </div>
+    </div>
+    <div id="map">
+        <iframe class="mapIframe"src="https://www.google.com/maps?q=77 Wallace Street, Mt Cook, Wellington&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <div>
+        <h2>Others</h2>
+        <br>
+        <div class="othersParent">
+            <div class="othersChild1" id="othersChild" onclick="showLocationDetails(id, 'pages/locationDetails.html')">
+                <img class="othersImg1" id="othersImg" src="" id="" ></img>
+                <p></p>
+            </div>
+
+            <div class="othersChild2" id="othersChild" onclick="showLocationDetails(id, 'pages/locationDetails.html')">
+                <img class="othersImg2" id="othersImg" src="" id=""></img>
+                <p></p>
+            </div>
+
+            <div class="othersChild3"id="othersChild" onclick="showLocationDetails(id, 'pages/locationDetails.html')">
+                <img class="othersImg3" id="othersImg" src="" id=""></img>
+                <p></p>
+            </div>
+
+            <div class="othersChild4" id="othersChild" onclick="showLocationDetails(id, 'pages/locationDetails.html')">
+                <img class="othersImg4" id="othersImg" src="" id=""></img>
+                <p></p>
+            </div>
+
+            <div class="othersChild5"id="othersChild" onclick="showLocationDetails(id, 'pages/locationDetails.html')">
+                <img class="othersImg5" id="othersImg" src="" id=""></img>
+                <p></p>
+            </div>
         </div>
     </div>
 </div>
