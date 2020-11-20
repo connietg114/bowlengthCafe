@@ -5,44 +5,27 @@ function scrollFunction() {
     
     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {//scroll up effective -> become smaller
         $("#logo").css("height", "60px");
+        $("#logo").css("margin", "10px");
         $(".logoDiv").css("display", "inline-block");
 
         $(".topnav .menu-content").css("margin-top", "0");
         $(".topnav .menu-content").css("display", "inline-block");
+        $(".topnav .menu-content").css("float", "right");
 
         $(".pageContent").css("padding-top", "150px");
     }
     else {
         $("#logo").css("height", "200px");
+        $("#logo").css("margin", "none");
         $(".logoDiv").css("display", "block");
 
         $(".topnav .menu-content").css("margin-top", "10px");
         $(".topnav .menu-content").css("display", "block");
+        $(".topnav .menu-content").css("float", "none");
 
         $(".pageContent").css("padding-top", "300px");    
     }
 }
-
-// $(document).ready(function(){
-//     $(window).scroll(function(){
-//         var x = $(this).scrollTop();
-//         if(x>200){
-//             $("#logo").css("height", "60px");
-//             $(".logoDiv").css("display", "inline-block");
-
-//             $(".topnav .menu-content").css("margin-top", "0");
-//             $(".topnav .menu-content").css("display", "inline-block");
-
-//         }else{
-//             $("#logo").css("height", "200px");
-//             $(".logoDiv").css("display", "block");
-
-//             $(".topnav .menu-content").css("margin-top", "10px");
-//             $(".topnav .menu-content").css("display", "block");
-//         }
-//     })
-// })
-
 function topnavChange(){
     var x = document.getElementById("myTopnav");
     if (x.className === "topnav responsive") {
@@ -91,7 +74,22 @@ var locationDetails=[
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
         hours2:null,
-        hours3:null
+        hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fmanners-st',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fmanners-st&text=VISIT+US04+...',
+        tumblr: 'https://www.tumblr.com/share/link?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fmanners-st',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:null,
+        leftColBottomImg2:null,
+        leftColBottomImg3:null,
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+
     },
     {
         id:'child2',
@@ -102,7 +100,22 @@ var locationDetails=[
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
         hours2:null,
-        hours3:null
+        hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F89-queens-drive',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F89-queens-drive&text=VISIT+US04+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F89-queens-drive&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F89-queens-drive',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL2.png',
+        leftColBottomImg2:'img/89queensdrive2.png',
+        leftColBottomImg3:'img/89queensdrive3.png',
+        leftColBottomImg4:'img/89queensdrive4.png',
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+
     },
     {
         id:'child3',
@@ -114,6 +127,20 @@ var locationDetails=[
         hours:'Monday - Sunday   11.30am - 7pm',
         hours2: 'Saturday - Sunday     11.30am - 3:30pm',
         hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F180-lambton-quay',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F180-lambton-quay&text=VISIT+US04+...',
+        tumblr: 'https://www.tumblr.com/share/link?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F180-lambton-quay',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL3.png',
+        leftColBottomImg2:'img/180lambtonquay2.png',
+        leftColBottomImg3:'img/180lambtonquay3.png',
+        leftColBottomImg4:'img/180lambtonquay4.png',
+        leftColBottomImg5:'img/180lambtonquay5.png',
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
 
     },
     {
@@ -125,7 +152,21 @@ var locationDetails=[
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
         hours2:null,
-        hours3:null
+        hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fcuba-st',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fcuba-st&text=VISIT+US04+...',
+        tumblr: 'https://www.tumblr.com/share/link?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fcuba-st',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL4.png',
+        leftColBottomImg2:'img/128cubastreet2.png',
+        leftColBottomImg3:'img/128cubastreet3.png',
+        leftColBottomImg4:'img/128cubastreet4.png',
+        leftColBottomImg5:'img/128cubastreet5.png',
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
     },
     {
         id:'child5',
@@ -136,7 +177,21 @@ var locationDetails=[
         address2:'1/7 Fred Taylor Dr, Massey, Auckland',
         hours:'Monday - Wednesday   9.30am - 6pm',
         hours2: 'Thursday            9.30am - 9pm',
-        hours3: 'Friday - Sunday     9.30am - 6pm'
+        hours3: 'Friday - Sunday     9.30am - 6pm',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fnorthwest',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fnorthwest&text=VISIT+US09+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fnorthwest&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Fnorthwest',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL5.png',
+        leftColBottomImg2:'img/northwest2.png',
+        leftColBottomImg3:'img/northwest3.png',
+        leftColBottomImg4:'img/northwest4.png',
+        leftColBottomImg5:'img/northwest5.png',
+        leftColBottomImg6:'img/northwest6.png',
+        leftColBottomImg7:'img/northwest7.png',
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
     },
     {
         id:'child6',
@@ -147,7 +202,21 @@ var locationDetails=[
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
         hours2: 'Friday - Saturday   11:30am - 10pm',
-        hours3: 'Sunday            11:30am - 7pm'
+        hours3: 'Sunday            11:30am - 7pm',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F93-courtenay-place',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F93-courtenay-place&text=VISIT+US04+...',
+        tumblr: 'https://www.tumblr.com/share/link?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F93-courtenay-place',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL6.png',
+        leftColBottomImg2:'img/93courtenayplace2.png',
+        leftColBottomImg3:null,
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
     },
     {
         id:'child7',
@@ -158,7 +227,21 @@ var locationDetails=[
         address2:null,
         hours: 'REOPENING NOW',
         hours2:'Monday - Sunday   11.30am - 6pm',
-        hours3:null
+        hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F77-wallce-street',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F77-wallce-street&text=VISIT+US04+385+903377+Wallace+Street%2C+Mt+Cook%2C+...',
+        tumblr: 'https://www.tumblr.com/share/link?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2F77-wallce-street',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/ALL7.png',
+        leftColBottomImg2:'img/77wallacest2.png',
+        leftColBottomImg3:'img/77wallacest3.png',
+        leftColBottomImg4:'img/77wallacest4.png',
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
     },
     {
         id:'child8',
@@ -170,7 +253,21 @@ var locationDetails=[
         address2:'100 Courtney Place, Te Aro, Wellington',
         hours:'Temporarily Closed',
         hours2:null,
-        hours3:null
+        hours3:null,
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:null,
+        leftColBottomImg2:null,
+        leftColBottomImg3:null,
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
     }
 
 ];
@@ -191,9 +288,7 @@ function renderLocationItem(index){
         $(".othersChild" + (i+1).toString() + " p").text(locationDetails[num].locationTitle);
 
     }
-    console.log(numArray);
-
-    
+   
     $(".locationDetails").attr("Name", item.id);
     $(".leftColImg").attr('src', item.img);
     $(".locationTitle").text(item.locationTitle);
@@ -223,6 +318,21 @@ function renderLocationItem(index){
         $('.hours2').text(item.hours2);
         $('.hours3').text(item.hours3);
     }
+    $("#locationFb").attr("onclick", "window.open('" + item.fb+ "')");
+    $("#locationTwitter").attr("onclick", "window.open('" + item.twitter+ "')");
+    $("#locationTumblr").attr("onclick", "window.open('" + item.tumblr+ "')");
+    $("#locationPinterest").attr("onclick", "window.open('" + item.pinterest+ "')");
+
+    $("#leftColBottomImg1").attr("src", item.leftColBottomImg1);
+    $("#leftColBottomImg2").attr("src", item.leftColBottomImg2);
+    $("#leftColBottomImg3").attr("src", item.leftColBottomImg3);
+    $("#leftColBottomImg4").attr("src", item.leftColBottomImg4);
+    $("#leftColBottomImg5").attr("src", item.leftColBottomImg5);
+    $("#leftColBottomImg6").attr("src", item.leftColBottomImg6);
+    $("#leftColBottomImg7").attr("src", item.leftColBottomImg7);
+    $("#leftColBottomImg8").attr("src", item.leftColBottomImg8);
+    $("#leftColBottomImg9").attr("src", item.leftColBottomImg9);
+    $("#leftColBottomImg10").attr("src", item.leftColBottomImg10);
 }
 
 function showLocationDetails(id, url){
@@ -288,4 +398,9 @@ function showNextOrPrevious(id){
 function generateRandom(min, max, array) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
     return (array.includes(num)) ? generateRandom(min, max, array) : num;
+}
+
+function changeImg(id){
+    var newImg = $("#" + id).attr("src");
+    $(".leftColImg").attr("src", newImg);
 }
