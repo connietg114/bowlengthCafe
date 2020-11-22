@@ -89,7 +89,25 @@ menu {
     padding: 5px;
 }
 
+.new-range{
+    max-width: 1400px;
+}
 
+.range-heading{
+    text-align: center;
+}
+
+.range-product{
+    text-align: center;
+    width: 340px;
+    height: 600px;
+    display: inline-block;
+}
+
+.range-product img{
+  width: 340px;
+  height: 550px;
+}
 /* menu end */
 
 
@@ -137,15 +155,14 @@ menu {
 }
 
 .ins-img {
-  width: 20%;
-  padding: 10px;
-  display: inline;
-  margin: 10ex auto;
+  width: 19%;
+  padding: 0 1%;
+  display: inline-block;
+  margin: 10px 0;
 }
 
 .ins-img img {
-  width: 23ex;
-  height: 23ex;
+  width: 100%;
 }
 
 
