@@ -1,7 +1,11 @@
+.container{
+    max-width: 1400px;
+    margin: 10px auto;
+}
+
 .covid-19,
 .about,
 .blog,
-.menu,
 .home,
 .membership,
 .contactus,
@@ -21,7 +25,16 @@
     margin: 10px;
 }
 
-.container img {
+/* .container img {
+    display: block;
+    width: 500px;
+    margin: 0px auto;
+    padding: 5px auto;
+} */
+
+.home img,
+.blog img, 
+.about img {
     display: block;
     width: 500px;
     margin: 0px auto;
@@ -45,18 +58,24 @@ menu {
 
 .menu-image {
     background-color: white;
-    max-width: 900px;
+    max-width: 1400px;
     margin: 20px auto;
     padding: 10px auto;
+    text-align: center;
 }
-
+.image-content{
+  display: inline;
+}
 .menu-image img {
     display: inline;
-    height: 400px;
-    margin: 10px;
+    max-height: 450px;
+    margin: 10px auto;
+    padding: 10px;
 }
 
-.menu-about {}
+.menu-about h2{
+  text-align: center;
+}
 
 .about-wraper {
     display: flex;
@@ -77,33 +96,38 @@ menu {
 /* footer */
 
 .creation-container {
-    margin: 100px auto;
-}
-
-.creation-row {
-    max-width: 90%;
+    max-width:1400px ;
     margin: 10px auto;
 }
 
+.creation-row {
+    max-width: 100%;
+    margin: 10px auto;
+    text-align: center;
+}
+
 .tea-box {
-    height: 300px;
-    padding: 10px;
+    height: 52ex;
+    margin: 0 auto;
     display: inline-block;
 }
 
 .tea-box img {
-    height: 300px;
+    height: 50ex;
+    padding: 10px;
     display: inline-block;
 }
-
-.ins-row {
-    height: 10em;
-    max-width: 90%;
-    margin: 5px auto;
+.tea-name {
+  padding: 0 10px;
 }
 
+
 .ins-container {
-    text-align: center;
+  text-align: center;
+  margin: 20px auto;
+}
+.ins-row {
+    max-width: 100%;
     margin: 20px auto;
 }
 
@@ -111,6 +135,19 @@ menu {
 .a-button h3 {
     text-align: center;
 }
+
+.ins-img {
+  width: 20%;
+  padding: 10px;
+  display: inline;
+  margin: 10ex auto;
+}
+
+.ins-img img {
+  width: 23ex;
+  height: 23ex;
+}
+
 
 .but-container {
     text-align: center;
@@ -141,18 +178,6 @@ menu {
 .follow-ins-title {
     margin: 50px;
 }
-
-.ins-img {
-    padding: 10px;
-    display: inline;
-    margin: 2px auto;
-}
-
-.ins-img img {
-    width: 130px;
-    height: 130px;
-}
-
 
 /* footer end  */
 
