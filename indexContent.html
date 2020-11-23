@@ -1,29 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--navigation bar-->
+    <div class="topnavWrapper">
+        <div class="topnav" id="myTopnav">
+            <div class="logoDiv" style="cursor:pointer" onclick="showPage('pages/home.html')">
+                <img class='active' id="logo" src="img/logo.png" alt="profile">
+            </div>
+            <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
+                <img class="menuImg" src="img/menubut.PNG"></img>
+            </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milktea-shop</title>
+            <div id="myMenu" class="menu-content">
+                <a class="navButton" onclick="showPage('pages/home.html')">Home</a>
+                <a class="navButton" onclick="showPage('pages/covid-19.html')">Covid-19</a>
+                <a class="navButton" onclick="showPage('pages/menu.html')">Menu</a>
+                <a class="navButton" onclick="showPage('pages/blog.html')">Blog</a>
+                <a class="navButton" onclick="showPage('pages/locations.html')">Locations</a>
 
-    <link rel="stylesheet" media="screen and (max-width:850px)" href="css/mb.css">
-    <link rel="stylesheet" media="screen and (min-width:1024px)" href="css/pc.css">
-    <link rel="stylesheet" media="screen and (max-width:1024px) and (min-width:850px)" href="css/pd.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/index.js"></script>
+                <div class="dropdown" id="ourServices">
+                    <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
+                        <i class="fa fa-caret-down"></i>
+                    </button>
 
-    </script>
-    </script>
-</head>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a class="navButton"
+                            onclick="window.open('https://www.facebook.com/bubbleteawellington/')">Facebook</a>
+                        <a class="navButton"
+                            onclick="window.open('https://www.instagram.com/noahsarkteahouse/')">Instagram</a>
+                    </div>
+                </div>
+                <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
+                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>
+            </div>
 
-<body>
-    <div class="myCafe">
+        </div>
     </div>
+    <br>
 
-    <!-- <div class="footer1">
+    <div class="pageContent">
+    </div>
+    
+
+    <div class="footer1">
         <div class="container">
-            <hr><h1 style="text-align: center;">This is footer1</h1>
             <div class="creation-container">
                 <div class="creation-row">
                     <div class="tea-box">
@@ -116,22 +133,4 @@
         <div class="copyright" style="display: flex;justify-content: center;align-items: center;">
             <p id="copyrightText">Copyright © 2012-2020 NOAH'S ARK TEAHOUSE</p>
         </div>
-    </div> -->
-
-</body>
-
-</html>
-<script>
-    //$(document).ready(function () {
-    //    $(".pageContent").load("pages/home.html");
-    //});
-
-    function myFunction() {
-        var x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
+    </div>
