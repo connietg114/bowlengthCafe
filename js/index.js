@@ -39,7 +39,7 @@ function topnavChange(){
         }   
     } 
 }
-function serviceDropdownMenu() {//for Our Services dropdown
+function serviceDropdownMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 // Close the dropdown if the user clicks outside of it
@@ -55,14 +55,79 @@ window.onclick = function(event) {
         }
     }
 }
+function changeUrl(id){
+    var url;
+    for(var i = 0; i < locationDetails.length; i++) {
+        if(locationDetails[i].id===id){
+            var title = locationDetails[i].locationTitle;
+            var titleDashed = title.replace(/\s+/g, '-').toLowerCase();
+            
+            url = "?locations/" + titleDashed 
+        }
+    }
+    window.location.href=url;
+}
 
 function showPage(url){
-    if(url=="pages/locations/all.html"||url=="pages/locations/auckland.html"||url=="pages/locations/lowerhut.html"||url=="pages/locations/wellington.html"){
-        $(".locationPageContent").load(url);
-    }else{
-        $(".pageContent").load(url);
-    }
+    var urlSplit = url.split('/');
+    var item;
+   if(urlSplit.length>2){
+       item = url.substr(url.indexOf('/')+1);
+       item = item.split(".")[0];
+   }else{
+       item = url.split('/')[1].split('.')[0];
+   }
+    window.location.href='?' + item;
 }
+
+window.onload= function(){
+    var url = window.location.href;
+    if(url==='http://localhost:8080/bowlengthCafe/') {
+        $(".myCafe").load("indexContent.html", function(){
+            $(".pageContent").load("pages/home.html");
+        });
+    }else{
+        $(".myCafe").load("indexContent.html", function(){
+            var str = url.split("?");
+            var lastIndexStr= str[str.length-1];
+            var link;
+            if(lastIndexStr.includes('/')){
+                var splitStr= lastIndexStr.split("/");
+                if(lastIndexStr.includes('-')){
+                    var address = splitStr[1].replace(/-/g, ' ');
+                    for(var i = 0; i < locationDetails.length; i++) {
+                        if(locationDetails[i].locationTitle.toLowerCase()==address){
+                            var id = locationDetails[i].id;
+                            $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
+                                showLocationDetails(id, 'pages/locationDetails.html');
+                            });                              
+                        }
+                    }
+                }else{
+                    
+                    $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
+                        $(".locationPageContent").load("pages/" + lastIndexStr + ".html");
+                    });   
+                }
+            }
+                
+            else if(lastIndexStr=="locations"){
+                link = "pages/" + lastIndexStr + ".html";
+                $(".pageContent").load(link, function(){
+                    $(".locationPageContent").load("pages/locations/all.html");
+                });
+            }
+            else{
+                link = "pages/" + lastIndexStr + ".html";
+                $(".pageContent").load(link);
+            }
+              
+        });
+        
+    }
+    
+}
+
 
 var locationDetails=[
     {
@@ -336,6 +401,7 @@ function renderLocationItem(index){
 }
 
 function showLocationDetails(id, url){
+    console.log("id: " + id);
     $(".locationPageContent").load(url, function(){
         for(var i = 0; i < locationDetails.length; i++) {
             if(locationDetails[i].id===id){
@@ -393,7 +459,7 @@ function showNextOrPrevious(id){
             }    
         }
     }
-    renderLocationItem(index);
+    changeUrl(locationDetails[index].id);
 }
 function generateRandom(min, max, array) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;

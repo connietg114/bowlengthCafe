@@ -18,149 +18,15 @@
 </head>
 
 <body>
-    <!--navigation bar-->
-    <div class="topnavWrapper">
-        <div class="topnav" id="myTopnav">
-            <div class="logoDiv" style="cursor:pointer" onclick="showPage('pages/home.html')">
-                <img class='active' id="logo" src="img/logo.png" alt="profile">
-            </div>
-            <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
-                <img class="menuImg" src="img/menubut.PNG"></img>
-            </a>
-
-            <div id="myMenu" class="menu-content">
-                <a class="navButton" onclick="showPage('pages/home.html')">Home</a>
-                <a class="navButton" onclick="showPage('pages/covid-19.html')">Covid-19</a>
-                <a class="navButton" onclick="showPage('pages/menu.html')">Menu</a>
-                <a class="navButton" onclick="showPage('pages/blog.html')">Blog</a>
-                <a class="navButton" onclick="showPage('pages/location.html')">Locations</a>
-
-                <div class="dropdown" id="ourServices">
-                    <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-
-                    <div id="myDropdown" class="dropdown-content">
-                        <a class="navButton"
-                            onclick="window.open('https://www.facebook.com/bubbleteawellington/')">Facebook</a>
-                        <a class="navButton"
-                            onclick="window.open('https://www.instagram.com/noahsarkteahouse/')">Instagram</a>
-                    </div>
-                </div>
-                <a class="navButton" onclick="showPage('pages/about.html')">About Us</a>
-                <a class="navButton" onclick="showPage('pages/membership.html')">Membership</a>
-            </div>
-
-        </div>
+    <div class="myCafe">
     </div>
-    <br>
-
-    <div class="pageContent">
-    </div>
-
-    <div class="footer1">
-        <div class="container">
-            <div class="creation-container">
-                <div class="creation-row">
-                    <div class="tea-box">
-                        <img src="img/tea1.jpg" alt="tea1.jpeg">
-                        <h3 class="tea-name">Spring Lab</h3>
-                        <p>Available</p>
-                    </div>
-                    <div class="tea-box">
-                        <img src="img/tea2.jpg" alt="tea2.jpeg">
-                        <h3 class="tea-name">Winter Warmer</h3>
-                        <p>Available</p>
-                    </div>
-                    <div class="tea-box">
-                        <img src="img/tea3.jpg" alt="tea3.jpeg">
-                        <h3 class="tea-name">Tokyo Skyfall</h3>
-                        <p>Available</p>
-                    </div>
-                    <div class="tea-box">
-                        <img src="img/tea4.jpg" alt="tea4.jpeg">
-                        <h3 class="tea-name">Cranberry Series</h3>
-                        <p>Available</p>
-                    </div>
-                    <div class="tea-box">
-                        <img src="img/tea5.jpg" alt="tea5.jpeg">
-                        <h3 class="tea-name">Brown-Suger MILK TEA</h3>
-                        <p>Available</p>
-                    </div>
-                </div>
-                <div class="but-container">
-                    <div class="a-button">CHECK OUT OUR LATEST CREATIONS
-                    </div>
-                </div>
-
-            </div>
-            <div class="follow-ins">
-                <div class="ins-container">
-                    <p class="follow-ins-title"><strong>FOLLOW US ON INSTAGRAM TO KEEP YOU UPDATE</strong></p>
-                    <div class="ins-box">
-                        <div class="ins-row">
-                            <div class="ins-img">
-                                <img src="img/instagram1.jpeg" alt="instagram1.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram2.jpeg" alt="instagram2.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram3.jpeg" alt="instagram3.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram4.jpeg" alt="instagram4.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram5.jpeg" alt="instagram5.jpeg">
-                            </div>
-                        </div>
-                        <div class="ins-row">
-                            <div class="ins-img">
-                                <img src="img/instagram6.jpeg" alt="instagram6.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram7.jpeg" alt="instagram7.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram8.jpeg" alt="instagram8.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram9.jpeg" alt="instagram9.jpeg">
-                            </div>
-                            <div class="ins-img">
-                                <img src="img/instagram10.jpeg" alt="instagram10.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer" style="margin: 0 auto">
-        <div class="fbLink" style="display: flex;justify-content: center;align-items: center;font-weight: bold;">
-            <a onclick="window.open('https://www.facebook.com/bubbleteawellington/')">f</a>
-        </div>
-        <br />
-        <div class="footerclass2" style="display: flex;justify-content: center;align-items: center;color: gray">
-            <a onclick="showPage('pages/about.html')">ABOUT US</a>
-            <a onclick="showPage('pages/contactus.html')">&nbsp;&nbsp;CONTACT US</a>
-            <a onclick="showPage('pages/faq.html')">&nbsp;&nbsp;FAQ</a>
-        </div>
-        <br />
-        <div class="copyright" style="display: flex;justify-content: center;align-items: center;">
-            <p id="copyrightText">Copyright © 2012-2020 NOAH'S ARK TEAHOUSE</p>
-        </div>
-    </div>
-
 </body>
 
 </html>
 <script>
-    $(document).ready(function () {
-        $(".pageContent").load("pages/home.html");
-    });
+    //$(document).ready(function () {
+    //    $(".pageContent").load("pages/home.html");
+    //});
 
     function myFunction() {
         var x = document.getElementById("myTopnav");
