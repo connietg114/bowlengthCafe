@@ -69,15 +69,16 @@ function changeUrl(id){
 }
 
 function showPage(url){
-    var urlSplit = url.split('/');
-    var item;
-   if(urlSplit.length>2){
-       item = url.substr(url.indexOf('/')+1);
-       item = item.split(".")[0];
-   }else{
-       item = url.split('/')[1].split('.')[0];
-   }
-    window.location.href='?' + item;
+//     var urlSplit = url.split('/');
+//     var item;
+//    if(urlSplit.length>2){
+//        item = url.substr(url.indexOf('/')+1);
+//        item = item.split(".")[0];
+//    }else{
+//        item = url.split('/')[1].split('.')[0];
+//    }
+//     window.location.href='?' + item;
+window.location.href=url;
 }
 
 window.onload= function(){
@@ -121,10 +122,14 @@ window.onload= function(){
         });
         
     }
-    else{
+    else if(url === 'http://localhost:8080/bowlengthCafe/'){
+        alert(url)
         $(".myCafe").load("indexContent.html", function(){
             $(".pageContent").load("pages/home.html");
         });
+    }
+    else{
+        alert("Page not found!");
     }
     
 }
