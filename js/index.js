@@ -82,11 +82,7 @@ function showPage(url){
 
 window.onload= function(){
     var url = window.location.href;
-    if(url==='http://localhost:8080/bowlengthCafe/') {
-        $(".myCafe").load("indexContent.html", function(){
-            $(".pageContent").load("pages/home.html");
-        });
-    }else{
+    if(url.includes("?")){
         $(".myCafe").load("indexContent.html", function(){
             var str = url.split("?");
             var lastIndexStr= str[str.length-1];
@@ -124,6 +120,11 @@ window.onload= function(){
               
         });
         
+    }
+    else{
+        $(".myCafe").load("indexContent.html", function(){
+            $(".pageContent").load("pages/home.html");
+        });
     }
     
 }
