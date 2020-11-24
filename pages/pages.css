@@ -214,21 +214,47 @@ menu {
     max-width: 347px;
     width: 19em;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
+
 
 .range-product img{
     width: 100%;
     margin-bottom: 20px;
+    display: block;
 }
 
 .range-product p{
     text-align: left;
     margin: 1px;
 }
+
+.range-product span {
+  position: absolute;
+  padding: 5px;
+  background:white;
+  color:black;
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in;
+}
+
+.range-product:hover span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 70px;
+}
 /* menu end */
 
 
 /* footer */
+.footer1{
+  margin-top: 100px;
+}
 
 .creation-container {
     max-width:1400px ;
@@ -240,6 +266,7 @@ menu {
     margin: 10px auto;
     text-align: center;
 }
+/* connie's footer */
 
 .tea-box {
     height: 52ex;
@@ -351,7 +378,13 @@ menu {
 * {
     box-sizing: border-box;
 }
-
+.contactus{
+  max-width: 700px;
+  margin: 50px auto;
+}
+.contactus h1{
+  text-align: center;
+}
 input[type=text],
 select,
 textarea {
@@ -366,7 +399,6 @@ textarea {
 
 input[type=submit] {
     background-color: white;
-    /* color: white; */
     padding: 12px 25px;
     border-radius: 4px;
     cursor: pointer;
@@ -379,7 +411,6 @@ input[type=submit]:hover {
 
 .innerContainer {
     border-radius: 5px;
-    /* background-color: #f2f2f2; */
     padding: 20px;
 }
 
@@ -392,7 +423,8 @@ input[type=submit]:hover {
   display: flex;justify-content: center;align-items: center;font-weight:bold;
 }
 .location{
-    max-width: 1250px;
+    max-width: 1320px;
+    margin: 0 auto;
 }
 
 .locationTopnav a:hover {
@@ -485,7 +517,7 @@ input[type=submit]:hover {
 .othersParent {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 5px;
 }
 
 .othersParent div {
@@ -522,6 +554,9 @@ input[type=submit]:hover {
   margin: 10px auto !important;
   cursor: pointer;
 }
+#previousButton{
+  margin-left: 40px;
+}
 #locationFb:hover, #locationTwitter:hover, #locationTumblr:hover, #locationPinterest:hover{color: gray;cursor: pointer;}
 @media screen and (max-width: 800px) {
   .locationDetails{display: block;}
@@ -534,6 +569,9 @@ input[type=submit]:hover {
   .othersParent div{
     flex: 1 0 55%;
     margin: 0px 30px 0 30px;
+  }
+  #previousButton{
+    margin-left: 25px;
   }
   
 }
