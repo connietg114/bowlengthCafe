@@ -267,6 +267,16 @@ menu {
   opacity: 1;
   bottom: 70px;
 }
+@media screen and (max-width: 850px) {
+  .about-wraper{
+    display: block;
+  }
+  .about-content{
+    width: 100%;
+    padding: 30px;
+  }
+}
+
 /* menu end */
 
 /* footer */
@@ -437,11 +447,9 @@ input[type="submit"]:hover {
 /* contact */
 
 /* location */
-.locationTopnav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+
+.locationTopnav{
+  display: flex;justify-content: center;align-items: center;font-weight:bold;margin-top: 60px;
 }
 .location {
   max-width: 1320px;
