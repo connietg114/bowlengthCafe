@@ -122,54 +122,10 @@ menu {
     margin-top: 50px;
     padding: 17px;
 }
+
 .image-content{
   display: inline;
 }
-#img-btn1,
-#img-btn2 {
-    display: inline;
-    height: 56vh;
-    max-height: 640px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.img-modal1,
-.img-modal2 {
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  position: absolute;
-  top: 0;
-  left:0;
-  display: none;
-  opacity: 96%;
-  z-index: 100;
-}
-
-.large-img-content {
-  width: 100%;
-  margin: 24px auto;
-  padding: 20px auto;
-  background-color:black;
-  text-align: center;
-  position: relative;
-
-}
-
-.menu-img-close1,
-.menu-img-close2 {
-    position: absolute;
-    font-size: 5ex;
-    transform: rotate(45deg);
-    cursor: pointer;
-    padding: 2px;
-    right: 2%;
-    text-align: right;
-    color: white;
-    z-index: 110;
-}
-
 
 .menu-about h2{
   text-align: center;

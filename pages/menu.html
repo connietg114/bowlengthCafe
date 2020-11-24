@@ -8,7 +8,93 @@
     <title>Menu</title>
 </head>
 
+<style>
+    /* The Modal (background) */
+
+    .modal,
+    .modal2 {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+
+    .modal-content,
+    .modal-content2 {
+        text-align: center;
+        background-color:black;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .modal-content img,
+    .modal-content2 img {
+        padding: 1%;
+        max-width: 100%;
+        max-height: 100vh;;
+    }
+
+    #img-btn1,
+    #img-btn2 {
+    display: inline;
+    height: 56vh;
+    max-height: 640px;
+    padding: 10px;
+    cursor: pointer;
+}
+    /* The Close Button */
+
+    .close,
+    .close2 {
+        margin: 1%;
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+</style>
+
 <body>
+    <!-- ----------------------------------------------- -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="img/menu1.jpg" alt="menu1.jpg" />
+        </div>
+    </div>
+    <div id="myModal2" class="modal2">
+
+        <!-- Modal content -->
+        <div class="modal-content2">
+            <span class="close2">&times;</span>
+            <img src="img/menu2.jpg" alt="menu2.jpg" />
+        </div>
+    </div>
+    <!-- ----------------------------------------------- -->
+
     <div class="main-page">
         <div class="container">
             <h2 class="menu-h2">
@@ -18,39 +104,67 @@
                 <div class="image-content">
                     <img id="img-btn1" src="img/menu1.jpg" alt="menu1.jpg" />
                 </div>
-                <div class="img-modal1">
-                    <div class="large-img-content">
-                        <div class="menu-img-close1">+</div>
-                        <img src="img/menu1.jpg" alt="menu1.jpg" />
-                    </div>
-                </div>
                 <div class="image-content">
                     <img id="img-btn2" src="img/menu2.jpg" alt="menu2.jpg" />
                 </div>
-                <div class="img-modal2">
-                    <div class="large-img-content">
-                        <div class="menu-img-close2">+</div>
-                        <img src="img/menu2.jpg" alt="menu2.jpg" />
-                    </div>
-                </div>
             </div>
+
+            <!-- ------------------------------------------------------------------------------------------ -->
             <script>
-                document.getElementById('img-btn1').addEventListener('click', function () {
-                    document.querySelector('.img-modal1').style.display = 'flex';
-                });
+                // Get the modal
+                var modal = document.getElementById("myModal");
 
-                document.querySelector('.menu-img-close1').addEventListener('click', function () {
-                    document.querySelector('.img-modal1').style.display = 'none';
-                });
+                // Get the button that opens the modal
+                var btn = document.getElementById("img-btn1");
 
-                document.getElementById('img-btn2').addEventListener('click', function () {
-                    document.querySelector('.img-modal2').style.display = 'flex';
-                });
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
-                document.querySelector('.menu-img-close2').addEventListener('click', function () {
-                    document.querySelector('.img-modal2').style.display = 'none';
-                });
+                // When the user clicks the button, open the modal 
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
+                // Get the modal
+                var modal2 = document.getElementById("myModal2");
+
+                // Get the button that opens the modal
+                var btn2 = document.getElementById("img-btn2");
+
+                // Get the <span> element that closes the modal
+                var span2 = document.getElementsByClassName("close2")[0];
+
+                // When the user clicks the button, open the modal 
+                btn2.onclick = function () {
+                    modal2.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span2.onclick = function () {
+                    modal2.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal2.style.display = "none";
+                    }
+                }
             </script>
+
+            <!-- ------------------------------------------------------------------------------------------ -->
             <div class="menu">
                 <div class="menu-about">
                     <h2>About our Teas</h2>
