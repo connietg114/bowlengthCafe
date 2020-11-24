@@ -69,16 +69,7 @@ function changeUrl(id){
 }
 
 function showPage(url){
-//     var urlSplit = url.split('/');
-//     var item;
-//    if(urlSplit.length>2){
-//        item = url.substr(url.indexOf('/')+1);
-//        item = item.split(".")[0];
-//    }else{
-//        item = url.split('/')[1].split('.')[0];
-//    }
-//     window.location.href='?' + item;
-window.location.href=url;
+    window.location.href=url;
 }
 
 window.onload= function(){
@@ -406,41 +397,44 @@ function renderLocationItem(index){
 }
 
 function showLocationDetails(id, url){
-    console.log("id: " + id);
     $(".locationPageContent").load(url, function(){
         for(var i = 0; i < locationDetails.length; i++) {
             if(locationDetails[i].id===id){
                 renderLocationItem(i);
             }  
         }
-        $('.leftColImg').click(function() {
-            $(this).toggleClass('normal-zoom zoom-in');
-        });
+        zoomInImgOnMousemove('leftColImg');
+          
+    });
+}
+function zoomInImgOnMousemove(className){
+    var className = '.' + className;
+    $(className).click(function() {
+        $(this).toggleClass('normal-zoom zoom-in');
+    });
 
-        $('.leftColImg').on('mousemove', function(event) {
-            var bbox = event.target.getBoundingClientRect(); //position of the image on the page
-            
-            var mouseX = event.clientX - bbox.left;//measure how far into the image the mouse is in both x and y directions
-            var mouseY = event.clientY - bbox.top;
-           
-            var xPercent = (mouseX / bbox.width) * 100; //work out how far through the image as a percentage the mouse is
-            var yPercent = (mouseY / bbox.height) * 100;
-          
-            // Then we change the `transform-origin` css property on the image to center the zoom effect on the mouse position
-            //event.target.style.transformOrigin = xPercent + '% ' + yPercent + '%';
-            $(this).css('transform-origin', (xPercent+'% ' + yPercent+ '%') ); // We add the '%' units to make sure the string looks exactly like the css declaration it becomes.
-          });
-          
-          $('.leftColImg').on('mouseenter', function() {//want it to automatically trigger on hover
-            $(this).addClass('zoom-in');
-            $(this).removeClass('normal-zoom');
-          });
-          
-          $('.leftColImg').on('mouseleave', function() {//stop when not hovering
-            $(this).addClass('normal-zoom');
-            $(this).removeClass('zoom-in');
-          });
-          
+    $(className).on('mousemove', function(event) {
+        var bbox = event.target.getBoundingClientRect(); //position of the image on the page
+        
+        var mouseX = event.clientX - bbox.left;//measure how far into the image the mouse is in both x and y directions
+        var mouseY = event.clientY - bbox.top;
+       
+        var xPercent = (mouseX / bbox.width) * 100; //work out how far through the image as a percentage the mouse is
+        var yPercent = (mouseY / bbox.height) * 100;
+      
+        // Then we change the `transform-origin` css property on the image to center the zoom effect on the mouse position
+        //event.target.style.transformOrigin = xPercent + '% ' + yPercent + '%';
+        $(this).css('transform-origin', (xPercent+'% ' + yPercent+ '%') ); // We add the '%' units to make sure the string looks exactly like the css declaration it becomes.
+    });
+      
+    $(className).on('mouseenter', function() {//want it to automatically trigger on hover
+        $(this).addClass('zoom-in');
+        $(this).removeClass('normal-zoom');
+    });
+    
+    $(className).on('mouseleave', function() {//stop when not hovering
+        $(this).addClass('normal-zoom');
+        $(this).removeClass('zoom-in');
     });
 }
 
