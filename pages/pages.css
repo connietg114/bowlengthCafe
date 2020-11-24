@@ -339,7 +339,13 @@ menu {
 * {
     box-sizing: border-box;
 }
-
+.contactus{
+  max-width: 700px;
+  margin: 50px auto;
+}
+.contactus h1{
+  text-align: center;
+}
 input[type=text],
 select,
 textarea {
@@ -354,7 +360,6 @@ textarea {
 
 input[type=submit] {
     background-color: white;
-    /* color: white; */
     padding: 12px 25px;
     border-radius: 4px;
     cursor: pointer;
@@ -367,7 +372,6 @@ input[type=submit]:hover {
 
 .innerContainer {
     border-radius: 5px;
-    /* background-color: #f2f2f2; */
     padding: 20px;
 }
 
