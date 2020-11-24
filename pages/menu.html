@@ -16,12 +16,41 @@
             </h2>
             <div class="menu-image">
                 <div class="image-content">
-                    <img src="img/menu1.jpg" alt="menu1.jpg" />
+                    <img id="img-btn1" src="img/menu1.jpg" alt="menu1.jpg" />
+                </div>
+                <div class="img-modal1">
+                    <div class="large-img-content">
+                        <div class="menu-img-close1">+</div>
+                        <img src="img/menu1.jpg" alt="menu1.jpg" />
+                    </div>
                 </div>
                 <div class="image-content">
-                    <img src="img/menu2.jpg" alt="menu2.jpg" />
+                    <img id="img-btn2" src="img/menu2.jpg" alt="menu2.jpg" />
+                </div>
+                <div class="img-modal2">
+                    <div class="large-img-content">
+                        <div class="menu-img-close2">+</div>
+                        <img src="img/menu2.jpg" alt="menu2.jpg" />
+                    </div>
                 </div>
             </div>
+            <script>
+                document.getElementById('img-btn1').addEventListener('click', function () {
+                    document.querySelector('.img-modal1').style.display = 'flex';
+                });
+
+                document.querySelector('.menu-img-close1').addEventListener('click', function () {
+                    document.querySelector('.img-modal1').style.display = 'none';
+                });
+
+                document.getElementById('img-btn2').addEventListener('click', function () {
+                    document.querySelector('.img-modal2').style.display = 'flex';
+                });
+
+                document.querySelector('.menu-img-close2').addEventListener('click', function () {
+                    document.querySelector('.img-modal2').style.display = 'none';
+                });
+            </script>
             <div class="menu">
                 <div class="menu-about">
                     <h2>About our Teas</h2>
