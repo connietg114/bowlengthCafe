@@ -123,7 +123,6 @@ window.onload= function(){
         
     }
     else if(url === 'http://localhost:8080/bowlengthCafe/'){
-        alert(url)
         $(".myCafe").load("indexContent.html", function(){
             $(".pageContent").load("pages/home.html");
         });
