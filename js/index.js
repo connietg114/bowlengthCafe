@@ -1,7 +1,6 @@
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
     topnavChange();
-    // console.log(document.documentElement.scrollTop);
     
     if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {//scroll up effective -> become smaller
         $("#logo").css("height", "60px");
@@ -42,8 +41,8 @@ function topnavChange(){
 function serviceDropdownMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
+
+window.onclick = function(event) {// Close the dropdown if the user clicks outside of it
     if (!event.target.matches('.dropbtn')) {
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
@@ -55,14 +54,16 @@ window.onclick = function(event) {
         }
     }
 }
-function changeUrl(id){
+function changeUrl(id, array){
     var url;
-    for(var i = 0; i < locationDetails.length; i++) {
-        if(locationDetails[i].id===id){
-            var title = locationDetails[i].locationTitle;
+    for(var i = 0; i < array.length; i++) {
+        if(array[i].id===id){
+            var title = array[i].title;
             var titleDashed = title.replace(/\s+/g, '-').toLowerCase();
+            if (array === 'locationDetails'){
+                url = "?locations/" + titleDashed; 
+            }
             
-            url = "?locations/" + titleDashed 
         }
     }
     window.location.href=url;
@@ -84,10 +85,10 @@ window.onload= function(){
                 if(lastIndexStr.includes('-')){
                     var address = splitStr[1].replace(/-/g, ' ');
                     for(var i = 0; i < locationDetails.length; i++) {
-                        if(locationDetails[i].locationTitle.toLowerCase()==address){
+                        if(locationDetails[i].title.toLowerCase()==address){
                             var id = locationDetails[i].id;
                             $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
-                                showLocationDetails(id, 'pages/locationDetails.html');
+                                showLocationDetails(id, 'pages/locationDetails.html', locationDetails);
                             });                              
                         }
                     }
@@ -108,10 +109,8 @@ window.onload= function(){
             else{
                 link = "pages/" + lastIndexStr + ".html";
                 $(".pageContent").load(link);
-            }
-              
-        });
-        
+            }     
+        });    
     }
     else if(url === 'http://localhost:8080/bowlengthCafe/'){
         $(".myCafe").load("indexContent.html", function(){
@@ -130,7 +129,7 @@ var locationDetails=[
         id:'child1',
         img:'img/ALL1.png',
         telNo:'04 499 5008',
-        locationTitle:'79 Manners Street',
+        title:'79 Manners Street',
         address:'79 Manners Street, Te Aro, Wellington',
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
@@ -156,7 +155,7 @@ var locationDetails=[
         id:'child2',
         img:'img/ALL2.png',
         telNo:'04 568 3355',
-        locationTitle: '89 Queens Drive',
+        title: '89 Queens Drive',
         address:'3/89 Queens Drive, LowerHutt',
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
@@ -182,7 +181,7 @@ var locationDetails=[
         id:'child3',
         img:'img/ALL3.png',
         telNo:'04 499 5008',
-        locationTitle:'180 Lambton Quay',
+        title:'180 Lambton Quay',
         address: 'Ground Floor,  Lambton Square & Eatery',
         address2:'180 Lambton Quay  /  Farmers Lane, Wellington',
         hours:'Monday - Sunday   11.30am - 7pm',
@@ -208,7 +207,7 @@ var locationDetails=[
         id:'child4',
         img:'img/ALL4.png',
         telNo:'04 499 5008',
-        locationTitle:'128 Cuba Street',
+        title:'128 Cuba Street',
         address:'128 Cuba Street, Te Aro, Wellington',
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
@@ -233,7 +232,7 @@ var locationDetails=[
         id:'child5',
         img:'img/ALL5.png',
         telNo:'09 416 0631',
-        locationTitle:'NORTHWEST SHOPPING CENTRE',
+        title:'NORTHWEST SHOPPING CENTRE',
         address: 'Kiosk 04 ( Nearby FoodCourt ), NorthWest Shopping Centre',
         address2:'1/7 Fred Taylor Dr, Massey, Auckland',
         hours:'Monday - Wednesday   9.30am - 6pm',
@@ -258,7 +257,7 @@ var locationDetails=[
         id:'child6',
         img:'img/ALL6.png',
         telNo:'04 801 6538',
-        locationTitle:'93 COURTENAY PLACE',
+        title:'93 COURTENAY PLACE',
         address:'2/93 Courtenay Place, Te Aro, Wellington',
         address2:null,
         hours:'Monday - Sunday   11.30am - 7pm',
@@ -283,7 +282,7 @@ var locationDetails=[
         id:'child7',
         img:'img/ALL7.png',
         telNo:'04 385 9033',
-        locationTitle:'77 WALLCE STREET',
+        title:'77 WALLCE STREET',
         address:'77 Wallace Street, Mt Cook, Wellington',
         address2:null,
         hours: 'REOPENING NOW',
@@ -308,9 +307,8 @@ var locationDetails=[
         id:'child8',
         img:'img/ALL8.png',
         telNo:null,
-        locationTitle:'READING CINEMA POD',
+        title:'READING CINEMA POD',
         address:'Pod 2, Reading Cinema Theater',
-        address2:null,
         address2:'100 Courtney Place, Te Aro, Wellington',
         hours:'Temporarily Closed',
         hours2:null,
@@ -329,13 +327,38 @@ var locationDetails=[
         leftColBottomImg8:null,
         leftColBottomImg9:null,
         leftColBottomImg10:null,
-    }
+    },
+    // {
+    //     id:'child9',
+    //     img:'img/ALL8.png',
+    //     telNo:null,
+    //     title:'SPRING LAB',
+    //     address:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+    //     address2:null,
+    //     hours:null,
+    //     hours2:null,
+    //     hours3:null,
+    //     fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+    //     twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+    //     tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+    //     pinterest: 'https://www.pinterest.nz/?show_error=true',
+    //     leftColBottomImg1:null,
+    //     leftColBottomImg2:null,
+    //     leftColBottomImg3:null,
+    //     leftColBottomImg4:null,
+    //     leftColBottomImg5:null,
+    //     leftColBottomImg6:null,
+    //     leftColBottomImg7:null,
+    //     leftColBottomImg8:null,
+    //     leftColBottomImg9:null,
+    //     leftColBottomImg10:null,
+    // },
 
 ];
 
-function renderLocationItem(index){
+function renderLocationItem(index, array){
     var mapAddress;
-    var item = locationDetails[index];
+    var item = array[index];
 
     var numArray = [];
     var usedArray = [];
@@ -344,15 +367,14 @@ function renderLocationItem(index){
         var num = generateRandom(0,7, usedArray);
         usedArray.push(num);
         numArray.push(num);
-        $(".othersChild" + (i+1).toString()).attr('id', locationDetails[num].id);
-        $(".othersImg" + (i+1).toString()).attr('src', locationDetails[num].img);
-        $(".othersChild" + (i+1).toString() + " p").text(locationDetails[num].locationTitle);
-
+        $(".othersChild" + (i+1).toString()).attr('id', array[num].id);
+        $(".othersImg" + (i+1).toString()).attr('src', array[num].img);
+        $(".othersChild" + (i+1).toString() + " p").text(array[num].title);
     }
    
     $(".locationDetails").attr("Name", item.id);
     $(".leftColImg").attr('src', item.img);
-    $(".locationTitle").text(item.locationTitle);
+    $(".title").text(item.title);
     if(item.telNo===null){
         $(".visitUs").css("display", "None");
     }else{
@@ -396,11 +418,11 @@ function renderLocationItem(index){
     $("#leftColBottomImg10").attr("src", item.leftColBottomImg10);
 }
 
-function showLocationDetails(id, url){
+function showLocationDetails(id, url, array){
     $(".locationPageContent").load(url, function(){
-        for(var i = 0; i < locationDetails.length; i++) {
-            if(locationDetails[i].id===id){
-                renderLocationItem(i);
+        for(var i = 0; i < array.length; i++) {
+            if(array[i].id===id){
+                renderLocationItem(i, array);
             }  
         }
         zoomInImgOnMousemove('leftColImg');
@@ -458,7 +480,7 @@ function showNextOrPrevious(id){
             }    
         }
     }
-    changeUrl(locationDetails[index].id);
+    changeUrl(locationDetails[index].id, locationDetails);
 }
 function generateRandom(min, max, array) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
