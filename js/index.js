@@ -69,6 +69,20 @@ function changeUrl(id, array){
     window.location.href=url;
 }
 
+// change new range url 
+function changeRangeUrl(id){
+    var url;
+    for(var i = 0; i < newRangeDetails.length; i++) {
+        if(newRangeDetails[i].id===id){
+            var title = newRangeDetails[i].newRangeTitle;
+            var titleDashed = title.replace(/\s+/g, '-').toLowerCase();
+            
+            url = "?new-range/" + titleDashed 
+        }
+    }
+    window.location.href=url;
+}
+
 function showPage(url){
     window.location.href=url;
 }
@@ -354,6 +368,181 @@ var locationDetails=[
     //     leftColBottomImg10:null,
     // },
 
+];
+
+var newRangeDetails = [
+    {
+        id:'rangeproduct1',
+        img:'img/range-product1.jpg',
+        newRangeTitle:'String Lab',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product1.jpg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+
+    {
+        id:'rangeproduct2',
+        img:'img/range-product2.jpg',
+        newRangeTitle:'Range Product 2',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product2.jpg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+
+    {
+        id:'rangeproduct3',
+        img:'img/range-product3.jpg',
+        newRangeTitle:'Range Product 3',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product3.jpg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+    
+    {
+        id:'rangeproduct4',
+        img:'img/range-product4.jpeg',
+        newRangeTitle:'Range Product 4',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product4.jpeg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:null,
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+
+    
+    {
+        id:'rangeproduct5',
+        img:'img/range-product5.jpeg',
+        newRangeTitle:'Range Product 5',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product5.jpeg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:'img/range-product4.jpeg',
+        leftColBottomImg5:null,
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+    
+    
+    {
+        id:'rangeproduct6',
+        img:'img/range-product6.jpeg',
+        newRangeTitle:'Range Product 6',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product6.jpeg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:'img/range-product4.jpeg',
+        leftColBottomImg5:'img/range-product5.jpeg',
+        leftColBottomImg6:null,
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+    
+    
+    {
+        id:'rangeproduct7',
+        img:'img/range-product7.jpg',
+        newRangeTitle:'Range Product 7',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product7.jpg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:'img/range-product4.jpeg',
+        leftColBottomImg5:'img/range-product5.jpeg',
+        leftColBottomImg6:'img/range-product3.jpg',
+        leftColBottomImg7:null,
+        leftColBottomImg8:null,
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    },
+    
+    
+    {
+        id:'rangeproduct8',
+        img:'img/range-product8.jpg',
+        newRangeTitle:'Range Product 8',
+        description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
+        fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
+        tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
+        pinterest: 'https://www.pinterest.nz/?show_error=true',
+        leftColBottomImg1:'img/range-product8.jpg',
+        leftColBottomImg2:'img/range-product2.jpg',
+        leftColBottomImg3:'img/range-product3.jpg',
+        leftColBottomImg4:'img/range-product4.jpeg',
+        leftColBottomImg5:'img/range-product5.jpeg',
+        leftColBottomImg6:'img/range-product6.jpeg',
+        leftColBottomImg7:'img/range-product7.jpg',
+        leftColBottomImg8:'img/range-product8.jpg',
+        leftColBottomImg9:null,
+        leftColBottomImg10:null,
+    }   
+    
 ];
 
 function renderLocationItem(index, array){
