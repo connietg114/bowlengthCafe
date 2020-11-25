@@ -65,21 +65,14 @@ function changeUrl(id, array){
     if(array === locationDetails){
         window.location.href = "?locations/" + titleDashed; 
     }
+    else if(array === newRangeDetails){
+        window.location.href = "?new-ranges/" + titleDashed; 
+    }
+    else{
+        console.log('Can not find newRangeDetails');
+    }
 }
 
-// change new range url 
-function changeRangeUrl(id){
-    var url;
-    for(var i = 0; i < newRangeDetails.length; i++) {
-        if(newRangeDetails[i].id===id){
-            var title = newRangeDetails[i].newRangeTitle;
-            var titleDashed = title.replace(/\s+/g, '-').toLowerCase();
-            
-            url = "?new-range/" + titleDashed 
-        }
-    }
-    window.location.href=url;
-}
 
 function showPage(url){
     window.location.href=url;
@@ -94,21 +87,37 @@ window.onload= function(){
             var link;
             if(lastIndexStr.includes('/')){
                 var splitStr= lastIndexStr.split("/");
-                if(lastIndexStr.includes('-')){
-                    var address = splitStr[1].replace(/-/g, ' ');
-                    for(var i = 0; i < locationDetails.length; i++) {
-                        if(locationDetails[i].title.toLowerCase()==address){
-                            var id = locationDetails[i].id;
-                            $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
-                                showLocationDetails(id, 'pages/locationDetails.html', locationDetails);
-                            });                              
+                console.log(splitStr[0], splitStr[1]);
+
+                // Decides /locations or new/ranges 
+                // load locationDetails
+                if (splitStr[0] == 'locations'){
+                    if(lastIndexStr.includes('-')){
+                        var address = splitStr[1].replace(/-/g, ' ');
+                        for(var i = 0; i < locationDetails.length; i++) {
+                            if(locationDetails[i].title.toLowerCase()==address){
+                                var id = locationDetails[i].id;
+                                $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
+                                    showLocationDetails(id, 'pages/locationDetails.html', locationDetails);
+                                });                              
+                            }
+                        }
+                    }else{
+                        
+                        $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
+                            $(".locationPageContent").load("pages/" + lastIndexStr + ".html");
+                        });   
+                    }
+                }
+                 // load newRangesDetails
+                else if(splitStr[0] == 'new-ranges'){
+                    var rangetitle = splitStr[1].replace(/-/g, ' ');
+                    for(var i = 0; i < newRangeDetails.length; i++){
+                        if(newRangeDetails[i].title.toLowerCase()==rangetitle){
+                            var id = newRangeDetails[i].id;
+                            showRangeDetails(id, 'pages/rangeDetails.html', newRangeDetails);
                         }
                     }
-                }else{
-                    
-                    $(".pageContent").load("pages/" + splitStr[0] + ".html", function(){
-                        $(".locationPageContent").load("pages/" + lastIndexStr + ".html");
-                    });   
                 }
             }
                 
@@ -124,7 +133,7 @@ window.onload= function(){
             }     
         });    
     }
-    else if(url === 'http://localhost:8080/bowlengthCafe/'){
+    else if(url.includes('bowlengthCafe')){
         $(".myCafe").load("indexContent.html", function(){
             $(".pageContent").load("pages/home.html");
         });
@@ -340,31 +349,6 @@ var locationDetails=[
         leftColBottomImg9:null,
         leftColBottomImg10:null,
     },
-    // {
-    //     id:'child9',
-    //     img:'img/ALL8.png',
-    //     telNo:null,
-    //     title:'SPRING LAB',
-    //     address:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
-    //     address2:null,
-    //     hours:null,
-    //     hours2:null,
-    //     hours3:null,
-    //     fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
-    //     twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
-    //     tumblr: 'https://www.tumblr.com/widgets/share/tool/preview?shareSource=legacy&canonicalUrl=&url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&posttype=link&title=&caption=&content=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
-    //     pinterest: 'https://www.pinterest.nz/?show_error=true',
-    //     leftColBottomImg1:null,
-    //     leftColBottomImg2:null,
-    //     leftColBottomImg3:null,
-    //     leftColBottomImg4:null,
-    //     leftColBottomImg5:null,
-    //     leftColBottomImg6:null,
-    //     leftColBottomImg7:null,
-    //     leftColBottomImg8:null,
-    //     leftColBottomImg9:null,
-    //     leftColBottomImg10:null,
-    // },
 
 ];
 
@@ -372,7 +356,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct1',
         img:'img/range-product1.jpg',
-        newRangeTitle:'String Lab',
+        title:'String Lab',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -393,7 +377,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct2',
         img:'img/range-product2.jpg',
-        newRangeTitle:'Range Product 2',
+        title:'Range Product 2',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -414,7 +398,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct3',
         img:'img/range-product3.jpg',
-        newRangeTitle:'Range Product 3',
+        title:'Range Product 3',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -435,7 +419,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct4',
         img:'img/range-product4.jpeg',
-        newRangeTitle:'Range Product 4',
+        title:'Range Product 4',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -457,7 +441,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct5',
         img:'img/range-product5.jpeg',
-        newRangeTitle:'Range Product 5',
+        title:'Range Product 5',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -479,7 +463,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct6',
         img:'img/range-product6.jpeg',
-        newRangeTitle:'Range Product 6',
+        title:'Range Product 6',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -501,7 +485,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct7',
         img:'img/range-product7.jpg',
-        newRangeTitle:'Range Product 7',
+        title:'Range Product 7',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -523,7 +507,7 @@ var newRangeDetails = [
     {
         id:'rangeproduct8',
         img:'img/range-product8.jpg',
-        newRangeTitle:'Range Product 8',
+        title:'Range Product 8',
         description:'Spring Lab is all about being creative. Mix and match different our fruity flavours with a tea base of either green T, black T or Oolong. These sweet sips will satisfy tastebuds of all ages. Grab a cup with your friend and get ready to enjoy this stunning color in the spring sunshine. Stay bubbly💚',
         fb:'https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod',
         twitter: 'https://twitter.com/intent/tweet?url=https%3A%2F%2Fnoahsarkteahouse.com%2Flocations%2Freading-cinema-pod&text=VISIT+US%3Cp+class%3D%22%22+...',
@@ -605,6 +589,46 @@ function renderLocationItem(index, array){
     $("#leftColBottomImg10").attr("src", item.leftColBottomImg10);
 }
 
+
+// renderRangeItem function
+function renderRangeItem(index, array){
+
+    var item = array[index];
+
+    var numArray = [];
+    var usedArray = [];
+    usedArray.push(index);
+    for(var i = 0; i < 5; i++) {
+        var num = generateRandom(0,7, usedArray);
+        usedArray.push(num);
+        numArray.push(num);
+        $(".othersChild" + (i+1).toString()).attr('id', array[num].id);
+        $(".othersImg" + (i+1).toString()).attr('src', array[num].img);
+        $(".othersChild" + (i+1).toString() + " p").text(array[num].title);
+    }
+   
+    $(".rangeDetails").attr("Name", item.id);
+    $(".leftColImg").attr('src', item.img);
+    $(".title").text(item.title);
+
+    $("#locationFb").attr("onclick", "window.open('" + item.fb+ "')");
+    $("#locationTwitter").attr("onclick", "window.open('" + item.twitter+ "')");
+    $("#locationTumblr").attr("onclick", "window.open('" + item.tumblr+ "')");
+    $("#locationPinterest").attr("onclick", "window.open('" + item.pinterest+ "')");
+
+    $("#leftColBottomImg1").attr("src", item.leftColBottomImg1);
+    $("#leftColBottomImg2").attr("src", item.leftColBottomImg2);
+    $("#leftColBottomImg3").attr("src", item.leftColBottomImg3);
+    $("#leftColBottomImg4").attr("src", item.leftColBottomImg4);
+    $("#leftColBottomImg5").attr("src", item.leftColBottomImg5);
+    $("#leftColBottomImg6").attr("src", item.leftColBottomImg6);
+    $("#leftColBottomImg7").attr("src", item.leftColBottomImg7);
+    $("#leftColBottomImg8").attr("src", item.leftColBottomImg8);
+    $("#leftColBottomImg9").attr("src", item.leftColBottomImg9);
+    $("#leftColBottomImg10").attr("src", item.leftColBottomImg10);
+}
+
+
 function showLocationDetails(id, url, array){
     $(".locationPageContent").load(url, function(){
         for(var i = 0; i < array.length; i++) {
@@ -616,6 +640,19 @@ function showLocationDetails(id, url, array){
           
     });
 }
+
+// show RangeDetails funtion
+function showRangeDetails(id, url, array){
+    $(".pageContent").load(url, function(){
+        for(var i = 0; i < array.length; i++) {
+            if (array[i].id===id){
+                renderRangeItem(i, array);
+            }
+        }
+        zoomInImgOnMousemove('leftColImg');
+    });
+}
+
 function zoomInImgOnMousemove(className){
     var className = '.' + className;
     $(className).click(function() {
@@ -669,6 +706,31 @@ function showNextOrPrevious(id){
     }
     changeUrl(locationDetails[index].id, locationDetails);
 }
+
+// show Next or Privious new Range 
+function showNextOrPrevious2(id){
+    var index;
+    for(var i = 0; i < newRangeDetails.length; i++) {
+        var item = newRangeDetails[i];
+        if(item.id===$(".rangeDetails").attr("Name")){
+            if(id ==="nextButton"){
+                if(i===newRangeDetails.length-1){
+                    index=0;
+                }else{
+                    index = i+1;
+                }    
+            }else{
+                if(i===0){
+                    index=newRangeDetails.length-1;
+                }else{
+                    index = i-1;
+                }    
+            }    
+        }
+    }
+    changeUrl(newRangeDetails[index].id, newRangeDetails);
+}
+
 function generateRandom(min, max, array) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
     return (array.includes(num)) ? generateRandom(min, max, array) : num;
