@@ -55,18 +55,16 @@ window.onclick = function(event) {// Close the dropdown if the user clicks outsi
     }
 }
 function changeUrl(id, array){
-    var url;
+    var titleDashed;
     for(var i = 0; i < array.length; i++) {
         if(array[i].id===id){
             var title = array[i].title;
-            var titleDashed = title.replace(/\s+/g, '-').toLowerCase();
-            if (array === 'locationDetails'){
-                url = "?locations/" + titleDashed; 
-            }
-            
+            titleDashed = title.replace(/\s+/g, '-').toLowerCase();
         }
     }
-    window.location.href=url;
+    if(array === locationDetails){
+        window.location.href = "?locations/" + titleDashed; 
+    }
 }
 
 // change new range url 
