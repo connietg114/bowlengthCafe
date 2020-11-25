@@ -610,7 +610,8 @@ function renderRangeItem(index, array){
     $(".rangeDetails").attr("Name", item.id);
     $(".leftColImg").attr('src', item.img);
     $(".title").text(item.title);
-
+    $(".description").text(item.description)
+;
     $("#locationFb").attr("onclick", "window.open('" + item.fb+ "')");
     $("#locationTwitter").attr("onclick", "window.open('" + item.twitter+ "')");
     $("#locationTumblr").attr("onclick", "window.open('" + item.tumblr+ "')");

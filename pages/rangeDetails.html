@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" media="screen and (max-width:850px)" href="css/mb.css">
     <link rel="stylesheet" media="screen and (min-width:1024px)" href="css/pc.css">
@@ -9,84 +10,88 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
+<div class="main-page">
+    <div class="container">
+        <div class="new-ranges">
+            <div class="rangeDetailsPage">
+                <a id="previousButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">&lt;&nbsp;Previous</a> /
+                <a id="nextButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">Next&nbsp;&gt;</a>
+                <br><br><br>
+                <div class="rangeDetails" name="">
+                    <div class="leftCol">
+                        <div class="leftColImgWrapper">
+                            <img src="" alt="" class="leftColImg">
+                        </div>
 
-<div class="rangeDetailsPage">
-   <h1>This is rangeDetails.html</h1>
-   <h2>div: rangeDetailsPage</h2>
-   <a id="previousButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">&lt;&nbsp;Previous</a> /
-    <a id="nextButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">Next&nbsp;&gt;</a>
-    <br><br><br>
-    <div class="rangeDetails" name="">
-        <div class="leftCol">
-            <div class="leftColImgWrapper">
-                <img src="" alt="" class="leftColImg">
-            </div>
+                        <br>
 
-            <br>
+                        <div class="leftColImgWrapper">
 
-            <div class="leftColImgWrapper">
+                            <img class="leftColBottomImg" id="leftColBottomImg1" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg2" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg3" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg4" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg5" src="" onclick="changeImg(id)"></img>
 
-                <img class="leftColBottomImg" id="leftColBottomImg1" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg2" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg3" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg4" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg5" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg6" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg7" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg8" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg9" src="" onclick="changeImg(id)"></img>
+                            <img class="leftColBottomImg" id="leftColBottomImg10" src="" onclick="changeImg(id)"></img>
 
-                <img class="leftColBottomImg" id="leftColBottomImg6" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg7" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg8" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg9" src="" onclick="changeImg(id)"></img>
-                <img class="leftColBottomImg" id="leftColBottomImg10" src="" onclick="changeImg(id)"></img>
+                        </div>
+                    </div>
 
+                    <div class="rightCol">
+                        <h1 class="title"></h1>
+                        <p class="description"></p>
+
+                        <br><br><br>
+                        <div class="share-methods">
+                            <a onclick="" class="fa fa-facebook" id="locationFb"></a>&nbsp;&nbsp;
+                            <a onclick="" class="fa fa-twitter" id="locationTwitter"></a>&nbsp;&nbsp;
+                            <a onclick="" class="fa fa-tumblr" id="locationTumblr"></a>&nbsp;&nbsp;
+                            <a onclick="" class="fa fa-pinterest" id="locationPinterest"></a>&nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="others">
+                    <h2>Others</h2>
+                    <br>
+                    <div class="othersParent">
+                        <div class="othersChild1" id="othersChild" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="" alt="" class="othersImg1" id="othersImg">
+                            <p></p>
+                        </div>
+
+                        <div class="othersChild2" id="othersChild" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="" alt="" class="othersImg2" id="othersImg">
+                            <p></p>
+                        </div>
+
+                        <div class="othersChild3" id="othersChild" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="" alt="" class="othersImg3" id="othersImg">
+                            <p></p>
+                        </div>
+
+                        <div class="othersChild4" id="othersChild" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="" alt="" class="othersImg4" id="othersImg">
+                            <p></p>
+                        </div>
+
+                        <div class="othersChild5" id="othesrChild" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="" alt="" class="othersImg5" id="othersImg">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="rightCol">
-            <h1 class="title"></h1>
-            <p class="range-description"></p>
-
-            <br><br><br>
-            <div class="share-methods">
-                <a onclick="" class="fa fa-facebook" id="locationFb"></a>&nbsp;&nbsp;
-                <a onclick=""  class="fa fa-twitter" id="locationTwitter"></a>&nbsp;&nbsp;
-                <a onclick=""  class="fa fa-tumblr" id ="locationTumblr"></a>&nbsp;&nbsp;
-                <a onclick=""  class="fa fa-pinterest" id="locationPinterest"></a>&nbsp;&nbsp;
-            </div>
-        </div>
-    </div>
-    <div class="others">
-        <h2>Others</h2>
-        <br>
-        <div class="otherParent">
-            <div class="otherChild1" id="otherChild" onclick="changeUrl(id, newRangeDetails)">
-                <img src="" alt="" class="othersImg1" id="">
-                <p></p>
-            </div>
-
-            <div class="otherChild2" id="otherChild" onclick="changeUrl(id, newRangeDetails)">
-                <img src="" alt="" class="othersImg2" id="">
-                <p></p>
-            </div>
-
-            <div class="otherChild3" id="otherChild" onclick="changeUrl(id, newRangeDetails)">
-                <img src="" alt="" class="othersImg3" id="">
-                <p></p>
-            </div>
-
-            <div class="otherChild4" id="otherChild" onclick="changeUrl(id, newRangeDetails)">
-                <img src="" alt="" class="othersImg4" id="">
-                <p></p>
-            </div>
-
-            <div class="otherChild5" id="otherChild" onclick="changeUrl(id, newRangeDetails)">
-                <img src="" alt="" class="othersImg5" id="">
-                <p></p>
-            </div>
-        </div>
-
     </div>
 </div>

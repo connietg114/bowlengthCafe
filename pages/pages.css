@@ -451,7 +451,8 @@ input[type="submit"]:hover {
 .locationTopnav{
   display: flex;justify-content: center;align-items: center;font-weight:bold;margin-top: 60px;
 }
-.location {
+.location,
+.new-ranges {
   max-width: 1320px;
   margin: 0 auto;
 }
@@ -514,7 +515,8 @@ input[type="submit"]:hover {
   width: 500px;
 }
 
-.locationDetails:after {
+.locationDetails:after,
+.rangeDetails:after {
   content: "";
   display: table;
   clear: both;
