@@ -20,9 +20,11 @@
     <div class="container">
         <div class="new-ranges">
             <div class="rangeDetailsPage">
-                <a id="previousButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">&lt;&nbsp;Previous</a> /
-                <a id="nextButton" style="cursor:pointer" onclick="showNextOrPrevious(id)">Next&nbsp;&gt;</a>
-                <br><br><br>
+                <div class="previous-next-wrapper">
+                    <a id="previousButton" style="cursor:pointer"
+                        onclick="showNextOrPrevious2(id)">&lt;&nbsp;Previous</a> /
+                    <a id="nextButton" style="cursor:pointer" onclick="showNextOrPrevious2(id)">Next&nbsp;&gt;</a>
+                </div>
                 <div class="rangeDetails" name="">
                     <div class="leftCol">
                         <div class="leftColImgWrapper">
@@ -62,7 +64,7 @@
                     </div>
                 </div>
                 <div class="others">
-                    <h2>Others</h2>
+                    <h2 class="others-heading">Others</h2>
                     <br>
                     <div class="othersParent">
                         <div class="othersChild1" id="othersChild" onclick="changeUrl(id, newRangeDetails)">

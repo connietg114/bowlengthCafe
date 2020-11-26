@@ -209,7 +209,9 @@ menu {
 .new-range {
   max-width: 1400px;
 }
-
+.rangeDetailsPage {
+  margin-top: 100px;
+}
 .range-heading {
   margin: 60px auto;
   text-align: center;
@@ -308,6 +310,7 @@ menu {
   height: 52ex;
   margin: 0 auto;
   display: inline-block;
+  cursor: pointer;
 }
 
 .tea-box img {
@@ -451,10 +454,15 @@ input[type="submit"]:hover {
 .locationTopnav{
   display: flex;justify-content: center;align-items: center;font-weight:bold;margin-top: 60px;
 }
-.location,
-.new-ranges {
+.location
+ {
   max-width: 1320px;
   margin: 0 auto;
+}
+.new-ranges {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 60px;
 }
 
 .locationTopnav a:hover {
@@ -503,7 +511,7 @@ input[type="submit"]:hover {
 }
 /* location */
 
-/* locationDetails */
+/* locationDetails  & rangeDetails*/
 .leftCol,
 .rightCol {
   float: left;
@@ -514,6 +522,14 @@ input[type="submit"]:hover {
 .leftColImg {
   width: 500px;
 }
+.rangeDetails .leftCol{
+  text-align: unset;
+}
+
+.rangeDetails .leftColImg {
+  max-width: 500px;
+  width: 35vw;
+}
 
 .locationDetails:after,
 .rangeDetails:after {
@@ -521,6 +537,13 @@ input[type="submit"]:hover {
   display: table;
   clear: both;
 }
+
+.previous-next-wrapper{
+  margin-left: -20px;
+  padding-bottom: 80px;
+
+}
+
 #previousButton:hover,
 #nextButton:hover {
   color: gray;
@@ -529,7 +552,13 @@ input[type="submit"]:hover {
   overflow: hidden;
   width: fit-content;
   margin: 0 auto;
+  float: left;
 }
+
+.others-heading{
+  margin: 20px;
+}
+
 .normal-zoom {
   transform: scale(1);
   cursor: zoom-in;
@@ -587,6 +616,11 @@ input[type="submit"]:hover {
   margin: 10px auto !important;
   cursor: pointer;
 }
+
+.rangeDetails .leftColBottomImg {
+  width: 75px !important;
+}
+
 #previousButton {
   margin-left: 40px;
 }
