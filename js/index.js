@@ -144,12 +144,14 @@ window.onload = function () {
           // ?new-ranges/(Category)
           // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
           else {
+            console.log("enter new-ranges/(Category):");
             console.log("url is :" + url);
+            console.log("lastIndexStr = "+lastIndexStr);
             $(".pageContent").load(
               "pages/" + splitStr[0] + ".html",
               function () {
                 $(".new-rangesPageContent").load(
-                  "pages/" + lastIndexStr + ".html"
+                  "pages/newRangesCategory/" + splitStr[1] + ".html"
                 );
               }
             );

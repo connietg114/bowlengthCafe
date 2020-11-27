@@ -493,6 +493,32 @@ input[type="submit"]:hover {
   color: gray;
 }
 
+.new-rangesPageContent .child {
+  float: left;
+  flex: initial;
+  margin: 0 auto;
+}
+.new-rangesPageContent .child h3{
+  text-align: center;
+  color: rgba(92,92,92,.7);
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: none;
+  font-family: proxima-nova;
+  font-weight: 700;
+  font-style: normal;
+  line-height: .9em;
+  text-transform: uppercase;
+}
+.new-rangesPageContent .allImg {
+  margin: 0 auto;
+  flex: initial;
+  max-width: 290px;
+  max-height: 310px;
+}
+
+
+
 .allImg {
   margin: none !important;
   /* height: 300px;
