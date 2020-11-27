@@ -209,9 +209,7 @@ menu {
 .new-range {
   max-width: 1400px;
 }
-.rangeDetailsPage {
-  margin-top: 100px;
-}
+
 .range-heading {
   margin: 60px auto;
   text-align: center;
@@ -230,10 +228,17 @@ menu {
 .range-menu {
   text-align: center;
 }
+
+.range-product-wrapper {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 16px
+}
 .range-product {
-  padding: 15px;
   max-width: 347px;
-  width: 19em;
+  width: 16em;
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -247,9 +252,9 @@ menu {
 }
 
 .range-product-name,
-.range-product p {
+.range-product-wrapper p {
   text-align: left;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .range-product span {
@@ -451,7 +456,9 @@ input[type="submit"]:hover {
 
 /* location */
 
-.locationTopnav{
+.locationTopnav,
+.new-rangesTopnav 
+  {
   display: flex;justify-content: center;align-items: center;font-weight:bold;margin-top: 60px;
 }
 .location
@@ -461,11 +468,12 @@ input[type="submit"]:hover {
 }
 .new-ranges {
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 300 auto 0;
   padding: 15px 60px;
 }
 
-.locationTopnav a:hover {
+.locationTopnav a:hover,
+.new-rangesTopnav a:hover {
   color: gray;
 }
 
@@ -512,6 +520,13 @@ input[type="submit"]:hover {
 /* location */
 
 /* locationDetails  & rangeDetails*/
+
+
+.rangeDetailsPage {
+  max-width: 1400px;
+  margin: 100px auto 0;
+  padding: 15px 60px;
+}
 .leftCol,
 .rightCol {
   float: left;

@@ -90,11 +90,12 @@ window.onload = function () {
       var str = url.split("?");
       var lastIndexStr = str[str.length - 1];
       var link;
+      // url is /?location or /?menu page
       if (lastIndexStr.includes("/")) {
         var splitStr = lastIndexStr.split("/");
         console.log(splitStr[0], splitStr[1]);
 
-        // Decides /locations or new/ranges
+        // Decides /?locations or /?menu (new-ranges)
         // load locationDetails
         if (splitStr[0] == "locations") {
           if (lastIndexStr.includes("-")) {
@@ -126,14 +127,36 @@ window.onload = function () {
           }
         }
         // load newRangesDetails
+        // new-ranges/rangeTitle
         else if (splitStr[0] == "new-ranges") {
-          var rangetitle = splitStr[1].replace(/-/g, " ");
-          for (var i = 0; i < newRangeDetails.length; i++) {
-            if (newRangeDetails[i].title.toLowerCase() == rangetitle) {
-              var id = newRangeDetails[i].id;
-              showRangeDetails(id, "pages/rangeDetails.html", newRangeDetails);
+          console.log("splitStr[1] = " + splitStr[1]);
+          console.log("lastIndexStr = " + lastIndexStr);
+          // ?new-ranges/product-name
+          if (splitStr[1].includes("-")){
+            var rangetitle = splitStr[1].replace(/-/g, " ");
+            for (var i = 0; i < newRangeDetails.length; i++) {
+              if (newRangeDetails[i].title.toLowerCase() == rangetitle) {
+                var id = newRangeDetails[i].id;
+                showRangeDetails(id, "pages/rangeDetails.html", newRangeDetails);
+              }
             }
           }
+          // ?new-ranges/(Category)
+          // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
+          else {
+            console.log("url is :" + url);
+            $(".pageContent").load(
+              "pages/" + splitStr[0] + ".html",
+              function () {
+                $(".new-rangesPageContent").load(
+                  "pages/" + lastIndexStr + ".html"
+                );
+              }
+            );
+          }
+        }
+        else {
+          alert("url is : "+url+"\nno such page exit!");
         }
       } else if (lastIndexStr == "locations") {
         link = "pages/" + lastIndexStr + ".html";
@@ -808,56 +831,3 @@ function changeImg(id) {
   var newImg = $("#" + id).attr("src");
   $(".leftColImg").attr("src", newImg);
 }
-
-// menu JavaScript
-
-// var rangeProduct = [
-//   {
-//     id: "rangeproduct1",
-//     title: "String Lab",
-//     availablilty: "Avaliable",
-//   },
-//   {
-//     id: "rangeproduct2",
-//     title: "Winter Warmer",
-//     availablilty: "Avaliable, Limited Time",
-//   },
-//   {
-//     id: "rangeproduct3",
-//     title: "Tokyo Skyfall",
-//     availablilty: "Avaliable, Limited Stock",
-//   },
-//   {
-//     id: "rangeproduct4",
-//     title: "Cranberry Series",
-//     availablilty: "Limited Stock, Limited Avaliable",
-//   },
-//   {
-//     id: "rangeproduct5",
-//     title: "Brown-Sugar Milk Tea",
-//     availablilty: "Avaliable",
-//   },
-//   {
-//     id: "rangeproduct6",
-//     title: "Thai Milk Tea",
-//     availablilty: "Avaliable",
-//   },
-//   {
-//     id: "rangeproduct7",
-//     title: "Breakfast Menu",
-//     availablilty: "Avaliable",
-//   },
-//   {
-//     id: "rangeproduct8",
-//     title: "Milk-Form Series",
-//     availablilty: "Avaliable",
-//   },
-// ];
-
-// function insertRangeTitle() {
-//     for (var i = 0; i < rangeProduct.length; i++) {
-//         var item = rangeProduct[i];
-//         $("#rangeproduct" + (i + 1).toString()).attr("h3", item.title);
-//         $("#rangeproduct" + (i + 1).toString()).attr("p", item.availablilty);
-//     }     
-// }
