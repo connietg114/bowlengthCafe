@@ -226,6 +226,7 @@ menu {
   color: rgba(82, 82, 82, 0.6);
 }
 .range-menu {
+  padding: 15px;
   text-align: center;
 }
 
@@ -238,7 +239,7 @@ menu {
 }
 .range-product {
   max-width: 347px;
-  width: 16em;
+  width: 18em;
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -251,10 +252,11 @@ menu {
   display: block;
 }
 
-.range-product-name,
-.range-product-wrapper p {
+.range-product-name {
   text-align: left;
-  margin: 0 10px;
+}
+.range-product h3 {
+  margin-bottom: 2px;
 }
 
 .range-product span {
@@ -273,7 +275,16 @@ menu {
   visibility: visible;
   opacity: 1;
   bottom: 70px;
+
 }
+
+.range-product-category p{
+  display: inline;
+  margin: 0;
+  float: left;
+}
+
+
 @media screen and (max-width: 850px) {
   .about-wraper{
     display: block;
@@ -469,7 +480,7 @@ input[type="submit"]:hover {
 .new-ranges {
   max-width: 1400px;
   margin: 300 auto 0;
-  padding: 15px 60px;
+  padding: 15px 1%;
 }
 
 .locationTopnav a:hover,
@@ -482,7 +493,9 @@ input[type="submit"]:hover {
   flex-wrap: wrap;
   gap: 35px;
 }
-
+.new-rangesPageContent .parent {
+  gap:0;
+}
 .child {
   flex: 1 0 19%;
   cursor: pointer;
@@ -497,6 +510,8 @@ input[type="submit"]:hover {
   float: left;
   flex: initial;
   margin: 0 auto;
+  padding: 0 2.02%;
+  max-width: 290px;
 }
 .new-rangesPageContent .child h3{
   text-align: center;
@@ -514,7 +529,6 @@ input[type="submit"]:hover {
   margin: 0 auto;
   flex: initial;
   max-width: 290px;
-  max-height: 310px;
 }
 
 
