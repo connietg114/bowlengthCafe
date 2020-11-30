@@ -160,11 +160,13 @@ menu {
   height: 100%;
 }
 
-.modal-content img,
+.modal-content img {
+  padding: 1%;
+  height: 100%;
+}
 .modal-content2 img {
   padding: 1%;
-  max-width: 100%;
-  height: 100vh;
+  width: 100%;
 }
 
 #img-btn1,
@@ -265,7 +267,8 @@ menu {
 .range-product-name {
   text-align: left;
 }
-.range-product h3 {
+.range-product h3,
+.tea-box h3 {
   margin-bottom: 2px;
 }
 
@@ -319,51 +322,45 @@ menu {
 
 .creation-row {
   max-width: 100%;
-  margin: 0 10px;
   text-align: center;
 }
+
 .tea-name,
 .creation-row p{
-  margin: 10px;
   text-align: left;
 }
-.creation-row p{
-  padding: 0 10px;
-}
+
 /* connie's footer */
 
-.tea-box {
-  margin: 0 auto;
+.tea-box-wrapper {
+  margin: 10px auto;
   display: inline-block;
   cursor: pointer;
+  padding: 10px;
 }
 
 @media screen and (min-width:1300px){
-  .tea-box {
+  .tea-box-wrapper {
     width: 19%;
-    margin: 0 0.3%;
+    margin: 10px 0.3%;
   } 
 }
 @media screen and (max-width:1300px){
-  .tea-box {
+  .tea-box-wrapper {
     width: 24%;
-    margin: 0 0.3%;
+    margin: 10px 0.3%;
   } 
 }
 
 @media screen and (max-width:1070px){
-  .tea-box {
+  .tea-box-wrapper {
     width: 32%;
-    margin: 0 0.5%;
+    margin: 10px 0.5%;
   } 
 }
 .tea-box img {
   width: 100%;
-  padding: 10px;
   display: inline-block;
-}
-.tea-name {
-  padding: 0 10px;
 }
 
 .ins-container {
@@ -754,7 +751,7 @@ input[type="submit"]:hover {
     width: 100%;
     padding: 20px;
   }
-  .tea-box {
+  .tea-box-wrapper {
     width: 100%;
     margin: 10px 0;
   }
@@ -784,4 +781,36 @@ input[type="submit"]:hover {
   .range-product-category {
     margin-bottom: 15%;
   }
+  .modal-content img {
+    max-width: 100%;
+    height: auto;
+  }
+  .modal-content2 img {
+    width: 100%;
+    margin-top: 30%;
+  }
+
+  .new-rangesPageContent .child {
+    width: 50%;
+  }
+  .new-ranges {
+    margin-top: 60px;
+  }
+  .new-rangesTopnav {
+    display: inline;
+  }
+  .category {
+    text-align: center;
+  }
+  .category span {
+    text-align: center;
+  }
+  .extend {
+    display: inline-block;
+    transform: rotate(180deg);
+  }
+  .new-rangesTopnav a{
+    display: none;
+  }
+  
 }

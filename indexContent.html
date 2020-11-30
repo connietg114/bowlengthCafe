@@ -72,32 +72,55 @@
             <hr><h1 style="text-align: center;">This is footer1</h1>
             <div class="creation-container">
                 <div class="creation-row">
-                    <div class="tea-box" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
-                        <img src="img/tea1.jpg" alt="tea1.jpg">
-                        <h3 class="tea-name">Spring Lab</h3>
-                        <p>Available</p>
+                    <div class="tea-box-wrapper">
+                        <div class="tea-box" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="img/range-product1.jpg" alt="range product1.jpg">
+                            <h3 class="range-product-name">String lab</h3>
+                        </div>
+                        <div class="range-product-category">
+                            <p onclick="showPage('?new-ranges/available')">Available</p>
+                        </div>
                     </div>
-                    <div class="tea-box" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
-                        <img src="img/tea2.jpg" alt="tea2.jpg">
-                        <h3 class="tea-name">Winter Warmer</h3>
-                        <p>Available</p>
+                    <div class="tea-box-wrapper">
+                        <div class="tea-box" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="img/range-product2.jpg" alt="range product2.jpg">
+                            <h3 class="range-product-name">Winter Warmer</h3>
+                        </div>
+                        <div class="range-product-category">
+                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                            <p onclick="showPage('?new-ranges/limitedTime')">Limited Time</p>
+                        </div>
                     </div>
-                    <div class="tea-box" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
-                        <img src="img/tea3.jpg" alt="tea3.jpg">
-                        <h3 class="tea-name">Tokyo Skyfall</h3>
-                        <p>Available</p>
+                    <div class="tea-box-wrapper">
+                        <div class="tea-box" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="img/range-product3.jpg" alt="range product3.jpg">
+                            <h3 class="range-product-name">Tokyo Skyfall</h3>
+                        </div>
+                        <div class="range-product-category">
+                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock</p>
+                        </div>
                     </div>
-                    <div class="tea-box" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
-                        <img src="img/tea4.jpg" alt="tea4.jpg">
-                        <h3 class="tea-name">Cranberry Series</h3>
-                        <p>Available</p>
+                    <div class="tea-box-wrapper">
+                        <div class="tea-box" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="img/range-product4.jpeg" alt="range product4.jpeg">
+                            <h3 class="range-product-name">Cranberry series</h3>
+                        </div>
+                        <div class="range-product-category">
+                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock,&nbsp</p>
+                            <p style="display: inline;" onclick="showPage('?new-ranges/limitedAvailable')">Limited
+                                Available</p>
+                        </div>
                     </div>
-                    <div class="tea-box" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
-                        <img src="img/tea5.jpg" alt="tea5.jpg">
-                        <h3 class="tea-name">Brown-Suger Milk Tea</h3>
-                        <p>Available</p>
+                    <div class="tea-box-wrapper">
+                        <div class="tea-box" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
+                            <img src="img/range-product5.jpeg" alt="range product5.jpeg">
+                            <h3 class="range-product-name">Brown-Sugar Milk Tea</h3>
+                        </div>
+                        <div class="range-product-category">
+                            <p onclick="showPage('?new-ranges/available')">Available</p>
+                        </div>
                     </div>
-                </div>
                 <div class="but-container">
                     <div class="a-button" onclick="showPage('?menu')">CHECK OUT OUR LATEST CREATIONS
                     </div>
