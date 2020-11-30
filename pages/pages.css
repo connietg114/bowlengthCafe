@@ -226,7 +226,7 @@ menu {
   color: rgba(82, 82, 82, 0.6);
 }
 .range-menu {
-  padding: 15px;
+  padding: 20px;
   text-align: center;
 }
 
@@ -235,17 +235,27 @@ menu {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  margin: 16px
 }
+
 .range-product {
-  max-width: 347px;
-  width: 18em;
   display: inline-block;
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
 
+@media screen and (min-width: 1200px){
+  .range-product-wrapper{
+    width: 23%;
+    margin: 0.8%;
+  }
+}
+@media screen and (max-width: 1200px){
+  .range-product-wrapper{
+    width: 30%;
+    margin: 1.5%;
+  }
+}
 .range-product img {
   width: 100%;
   margin-bottom: 20px;
@@ -323,14 +333,32 @@ menu {
 /* connie's footer */
 
 .tea-box {
-  height: 52ex;
   margin: 0 auto;
   display: inline-block;
   cursor: pointer;
 }
 
+@media screen and (min-width:1300px){
+  .tea-box {
+    width: 19%;
+    margin: 0 0.3%;
+  } 
+}
+@media screen and (max-width:1300px){
+  .tea-box {
+    width: 24%;
+    margin: 0 0.3%;
+  } 
+}
+
+@media screen and (max-width:1070px){
+  .tea-box {
+    width: 32%;
+    margin: 0 0.5%;
+  } 
+}
 .tea-box img {
-  height: 50ex;
+  width: 100%;
   padding: 10px;
   display: inline-block;
 }
@@ -397,7 +425,8 @@ menu {
 /* footer end  */
 
 @media screen and (max-width: 850px) {
-  .container img {
+  .home img,
+  .leftCol img {
     width: 250px;
   }
 }
@@ -718,3 +747,41 @@ input[type="submit"]:hover {
 }
 
 /* locationDetails */
+
+/* Mobile style */
+@media screen and (max-width:850px){
+  .covid-19 {
+    width: 100%;
+    padding: 20px;
+  }
+  .tea-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .tea-name {
+    margin: 0;
+  }
+  .ins-row {
+    display: inline;
+  }
+  .ins-img {
+    width: 45%;
+  }
+  #img-btn1,
+  #img-btn2 {
+    max-height: auto;
+    width: 100%;
+    height: auto;
+    display: inline;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .range-product-wrapper{
+    width: 100%;
+    margin: 1% 0 2%;
+  
+  }
+  .range-product-category {
+    margin-bottom: 15%;
+  }
+}
