@@ -20,6 +20,24 @@
     padding: 5px auto;
 }
 
+@media screen and (max-width:640px) {
+    .about,
+    .blog,
+    .home,
+    .membership {
+        width: 100%;
+        padding: 17px;
+    }
+    .home img,
+    .about img,
+    .blog img {
+        width: 100%;
+    }
+    .mySlides {
+        padding-top: 50px;
+    }
+}
+
 
 /* covid-19 */
 
@@ -214,16 +232,16 @@ menu {
     text-align: center;
 }
 
-.about-heading {
+.menu-about-heading {
     text-align: center;
 }
 
-.about-wraper {
+.menu-about-wrapper {
     display: flex;
     margin: 0 auto;
 }
 
-.about-content {
+.menu-about-content {
     width: 31%;
     border-radius: 15px;
     margin: 10px auto;
@@ -321,16 +339,6 @@ menu {
     display: inline;
     margin: 0;
     float: left;
-}
-
-@media screen and (max-width: 850px) {
-    .about-wraper {
-        display: block;
-    }
-    .about-content {
-        width: 100%;
-        padding: 30px;
-    }
 }
 
 
@@ -454,16 +462,16 @@ menu {
 
 /* footer end  */
 
-@media screen and (max-width: 850px) {
-    .home img,
-    .leftCol img {
-        width: 200px;
-    }
-}
-
-.content-text {
+.about-content-text {
     max-width: 30em;
     margin: 5px auto;
+    font-family: proxima-nova;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    line-height: 2.2em;
+    text-transform: none;
+    color: rgba(82, 82, 82, 0.6);
 }
 
 
@@ -507,8 +515,6 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    /* margin-top: 6px;
-  margin-bottom: 16px; */
 }
 
 input[type="submit"] {
@@ -532,7 +538,7 @@ input[type="submit"]:hover {
 /* contact */
 
 
-/* location */
+/* location and new-range start */
 
 .locationTopnav,
 .new-rangesTopnav {
@@ -546,12 +552,18 @@ input[type="submit"]:hover {
 .location {
     max-width: 1320px;
     margin: 0 auto;
+    padding: 15px 1%;
 }
 
 .new-ranges {
     max-width: 1400px;
     margin: 300 auto 0;
     padding: 15px 1%;
+}
+
+.details-title,
+.category {
+    display: none;
 }
 
 .locationTopnav a:hover,
@@ -562,18 +574,26 @@ input[type="submit"]:hover {
 .parent {
     display: flex;
     flex-wrap: wrap;
-    gap: 35px;
-}
-
-.new-rangesPageContent .parent {
-    gap: 0;
 }
 
 .child {
     flex: 1 0 19%;
+    max-width: 290px;
     cursor: pointer;
-    /* margin-left: 15px; */
-    /* overflow: hidden; */
+    margin: 10px auto;
+    padding: 10px;
+}
+
+@media screen and (min-width:960px) {
+    .child {
+        width: 22%;
+    }
+}
+
+.allImgWrapper {
+    max-width: 290px;
+    max-height: 290px;
+    overflow: hidden;
 }
 
 .child p:hover {
@@ -583,9 +603,8 @@ input[type="submit"]:hover {
 .new-rangesPageContent .child {
     float: left;
     flex: initial;
-    margin: 0 auto;
-    padding: 0 2.02%;
-    max-width: 290px;
+    max-height: unset;
+    padding: 10px 0.1%;
 }
 
 .new-rangesPageContent .child h3 {
@@ -604,16 +623,17 @@ input[type="submit"]:hover {
 .new-rangesPageContent .allImg {
     margin: 0 auto;
     flex: initial;
-    max-width: 290px;
+    max-width: 100%;
 }
 
 .allImg {
     margin: none !important;
+    max-width: 290px;
     /* height: 300px;
     width: 280px !important; */
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 640px) {
     .parent {
         gap: 2px;
     }
@@ -622,26 +642,32 @@ input[type="submit"]:hover {
       width: 140px !important; */
         width: 100% !important;
     }
+    .allImgWrapper {
+        /* padding-top: 100%; */
+    }
     .locationTopnav {
         display: none;
     }
     .child {
-        margin: 10px;
+        float: left;
+        flex: initial;
+        margin: 0 auto;
+        padding: 0 2.02%;
+        width: 48%;
         /* margin-left: 10px;
       margin-right: 10px; */
     }
 }
 
 
-/* location */
+/* location new-range  end */
 
 
-/* locationDetails  & rangeDetails*/
+/* locationDetails  & rangeDetails start */
 
 .rangeDetailsPage {
     max-width: 1400px;
     margin: 100px auto 0;
-    padding: 15px 60px;
 }
 
 .leftCol,
@@ -653,34 +679,12 @@ input[type="submit"]:hover {
 }
 
 .leftColImg {
-    width: 500px;
-}
-
-.rangeDetails .leftCol {
-    text-align: unset;
-}
-
-.rangeDetails .leftColImg {
     max-width: 500px;
     width: 35vw;
 }
 
-@media screen and (max-width:850px) {
-    .rangeDetailsPage {
-        padding: 5px;
-    }
-    .rangeDetails .leftCol {
-        margin: 0 auto;
-        text-align: unset;
-    }
-    .rangeDetails .leftColImgWrapper {
-        margin: 0 auto;
-        text-align: unset;
-    }
-    .rangeDetails .leftColImg {
-        width: 100%;
-        max-width: unset;
-    }
+.rangeDetails .leftCol {
+    text-align: unset;
 }
 
 .locationDetails:after,
@@ -691,8 +695,7 @@ input[type="submit"]:hover {
 }
 
 .previous-next-wrapper {
-    margin-left: -20px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
 }
 
 #previousButton:hover,
@@ -705,6 +708,7 @@ input[type="submit"]:hover {
     width: fit-content;
     margin: 0 auto;
     float: left;
+    padding: 0 45px;
 }
 
 .others-heading {
@@ -762,7 +766,7 @@ input[type="submit"]:hover {
     display: flex;
     flex-wrap: wrap;
     width: fit-content;
-    padding: 0px 45px 0px 45px;
+    padding: 0px 45px;
     margin: none !important;
     /* margin: 0 auto; */
     gap: 10px;
@@ -770,7 +774,7 @@ input[type="submit"]:hover {
 
 .leftColBottomImg {
     width: 90px !important;
-    margin: 10px auto !important;
+    margin: 10px 0 !important;
     cursor: pointer;
 }
 
@@ -790,22 +794,31 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-@media screen and (max-width: 800px) {
+
+/* location and new-range for max-width:640 px */
+
+@media screen and (max-width: 640px) {
+    /* locationDetails */
     .locationDetails {
         display: block;
     }
-    .leftCol,
-    .rightCol {
-        width: 100%;
+    .leftColImgWrapper {
+        padding: 15px 0;
     }
-    .leftColImg {
-        width: 250px;
+    .leftColBottomImg {
+        margin: 10px 0 !important;
+        width: 75px !important;
     }
     .leftColBottomImgWrapper {
-        padding: 0px 15px 0px 15px;
+        padding: 0;
+    }
+    .leftCol,
+    .rightCol,
+    .leftColImg {
+        width: 100%;
     }
     .mapIframe {
-        padding: 0px 30px 0px 30px;
+        padding: 0px 30px;
     }
     #othersImg {
         width: 100% !important;
@@ -813,20 +826,61 @@ input[type="submit"]:hover {
     }
     .othersParent div {
         flex: 1 0 55%;
-        margin: 0px 30px 0 30px;
     }
     #previousButton {
         margin-left: 25px;
     }
+    .details-title {
+        display: block;
+        font-family: din-condensed-web;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 30px;
+        letter-spacing: .075em;
+        line-height: .9em;
+        text-transform: uppercase;
+        color: #222;
+        text-align: center;
+    }
+    .title {
+        display: none;
+    }
+    /* rangeDetails */
+    .rangeDetailsPage,
+    .locationDetailsPage {
+        padding: 10px;
+    }
+    .rangeDetails .leftCol {
+        margin: 0 auto;
+        text-align: unset;
+    }
+    .rangeDetails .leftColImgWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 auto;
+        text-align: unset;
+    }
+    .rangeDetails .leftColImg {
+        max-width: unset;
+        width: 100%;
+    }
 }
 
 
-/* locationDetails */
+/* locationDetails and new-RangeDetails end */
 
 
 /* Mobile style */
 
-@media screen and (max-width:850px) {
+@media screen and (max-width:640px) {
+    .menu-about-wraper {
+        display: block;
+    }
+    .menu-about-content {
+        width: 100%;
+        padding: 17px;
+    }
     .covid-19 {
         width: 100%;
         padding: 20px;
@@ -868,9 +922,6 @@ input[type="submit"]:hover {
         width: 100%;
         margin-top: 30%;
     }
-    .new-rangesPageContent .child {
-        width: 50%;
-    }
     .new-ranges {
         margin-top: 60px;
     }
@@ -878,6 +929,7 @@ input[type="submit"]:hover {
         display: inline;
     }
     .category {
+        display: block;
         text-align: center;
     }
     .category span {
