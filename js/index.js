@@ -15,7 +15,7 @@ function scrollFunction() {
         $(".topnav .menu-content").css("display", "inline-block");
         $(".topnav .menu-content").css("float", "right");
 
-        $(".pageContent").css("padding-top", "150px");
+        $(".pageContent").css("padding-top", "50px");
     } else {
         $("#logo").css("height", "200px");
         $("#logo").css("margin", "none");
@@ -25,7 +25,7 @@ function scrollFunction() {
         $(".topnav .menu-content").css("display", "block");
         $(".topnav .menu-content").css("float", "none");
 
-        $(".pageContent").css("padding-top", "300px");
+        $(".pageContent").css("padding-top", "250px");
     }
 }
 

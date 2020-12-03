@@ -60,6 +60,7 @@ html {
     bottom: 0;
     margin-bottom: 0;
     cursor: pointer;
+    margin-left: 30px;
 }
 
 .topnav a.active {
@@ -130,7 +131,7 @@ html {
 /* Page Content css */
 
 .pageContent {
-    padding-top: 300px;
+    padding-top: 250px;
     -webkit-transition: 1s ease;
 }
 

@@ -28,20 +28,27 @@ html {
 .topnav .logoDiv {
     vertical-align: middle;
     text-align: center;
+    display: inline-block !important;
 }
 
+
 .topnav #logo {
-    height: 200px;
-    /* max-width: 228px; */
+    /* height: 200px; */
     -webkit-transition: 0.5s ease;
+    height: 60px !important;
+    margin: 10px !important;
 }
 
 .topnav .menu-content {
-    margin-top: 40px;
+    margin-top: 0 !important;
+    display: inline-block !important;
+    float: right !important;
+    /* margin-top: 40px; */
     vertical-align: middle;
     text-align: center;
     -webkit-transition: 0.5s ease;
 }
+
 
 .icon {
     display: none;
@@ -60,6 +67,7 @@ html {
     bottom: 0;
     margin-bottom: 0;
     cursor: pointer;
+    margin-left: 30px;
 }
 
 .topnav a.active {
@@ -130,7 +138,7 @@ html {
 /* Page Content css */
 
 .pageContent {
-    /* padding-top: 300px; */
+    padding-top: 10px !important;
     -webkit-transition: 0.5s ease;
 }
 
