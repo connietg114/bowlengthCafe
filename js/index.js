@@ -52,15 +52,36 @@ function serviceDropdownMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
+function showCategory(id) {
+    var innerId = id + "List";
+    document.getElementById(innerId).classList.toggle("show-category-list");
+}
+
 window.onclick = function(event) {
     // Close the dropdown if the user clicks outside of it
     if (!event.target.matches(".dropbtn")) {
+        console.log("!event matches '.dropbtn'");
         var dropdowns = document.getElementsByClassName("dropdown-content");
         var i;
         for (i = 0; i < dropdowns.length; i++) {
+            console.log(".dropbtn for loop: " + i);
             var openDropdown = dropdowns[i];
             if (openDropdown.classList.contains("show")) {
                 openDropdown.classList.remove("show");
+            }
+        }
+    }
+    console.log("haha: " + event.target.tagName);
+    if (!event.target.matches(".category")) {
+        console.log("!event matches '.category'");
+        var categorylist = document.getElementsByClassName("category-list");
+        var i;
+        for (i = 0; i < categorylist.length; i++) {
+            var openCategory = categorylist[i];
+            console.log(".cateory for loop: " + i);
+            if (openCategory.classList.contains("show-category-list")) {
+                console.log("'openCategory' contains '.show-category-list");
+                openCategory.classList.remove("show-category-list");
             }
         }
     }

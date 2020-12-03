@@ -1,126 +1,127 @@
 <!--navigation bar-->
-   
-    
-    <div class="topnavWrapper">
-        <div style="background-color: #FFFDDE; height:30px; border:thin solid #EDDD00">
-            </ul> 
-                <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 1......</li> 
-                <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 2.......</li> 
-                <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 3.......</li> 
-            </ul> 
-        </div>
 
-        <script>
-            var myIndex = 0;
-            annoucementBanner();
 
-            function annoucementBanner() {
+<div class="topnavWrapper">
+    <div style="background-color: #FFFDDE; height:30px; border:thin solid #EDDD00">
+        </ul>
+        <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 1......</li>
+        <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 2.......</li>
+        <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 3.......</li>
+        </ul>
+    </div>
+
+    <script>
+        var myIndex = 0;
+        annoucementBanner();
+
+        function annoucementBanner() {
             var i;
             var x = document.getElementsByClassName("annoucement");
             for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";  
+                x[i].style.display = "none";
             }
             myIndex++;
-            if (myIndex > x.length) {myIndex = 1}    
-                x[myIndex-1].style.display = "block";  
-                setTimeout(annoucementBanner, 4000); 
-                }
-        </script>
+            if (myIndex > x.length) {
+                myIndex = 1
+            }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(annoucementBanner, 4000);
+        }
+    </script>
 
-        <div class="topnav" id="myTopnav">
-            <div class="logoDiv" style="cursor:pointer" onclick="showPage('?home')">
-                <img class='active' id="logo" src="img/logo.png" alt="profile">
-            </div>
-            <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
-                <img class="menuImg" src="img/menubut.PNG"></img>
-            </a>
+    <div class="topnav" id="myTopnav">
+        <div class="logoDiv" style="cursor:pointer" onclick="showPage('?home')">
+            <img class='active' id="logo" src="img/logo.png" alt="profile">
+        </div>
+        <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
+            <img class="menuImg" src="img/menubut.PNG"></img>
+        </a>
 
-            <div id="myMenu" class="menu-content">
-                <a class="navButton" onclick="showPage('?home')">Home</a>
-                <a class="navButton" onclick="showPage('?covid-19')">Covid-19</a>
-                <a class="navButton" onclick="showPage('?menu')">Menu</a>
-                <a class="navButton" onclick="showPage('?blog')">Blog</a>
-                <a class="navButton" onclick="showPage('?locations')">Locations</a>
+        <div id="myMenu" class="menu-content">
+            <a class="navButton" onclick="showPage('?home')">Home</a>
+            <a class="navButton" onclick="showPage('?covid-19')">Covid-19</a>
+            <a class="navButton" onclick="showPage('?menu')">Menu</a>
+            <a class="navButton" onclick="showPage('?blog')">Blog</a>
+            <a class="navButton" onclick="showPage('?locations')">Locations</a>
 
-                <!---->
-                <div class="dropdown" id="ourServices">
-                    <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
+            <!---->
+            <div class="dropdown" id="ourServices">
+                <button style="text-transform: uppercase;" class="dropbtn" onclick="serviceDropdownMenu()">Follow
                         <i class="fa fa-caret-down"></i>
                     </button>
 
-                    <div id="myDropdown" class="dropdown-content">
-                        <a class="navButton"
-                            onclick="window.open('https://www.facebook.com/bubbleteawellington/')">Facebook</a>
-                        <a class="navButton"
-                            onclick="window.open('https://www.instagram.com/noahsarkteahouse/')">Instagram</a>
+                <div id="myDropdown" class="dropdown-content">
+                    <a class="navButton" onclick="window.open('https://www.facebook.com/bubbleteawellington/')">Facebook</a>
+                    <a class="navButton" onclick="window.open('https://www.instagram.com/noahsarkteahouse/')">Instagram</a>
+                </div>
+            </div>
+            <a class="navButton" onclick="showPage('?about')">About Us</a>
+            <a class="navButton" onclick="showPage('?membership')">Membership</a>
+        </div>
+
+    </div>
+</div>
+<br>
+
+<div class="pageContent">
+</div>
+
+
+<div class="footer1">
+    <div class="container">
+        <hr>
+        <h1 style="text-align: center;">This is footer1</h1>
+        <div class="creation-container">
+            <div class="creation-row">
+                <div class="tea-box-wrapper">
+                    <div class="tea-box" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product1.jpg" alt="range product1.jpg">
+                        <h3 class="range-product-name">String lab</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
                     </div>
                 </div>
-                <a class="navButton" onclick="showPage('?about')">About Us</a>
-                <a class="navButton" onclick="showPage('?membership')">Membership</a>
-            </div>
-
-        </div>
-    </div>
-    <br>
-
-    <div class="pageContent">
-    </div>
-    
-
-    <div class="footer1">
-        <div class="container">
-            <hr><h1 style="text-align: center;">This is footer1</h1>
-            <div class="creation-container">
-                <div class="creation-row">
-                    <div class="tea-box-wrapper">
-                        <div class="tea-box" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product1.jpg" alt="range product1.jpg">
-                            <h3 class="range-product-name">String lab</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                <div class="tea-box-wrapper">
+                    <div class="tea-box" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product2.jpg" alt="range product2.jpg">
+                        <h3 class="range-product-name">Winter Warmer</h3>
                     </div>
-                    <div class="tea-box-wrapper">
-                        <div class="tea-box" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product2.jpg" alt="range product2.jpg">
-                            <h3 class="range-product-name">Winter Warmer</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
-                            <p onclick="showPage('?new-ranges/limitedTime')">Limited Time</p>
-                        </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                        <p onclick="showPage('?new-ranges/limitedTime')">Limited Time</p>
                     </div>
-                    <div class="tea-box-wrapper">
-                        <div class="tea-box" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product3.jpg" alt="range product3.jpg">
-                            <h3 class="range-product-name">Tokyo Skyfall</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
-                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock</p>
-                        </div>
+                </div>
+                <div class="tea-box-wrapper">
+                    <div class="tea-box" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product3.jpg" alt="range product3.jpg">
+                        <h3 class="range-product-name">Tokyo Skyfall</h3>
                     </div>
-                    <div class="tea-box-wrapper">
-                        <div class="tea-box" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product4.jpeg" alt="range product4.jpeg">
-                            <h3 class="range-product-name">Cranberry series</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock,&nbsp</p>
-                            <p style="display: inline;" onclick="showPage('?new-ranges/limitedAvailable')">Limited
-                                Available</p>
-                        </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                        <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock</p>
                     </div>
-                    <div class="tea-box-wrapper">
-                        <div class="tea-box" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product5.jpeg" alt="range product5.jpeg">
-                            <h3 class="range-product-name">Brown-Sugar Milk Tea</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                </div>
+                <div class="tea-box-wrapper">
+                    <div class="tea-box" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product4.jpeg" alt="range product4.jpeg">
+                        <h3 class="range-product-name">Cranberry series</h3>
                     </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock,&nbsp</p>
+                        <p style="display: inline;" onclick="showPage('?new-ranges/limitedAvailable')">Limited Available
+                        </p>
+                    </div>
+                </div>
+                <div class="tea-box-wrapper">
+                    <div class="tea-box" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product5.jpeg" alt="range product5.jpeg">
+                        <h3 class="range-product-name">Brown-Sugar Milk Tea</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
+                </div>
                 <div class="but-container">
                     <div class="a-button" onclick="showPage('?menu')">CHECK OUT OUR LATEST CREATIONS
                     </div>

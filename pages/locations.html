@@ -13,14 +13,19 @@
         <div class="container">
             <div class="location">
                 <div class="locationTopnav">
-                    <a onclick="showPage('?locations/all')">ALL</a>
-                    <a onclick="showPage('?locations/auckland')">&nbsp;&nbsp;&nbsp;AUCKLAND</a>
-                    <a onclick="showPage('?locations/lowerhut')">&nbsp;&nbsp;&nbsp;LOWER HUT</a>
-                    <a onclick="showPage('?locations/wellington')">&nbsp;&nbsp;&nbsp;WELLINGTON</a>
+                    <div class="category" id="locationCategory" onclick="showCategory(id)">Category&nbsp&nbsp&nbsp ^
+                        <!-- <span id="extend" class=" extend ">^</span> -->
+                    </div>
+                    <div id="locationCategoryList" class="category-list">
+                        <a onclick="showPage( '?locations/all') ">ALL</a>
+                        <a onclick="showPage( '?locations/auckland') ">&nbsp;&nbsp;&nbsp;AUCKLAND</a>
+                        <a onclick="showPage( '?locations/lowerhut') ">&nbsp;&nbsp;&nbsp;LOWER HUT</a>
+                        <a onclick="showPage( '?locations/wellington') ">&nbsp;&nbsp;&nbsp;WELLINGTON</a>
+                    </div>
                 </div>
 
                 <br><br>
-                <div class="locationPageContent">
+                <div class="locationPageContent ">
                 </div>
             </div>
         </div>

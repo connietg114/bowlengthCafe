@@ -1,6 +1,7 @@
 .container {
     max-width: 1400px;
     margin: 10px auto;
+    padding-top: 60px;
 }
 
 .about,
@@ -15,7 +16,7 @@
 .blog img,
 .about img {
     display: block;
-    width: 500px;
+    width: 100%;
     margin: 0px auto;
     padding: 5px auto;
 }
@@ -27,11 +28,6 @@
     .membership {
         width: 100%;
         padding: 17px;
-    }
-    .home img,
-    .about img,
-    .blog img {
-        width: 100%;
     }
     .mySlides {
         padding-top: 50px;
@@ -557,7 +553,7 @@ input[type="submit"]:hover {
 
 .new-ranges {
     max-width: 1400px;
-    margin: 300 auto 0;
+    margin: 0 auto;
     padding: 15px 1%;
 }
 
@@ -645,14 +641,41 @@ input[type="submit"]:hover {
     .allImgWrapper {
         /* padding-top: 100%; */
     }
-    .locationTopnav {
+    .locationTopnav,
+    .new-rangesTopnav {
+        margin-top: 0;
+    }
+    .category {
+        padding: 5px 0;
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        font-size: 1.3em;
+    }
+    .category-list {
         display: none;
+    }
+    .show-category-list {
+        display: block;
+    }
+    .category-list a {
+        padding: 3px 0;
+        display: block;
+        text-align: center;
+        font-family: proxima-nova;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 12px;
+        letter-spacing: .2em;
+        line-height: 1.4em;
+        text-transform: uppercase;
+        color: rgba(82, 82, 82, .6);
     }
     .child {
         float: left;
         flex: initial;
         margin: 0 auto;
-        padding: 0 2.02%;
+        padding: 10px 1%;
         width: 48%;
         /* margin-left: 10px;
       margin-right: 10px; */
@@ -874,7 +897,7 @@ input[type="submit"]:hover {
 /* Mobile style */
 
 @media screen and (max-width:640px) {
-    .menu-about-wraper {
+    .menu-about-wrapper {
         display: block;
     }
     .menu-about-content {
@@ -922,15 +945,17 @@ input[type="submit"]:hover {
         width: 100%;
         margin-top: 30%;
     }
-    .new-ranges {
-        margin-top: 60px;
-    }
+    .locationTopnav,
     .new-rangesTopnav {
-        display: inline;
+        display: block;
     }
     .category {
         display: block;
         text-align: center;
+    }
+    .category:active,
+    .show-category-list a:active {
+        background-color: lightgray;
     }
     .category span {
         text-align: center;
@@ -938,8 +963,5 @@ input[type="submit"]:hover {
     .extend {
         display: inline-block;
         transform: rotate(180deg);
-    }
-    .new-rangesTopnav a {
-        display: none;
     }
 }

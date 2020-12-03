@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,14 +11,18 @@
 <body>
     <div class="main-page">
         <div class="container">
-        <div class="new-ranges">
+            <div class="new-ranges">
                 <div class="new-rangesTopnav">
-                    <div class="category"><span>Category&nbsp&nbsp&nbsp&nbsp</span><span class="extend">^</span></div>
-                    <a onclick="showPage('?new-ranges/allRanges')">ALL</a>
-                    <a onclick="showPage('?new-ranges/available')">&nbsp;&nbsp;&nbsp;AVAILABLE</a>
-                    <a onclick="showPage('?new-ranges/limitedaAvailable')">&nbsp;&nbsp;&nbsp;LIMITED AVAILABLE</a>
-                    <a onclick="showPage('?new-ranges/limitedStock')">&nbsp;&nbsp;&nbsp;LIMITED STOCK</a>
-                    <a onclick="showPage('?new-ranges/limitedTime')">&nbsp;&nbsp;&nbsp;LIMITED TIME</a>
+                    <div class="category" id="newRangesCategory" onclick="showCategory(id)">Category&nbsp&nbsp&nbsp ^
+                        <!-- <span id="extend" class="extend">^</span> -->
+                    </div>
+                    <div id="newRangesCategoryList" class="category-list">
+                        <a onclick="showPage('?new-ranges/allRanges')">ALL</a>
+                        <a onclick="showPage('?new-ranges/available')">&nbsp;&nbsp;&nbsp;AVAILABLE</a>
+                        <a onclick="showPage('?new-ranges/limitedAvailable')">&nbsp;&nbsp;&nbsp;LIMITED AVAILABLE</a>
+                        <a onclick="showPage('?new-ranges/limitedStock')">&nbsp;&nbsp;&nbsp;LIMITED STOCK</a>
+                        <a onclick="showPage('?new-ranges/limitedTime')">&nbsp;&nbsp;&nbsp;LIMITED TIME</a>
+                    </div>
                 </div>
 
                 <br><br>
@@ -29,4 +32,5 @@
         </div>
     </div>
 </body>
+
 </html>
