@@ -634,8 +634,8 @@ input[type="submit"]:hover {
         gap: 2px;
     }
     .allImg {
-        /* height: 200px;
-      width: 140px !important; */
+        height: 200px;
+      /* width: 140px !important; */
         width: 100% !important;
     }
     .allImgWrapper {
@@ -782,6 +782,7 @@ input[type="submit"]:hover {
     /* height: 200px !important;
   width: 200px !important; */
     width: 100%;
+    height: 80%;
     cursor: pointer;
 }
 
@@ -796,8 +797,8 @@ input[type="submit"]:hover {
 }
 
 .leftColBottomImg {
-    width: 90px !important;
-    margin: 10px 0 !important;
+    width: 80px;
+    margin: 10px 0;
     cursor: pointer;
 }
 
@@ -829,8 +830,8 @@ input[type="submit"]:hover {
         padding: 15px 0;
     }
     .leftColBottomImg {
-        margin: 10px 0 !important;
-        width: 75px !important;
+        margin: 10px 0;
+        width: 75px;
     }
     .leftColBottomImgWrapper {
         padding: 0;
@@ -887,6 +888,14 @@ input[type="submit"]:hover {
     .rangeDetails .leftColImg {
         max-width: unset;
         width: 100%;
+    }
+}
+@media screen and (min-width:641px) and (max-width:900px) {
+    .leftColBottomImg{
+      width: 45px;
+    }
+    #wellingtonChild9, #wellingtonChild10{
+      display: none;
     }
 }
 
