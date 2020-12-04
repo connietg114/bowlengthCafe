@@ -1,7 +1,7 @@
 .container {
     max-width: 1400px;
     margin: 10px auto;
-    padding-top: 60px;
+    padding-top: 30px;
 }
 
 .about,
@@ -576,8 +576,8 @@ input[type="submit"]:hover {
     flex: 1 0 19%;
     max-width: 290px;
     cursor: pointer;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 0 auto;
+    padding-bottom: 15px;
 }
 
 @media screen and (min-width:960px) {
