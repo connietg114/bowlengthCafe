@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="pages/pages.css">
-    <title>Location</title>
-</head>
-
-<body>
-    <div class="main-page">
-        <div class="container">
-            <div class="location">
-                <div class="locationTopnav">
-                    <div class="category" id="locationCategory" onclick="showCategory(id)">Category&nbsp&nbsp&nbsp ^
-                        <!-- <span id="extend" class=" extend ">^</span> -->
-                    </div>
-                    <div id="locationCategoryList" class="category-list">
-                        <a onclick="showPage( '?locations/all') ">ALL</a>
-                        <a onclick="showPage( '?locations/auckland') ">&nbsp;&nbsp;&nbsp;AUCKLAND</a>
-                        <a onclick="showPage( '?locations/lowerhut') ">&nbsp;&nbsp;&nbsp;LOWER HUT</a>
-                        <a onclick="showPage( '?locations/wellington') ">&nbsp;&nbsp;&nbsp;WELLINGTON</a>
-                    </div>
+<div class="main-page">
+    <div class="container">
+        <div class="location">
+            <div class="locationTopnav">
+                <div class="category" id="locationCategory" onclick="showCategory(id)">Category&nbsp&nbsp&nbsp <i id="arrow-down" class="fa fa-caret-down"></i>
+                    <i id="arrow-up" class="fa fa-caret-up" style="display: none;" style="display: none;"></i>
+                    <!-- <span id="extend" class=" extend ">^</span> -->
                 </div>
-
-                <br><br>
-                <div class="locationPageContent ">
+                <div id="locationCategoryList" class="category-list">
+                    <a onclick="showPage( '?locations/all') ">ALL</a>
+                    <a onclick="showPage( '?locations/auckland') ">&nbsp;&nbsp;&nbsp;AUCKLAND</a>
+                    <a onclick="showPage( '?locations/lowerhut') ">&nbsp;&nbsp;&nbsp;LOWER HUT</a>
+                    <a onclick="showPage( '?locations/wellington') ">&nbsp;&nbsp;&nbsp;WELLINGTON</a>
                 </div>
+            </div>
+
+            <br><br>
+            <div class="locationPageContent ">
             </div>
         </div>
     </div>
-</body>
-
-</html>
+</div>

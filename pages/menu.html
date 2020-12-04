@@ -1,110 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ----------------------------------------------- -->
+<div id="myModal" class="modal">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="pages/pages.css" />
-    <title>Menu</title>
-</head>
-
-<body>
-    <!-- ----------------------------------------------- -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img src="img/menu1.jpg" alt="menu1.jpg" />
-        </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="img/menu1.jpg" alt="menu1.jpg" />
     </div>
-    <div id="myModal2" class="modal2">
+</div>
+<div id="myModal2" class="modal2">
 
-        <!-- Modal content -->
-        <div class="modal-content2">
-            <span class="close2">&times;</span>
-            <img src="img/menu2.jpg" alt="menu2.jpg" />
-        </div>
+    <!-- Modal content -->
+    <div class="modal-content2">
+        <span class="close2">&times;</span>
+        <img src="img/menu2.jpg" alt="menu2.jpg" />
     </div>
-    <!-- ----------------------------------------------- -->
+</div>
+<!-- ----------------------------------------------- -->
 
-    <div class="main-page">
-        <div class="container">
-            <h2 class="menu-h2">
-                “OUR HOMEGROWN WELLINGTON CREW BRINGING YOU THE TEAS FROM AFAR”
-            </h2>
-            <div class="menu-image">
-                <div class="image-content">
-                    <img id="img-btn1" src="img/menu1.jpg" alt="menu1.jpg" />
-                </div>
-                <div class="image-content">
-                    <img id="img-btn2" src="img/menu2.jpg" alt="menu2.jpg" />
-                </div>
+<div class="main-page">
+    <div class="container">
+        <h2 class="menu-h2">
+            “OUR HOMEGROWN WELLINGTON CREW BRINGING YOU THE TEAS FROM AFAR”
+        </h2>
+        <div class="menu-image">
+            <div class="image-content">
+                <img id="img-btn1" src="img/menu1.jpg" alt="menu1.jpg" />
             </div>
+            <div class="image-content">
+                <img id="img-btn2" src="img/menu2.jpg" alt="menu2.jpg" />
+            </div>
+        </div>
 
-            <!-- ------------------------------------------------------------------------------------------ -->
-            <script>
-                // Get the modal
-                var modal = document.getElementById("myModal");
+        <!-- ------------------------------------------------------------------------------------------ -->
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
 
-                // Get the button that opens the modal
-                var btn = document.getElementById("img-btn1");
+            // Get the button that opens the modal
+            var btn = document.getElementById("img-btn1");
 
-                // Get the <span> element that closes the modal
-                var span = document.getElementsByClassName("close")[0];
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
-                // When the user clicks the button, open the modal 
-                btn.onclick = function() {
-                    modal.style.display = "block";
-                }
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
 
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function() {
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
                     modal.style.display = "none";
                 }
+            }
 
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
+            // Get the modal
+            var modal2 = document.getElementById("myModal2");
 
-                // Get the modal
-                var modal2 = document.getElementById("myModal2");
+            // Get the button that opens the modal
+            var btn2 = document.getElementById("img-btn2");
 
-                // Get the button that opens the modal
-                var btn2 = document.getElementById("img-btn2");
+            // Get the <span> element that closes the modal
+            var span2 = document.getElementsByClassName("close2")[0];
 
-                // Get the <span> element that closes the modal
-                var span2 = document.getElementsByClassName("close2")[0];
+            // When the user clicks the button, open the modal 
+            btn2.onclick = function() {
+                modal2.style.display = "block";
+            }
 
-                // When the user clicks the button, open the modal 
-                btn2.onclick = function() {
-                    modal2.style.display = "block";
-                }
+            // When the user clicks on <span> (x), close the modal
+            span2.onclick = function() {
+                modal2.style.display = "none";
+            }
 
-                // When the user clicks on <span> (x), close the modal
-                span2.onclick = function() {
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
                     modal2.style.display = "none";
                 }
+            }
+        </script>
 
-                // When the user clicks anywhere outside of the modal, close it
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal2.style.display = "none";
-                    }
-                }
-            </script>
-
-            <!-- ------------------------------------------------------------------------------------------ -->
-            <div class="menu">
-                <div class="menu-about">
-                    <h2>About our Teas</h2>
-                    <div class="menu-about-wrapper">
-                        <div class="menu-about-content">
-                            <h3 class="menu-about-heading">MILE TEA</h3>
-                            <span>Our Milk Teas combine the milky goodness of our soy-based
+        <!-- ------------------------------------------------------------------------------------------ -->
+        <div class="menu">
+            <div class="menu-about">
+                <h2>About our Teas</h2>
+                <div class="menu-about-wrapper">
+                    <div class="menu-about-content">
+                        <h3 class="menu-about-heading">MILE TEA</h3>
+                        <span>Our Milk Teas combine the milky goodness of our soy-based
                                 creamer with some of the fruitiest flavours around.
                                 Powder-based and absolutely scrumptious, they’re a safe bet
                                 for any newcomer to the world of Bubble Tea. Popular Options:
@@ -113,10 +102,10 @@
                                 including vegetarian. However, our soy-based creamer does
                                 contains 4.8% sodium caseinate ( a type of milk protein) which
                                 that can be not a very ideally choice for vegan.</span>
-                        </div>
-                        <div class="menu-about-content">
-                            <h3 class="menu-about-heading">HERBAL TEA</h3>
-                            <span>Our teas are sourced directly from Taiwan for total
+                    </div>
+                    <div class="menu-about-content">
+                        <h3 class="menu-about-heading">HERBAL TEA</h3>
+                        <span>Our teas are sourced directly from Taiwan for total
                                 authenticity. We brew these daily in order to also maintain
                                 premium freshness.<br /><br />We are also looking for a great
                                 source of New Zealand tea to fully fuse this Asian treat with
@@ -127,10 +116,10 @@
                                 likes of Lipton may want to dive into this style of drink.
                                 Popular Options: Peach Black Tea, Strawberry Green Tea,
                                 Passionfruit Black Tea etc.</span>
-                        </div>
-                        <div class="menu-about-content">
-                            <h3 class="menu-about-heading">TOPPINGS</h3>
-                            <span>Our drinks can be topped off with a wide range of extras!<br />Tapioca
+                    </div>
+                    <div class="menu-about-content">
+                        <h3 class="menu-about-heading">TOPPINGS</h3>
+                        <span>Our drinks can be topped off with a wide range of extras!<br />Tapioca
                                 Pearls (Bubbles) are the most popular option, providing a
                                 sweet and chewy element to your beverage. Jellies come in a
                                 range of fruity flavours, all with a coconut base for texture.
@@ -141,112 +130,121 @@
                                 based as we are yet to find a dairy free ice cream that we
                                 really love! Watch this space for further advances toward our
                                 totally vegan goal!</span>
-                        </div>
                     </div>
                 </div>
-                <div><br><br>
-                    <hr><br><br><br></div>
             </div>
-            <div class="new-range">
-                <div class="range-heading">
-                    <h2><strong>NEW RANGE</strong></h2>
-                    <p>Noah’s Ark focus on making drinks with passion and creativity, at here we introduce you our newest idea and craft skill ☺</p>
+            <div><br><br>
+                <hr><br><br><br></div>
+        </div>
+        <div class="new-range">
+            <div class="range-heading">
+                <h2><strong>NEW RANGE</strong></h2>
+                <p>Noah’s Ark focus on making drinks with passion and creativity, at here we introduce you our newest idea and craft skill ☺</p>
+            </div>
+            <div class="range-menu">
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product1.jpg" alt="range product1.jpg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">String lab</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
                 </div>
-                <div class="range-menu">
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct1" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product1.jpg" alt="range product1.jpg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">String lab</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product2.jpg" alt="range product2.jpg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Winter Warmer</h3>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct2" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product2.jpg" alt="range product2.jpg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Winter Warmer</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
-                            <p onclick="showPage('?new-ranges/limitedTime')">Limited Time</p>
-                        </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                        <p onclick="showPage('?new-ranges/limitedTime')">Limited Time</p>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product3.jpg" alt="range product3.jpg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Tokyo Skyfall</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
-                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock</p>
-                        </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct3" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product3.jpg" alt="range product3.jpg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Tokyo Skyfall</h3>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product4.jpeg" alt="range product4.jpeg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Cranberry series</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock,&nbsp</p>
-                            <p style="display: inline;" onclick="showPage('?new-ranges/limitedAvailable')">Limited Available
-                            </p>
-                        </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available,&nbsp</p>
+                        <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock</p>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product5.jpeg" alt="range product5.jpeg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Brown-Sugar Milk Tea</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct4" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product4.jpeg" alt="range product4.jpeg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Cranberry series</h3>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct6" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product6.jpeg" alt="range product6.jpeg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Thai Milk Tea</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/limitedStock')">Limited Stock,&nbsp</p>
+                        <p style="display: inline;" onclick="showPage('?new-ranges/limitedAvailable')">Limited Available
+                        </p>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct7" onclick="changeUrl(id, newRangeDetails)">
-                            <img src="img/range-product7.jpg" alt="range product7.jpg">
-                            <span class="range-quickview">QUICK VIEW</span>
-                            <h3 class="range-product-name">Breakfast Menu</h3>
-                        </div>
-                        <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
-                        </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct5" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product5.jpeg" alt="range product5.jpeg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Brown-Sugar Milk Tea</h3>
                     </div>
-                    <div class="range-product-wrapper">
-                        <div class="range-product" id="rangeproduct8" onclick="changeUrl(id, newRangeDetails)">
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct6" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product6.jpeg" alt="range product6.jpeg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Thai Milk Tea</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct7" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product7.jpg" alt="range product7.jpg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Breakfast Menu</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="range-product" id="rangeproduct8" onclick="changeUrl(id, newRangeDetails)">
+                        <img src="img/range-product8.jpg" alt="range product8.jpg">
+                        <span class="range-quickview">QUICK VIEW</span>
+                        <h3 class="range-product-name">Milk-Form Series</h3>
+                    </div>
+                    <div class="range-product-category">
+                        <p onclick="showPage('?new-ranges/available')">Available</p>
+                    </div>
+                </div>
+                <div class="range-product-wrapper">
+                    <div class="empty-image">
+                        <div class="range-product">
                             <img src="img/range-product8.jpg" alt="range product8.jpg">
                             <span class="range-quickview">QUICK VIEW</span>
                             <h3 class="range-product-name">Milk-Form Series</h3>
                         </div>
                         <div class="range-product-category">
-                            <p onclick="showPage('?new-ranges/available')">Available</p>
+                            <p>Available</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
-            <div class="but-container">
-                <div class="a-button" onclick="showPage('?event')">Invite us to your event</div>
-                <div class="a-button" onclick="showPage('?locations')">Visit our store</div>
-            </div>
+        <div class="but-container">
+            <div class="a-button" onclick="showPage('?event')">Invite us to your event</div>
+            <div class="a-button" onclick="showPage('?locations')">Visit our store</div>
         </div>
     </div>
-</body>
-
-</html>
+</div>

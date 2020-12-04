@@ -55,6 +55,22 @@ function serviceDropdownMenu() {
 function showCategory(id) {
     var innerId = id + "List";
     document.getElementById(innerId).classList.toggle("show-category-list");
+    // change arrow direction 
+    var arrowDown = document.getElementById("arrow-down").style.display;
+    var arrowUp = document.getElementById("arrow-up").style.display;
+    console.log("arrow-down-Style: " + arrowDown);
+    console.log("arrow-up-Style: " + arrowUp);
+    if (arrowUp === "none") {
+        console.log("if arrowUp === 'none' condition");
+        document.getElementById("arrow-up").style.display = "inline";
+        document.getElementById("arrow-down").style.display = "none";
+    } else if (arrowUp === "inline") {
+        console.log("else if arrowUp === 'inline' condition");
+        document.getElementById("arrow-up").style.display = "none";
+        document.getElementById("arrow-down").style.display = "inline";
+    } else {
+        console.log("else: arrowUp style: " + arrowUp);
+    }
 }
 
 window.onclick = function(event) {
@@ -71,16 +87,25 @@ window.onclick = function(event) {
             }
         }
     }
-    console.log("haha: " + event.target.tagName);
+    console.log("click Tagname: " + event.target.tagName);
     if (!event.target.matches(".category")) {
         console.log("!event matches '.category'");
         var categorylist = document.getElementsByClassName("category-list");
+        // change arrow direction 
+        var arrowDown = document.getElementById("arrow-down").style.display;
+        var arrowUp = document.getElementById("arrow-up").style.display;
+        if (arrowUp === "inline") {
+            document.getElementById("arrow-up").style.display = "none";
+            document.getElementById("arrow-down").style.display = "inline";
+        } else {
+            console.log("else: arrowUp style: " + arrowUp);
+        }
+        // hide category list
         var i;
         for (i = 0; i < categorylist.length; i++) {
             var openCategory = categorylist[i];
             console.log(".cateory for loop: " + i);
             if (openCategory.classList.contains("show-category-list")) {
-                console.log("'openCategory' contains '.show-category-list");
                 openCategory.classList.remove("show-category-list");
             }
         }
