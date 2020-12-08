@@ -6,11 +6,11 @@
 
 .about,
 .blog,
-.home,
-.membership {
+.home {
     width: 56%;
     margin: 5% auto;
 }
+
 
 .home img,
 .blog img,
@@ -24,8 +24,7 @@
 @media screen and (max-width:640px) {
     .about,
     .blog,
-    .home,
-    .membership {
+    .home{
         width: 100%;
         padding: 17px;
     }
@@ -1004,3 +1003,220 @@ input[type="submit"]:hover {
         transform: rotate(180deg);
     }
 }
+
+
+/* membership */
+form {border: 3px solid #f1f1f1;}
+
+.login{
+    width:100%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.registernowbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color:#4CAF50;
+}
+
+.membershipContainer {
+  padding: 40px 100px 40px 100px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.membership{
+  width: 60%;
+  margin: 5% auto;
+}
+
+@media screen and (max-width: 600px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .registernowbtn {
+     width: 100%;
+  }
+  .membershipContainer{
+    padding: 16px;
+  }
+  .membership{
+    width: 100%;
+    padding: 17px;
+  }
+}
+/* register */
+.register{
+  width:60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.registerContainer {
+padding: 16px;
+background-color: white;
+}
+
+input[type=text], input[type=password], 
+input[type=username], input[type=firstname], 
+input[type=lastname] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+input[type=file]{
+  width: 100%;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+}
+select{
+  width: 100%;
+  padding: 7px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  width: auto;
+  float: right;
+}
+.backbtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  width: auto;
+}
+
+.registerbtn:hover {
+opacity: 1;
+}
+
+.signin {
+background-color: #f1f1f1;
+text-align: center;
+}
+.signin a:hover{
+  color: blue;
+}
+@media screen and (max-width: 600px) {
+  .register{
+    width: 100%;
+  }
+}
+
+/* find password */
+.findpassword{
+  width:60%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.findpasswordContainer {
+padding: 16px;
+background-color: white;
+}
+
+input[type=username], input[type=text] {
+width: 100%;
+padding: 15px;
+margin: 5px 0 22px 0;
+display: inline-block;
+border: none;
+background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=text]:focus {
+background-color: #ddd;
+outline: none;
+}
+
+hr {
+border: 1px solid #f1f1f1;
+margin-bottom: 25px;
+}
+
+.sendbtn {
+background-color: #4CAF50;
+color: white;
+padding: 16px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+width: 100%;
+opacity: 0.9;
+width: auto;
+float: right;
+}
+.backbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  width: auto;
+}
+
+.sendbtn:hover, .backbtn:hover {
+opacity: 1;
+}
+@media screen and (max-width: 600px) {
+  .findpassword{
+    width: 100%;
+  }
+}
+
+

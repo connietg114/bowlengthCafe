@@ -1,7 +1,37 @@
 <div class="main-page">
     <div class="container">
         <div class="membership">
-            <h1 style="text-align: center;">This is Membership page</h1>
+            
+            <div class="login">
+                <form action="" method="post">
+                <div class="imgcontainer">
+                </div>
+
+                <div class="membershipContainer">
+                    <h1>Membership</h1>
+                    <p>Please log in.</p>
+                    <hr>
+                    <label for="username"><b>Username</b></label>
+                    <input onfocusout = "checkFormat(event)"id ="usernameInput"type="text" placeholder="Enter Username" name="uname" required>
+                    <span style="color:red"class="error"></span>
+                    <br>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" required>
+                    <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                        
+                    <button type="submit" name="loginSubmit">Login</button>
+                </div>
+
+                <div class="membershipContainer" style="background-color:#f1f1f1">
+                    <button type="button" onclick="showPage('?register')"class="registernowbtn">Register Now</button>
+                    <span onclick="showPage('?findpassword')"class="psw">Forgot <a href="#">password?</a></span>
+                </div>
+                </form>
+            </div>
+
         </div>
     </div>
 </div>
