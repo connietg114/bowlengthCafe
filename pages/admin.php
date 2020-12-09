@@ -11,6 +11,8 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="backend.css">
+        <script src="backend.js"></script>
     </head>
     
     <body>
@@ -24,10 +26,40 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
         //     }
         // }
        
-        for($i=0; $i<count(getFields($dbName, "users")); $i++){
-            echo getFields($dbName, "users")[$i] . " ";
-        } 
+        
+
+        // deleteData(2, "users");
+
+        // updateData("firstName = 'connie'", "users", 2);
 
         ?>
+        <div class="sidenav">
+            <a href="#">Home</a>
+            <a href="#">Members</a>
+            <a href="#">About</a>
+            <a href="#">Settings</a>
+            <a href="#">Log Out</a>
+        </div>
+
+        <div class="main">
+            <h2>Home</h2>
+            <hr>
+            <?php
+            // for($i=0; $i<count(getFields("users")); $i++){
+            //     echo getFields("users")[$i] . " ";
+            //     // print_r(getFields("users")[$i]);
+            // } 
+
+            $data = getData("users");
+            // print_r (array_values($data));
+            for($i=0; $i<count($data); $i++){
+                foreach($data[$i] as $key => $value) {
+                    // echo "$key : $value, ";
+                    echo "$value ";
+                  }
+                echo "<br/>";
+            } 
+            ?>
+        </div>
     </body>
 </html>
