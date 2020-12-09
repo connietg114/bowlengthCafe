@@ -1,4 +1,6 @@
 <?php
+include_once "Includes/sqlQuery.php";
+
 
 $dbServerName = "localhost";
 $dbUsername = "root";
@@ -12,6 +14,22 @@ if ($conn->connect_error) {
 }
 else{
    
-    echo 'connected';
-    // echo '</script>';
-}
+    // echo 'connected';
+    
+};
+
+if (createTable($conn)===true){
+    echo "Table MyGuests created successfully";
+} else {
+        echo $conn->error;
+};
+
+
+
+// if ($conn->query($sql) === TRUE) {
+//     echo "Table MyGuests created successfully";
+// } else {
+//     echo "Error creating table: " . $conn->error;
+// }
+
+// $conn->close();
