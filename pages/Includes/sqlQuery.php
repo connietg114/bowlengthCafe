@@ -84,18 +84,18 @@ function deleteTable($table){
 function deleteData($id, $table){
     $sql = "DELETE FROM $table WHERE id = $id";
     $result = mysqli_query($GLOBALS["conn"], $sql);
-    $numOfRows = mysqli_num_rows($result);
-    // if($result){
-    //     if($numOfRows>0){
-    //         while($row=mysqli_fetch_assoc($result)){
+    // $numOfRows = mysqli_num_rows($result);
+    if($result){
+        // if($numOfRows>0){
+        //     while($row=mysqli_fetch_assoc($result)){
                 
-    //         }
-    //     }
+        //     }
+        // }
        
-    //     echo "Deleted!";
-    // }else{
-    //     echo mysqli_error($GLOBALS["conn"]);
-    // }
+        echo "Deleted!";
+    }else{
+        echo mysqli_error($GLOBALS["conn"]);
+    }
 }
 function updateData($updateArray, $table, $id){
     $sql = "UPDATE $table SET $updateArray
