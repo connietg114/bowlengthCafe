@@ -24,6 +24,7 @@
 
 .main {
     margin-left: 200px; /* Same as the width of the sidenav */
+    padding: 10px;
 }
 
 @media screen and (max-height: 450px) {
@@ -39,10 +40,13 @@ table {
   
   td, th {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
   }
   
   tr:hover {
     background-color: #dddddd;
   }
+  /* .editCol, .deleteCol{
+      text-align: center !important;
+  } */

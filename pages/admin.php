@@ -31,8 +31,6 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
         //     }
         // }
 
-        // deleteData(2, "users");
-
         // updateData("firstName = 'connie'", "users", 2);
 
         ?>
@@ -48,31 +46,8 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
             <h2>Home</h2>
             <hr>
             <table class="showMembers">
-                <tr>
-                    <th>No.</th>
-                    <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Role</th>
-                    <th>Delete</th>
-                    <th>Edit</th>
-                </tr>
             </table>
 
-            <table>
-            <tr>
-                <th>No.</th>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </tr>
             <?php
             // for($i=0; $i<count(getFields("users")); $i++){
             //     echo getFields("users")[$i] . " ";
@@ -80,85 +55,69 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
             // } 
             
 
-            $data = getData("users");
-            $id;
-            for($i=0; $i<count($data); $i++){
-                $num = $i +1;
-                echo "<tr><td>$num</td>";
-                foreach($data[$i] as $key => $value) {
-                    // echo "$key : $value, ";
-                    if($key== "id"){
-                        $id=$value;
-                    }
-                    echo "<td> $value </td>";
-                  }
-                echo "<td style='text-align:center;cursor:pointer'>
-                        <a class = 'delete' onclick='deletedata($id,". '"users")'."'>
-                        <i class='fa fa-trash delete'></i></a>
-                    </td>
-                    <td style='text-align:center;cursor:pointer'>
-                    <a onclick= 'get(".'"users"' .")'>
-                        <i class='fas fa-pen'></i>
-                    </a>
-                    </td>
-                </tr>";
-            } 
             ?>
-
-            </table>
-           
         </div>
     </body>
 </html>
 <script>
-    //INSERT INTO `users`(`firstName`, `lastName`, `email`, `pwd`, `role`) VALUES ("a", "a", "a", "a", "a" )
-    
-    function get(table){
-        var data;
-        $.post("Includes/get.php", {table: "users"}, data =>{
-           var data = jQuery.parseJSON(data);
-        //    console.log(data);
-           var array = $.map(data, function(value, index){
-               var num = index+1;
-            //    console.log(value.id, value.firstName, value.lastName, value.email, value.pwd, value.role)
-                $(".showMembers").append(
-                    "<tr>"+ 
-                    "<td>" + num + "</td>"+
-                "<td>" + value.id + "</td>"+
-                 "<td>" + value.firstName + "</td>" + 
-                 "<td>" + value.lastName + "</td>" + 
-                 "<td>" + value.email + "</td>" + 
-                 "<td>" + value.pwd + "</td>" + 
-                 "<td>" + value.role + "</td>" +
-                 "<td><i onclick = 'deleteData("+ value.id+ "," + '"users"'+")' class='fa fa-trash'></i>" + "</td>"+
-                 +  "<td onclick='deleteData("+ value.id + '"users"'+ ")'>" + + "</td>"
-                 + 
-                 "</tr>"
-                 );
-           })
-        //    "<td style='text-align:center;cursor:pointer'><a class = 'delete' onclick='deletedata($id,". '"users")'."'><i class='fa fa-trash delete'></i></a>
-        //             </td>
-        //             <td style='text-align:center;cursor:pointer'>
-        //             <a onclick= 'get(".'"users"' .")'>
-        //                 <i class='fas fa-pen'></i>
-        //             </a>
-        //             </td>
-        //         </tr>"
-
-        })
-   
-    }
-    // $(function() {
-    //     $.post("Includes/get.php", {table: "users"}, message =>{
-    //         console.log(message);
-    //         location.reload();   
-    //     })
+    //  $(function() {
+    // renderData(get("users"));
     // });
+    // INSERT INTO `users`(`firstName`, `lastName`, `email`, `pwd`, `role`) VALUES ("firstname", "lastname", "email", "password", "role" )
+    
+    renderData(get("table"));
     function deletedata(id, table){
         $.post("Includes/delete.php", {id: id, table: table}, message =>{
-            console.log(message);
-            location.reload();   
+            if(jQuery.parseJSON(message).status=="success"){
+                $(".row"+id).html("");
+            }
         })
     }
+
+    function get(table){
+        var data;
+        $.ajax({
+            type: 'POST',
+            url: "Includes/get.php",
+            data: {table: "users"},
+            success: function (items){
+                data = jQuery.parseJSON(items);
+            },
+            async:false   
+        });
+        return data;
+    }
+    function renderData(data){
+        $(".showMembers").append("<tr><th>No.</th><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th><th>Role</th><th>Delete</th><th>Edit</th></tr>");
+        var array = $.map(data, function(value, index){
+            var num = index+1;
+            $(".showMembers").append(
+                "<tr class='row"+value.id+"'>" +
+                "<td>" + num + "</td>"+
+                "<td>" + value.id + "</td>"+
+                "<td>" + value.firstName + "</td>" + 
+                "<td>" + value.lastName + "</td>" + 
+                "<td>" + value.email + "</td>" + 
+                "<td>" + value.pwd + "</td>" + 
+                "<td>" + value.role + "</td>" +
+                "<td class = 'deleteCol'><i class='fa fa-trash delete' id="+value.id + " table = " + "'users'"+ "></i>" + "</td>"
+                +  "<td class = 'editCol' onclick='edit()'><i class='fa fa-pen edit'></i>" + "</td>"+ 
+                "</tr>"
+                );
+            }) 
+    }
+
+    $(".delete").on('click', function(){
+        var id = this.id;
+        var table = $(".delete").attr("table");
+        deletedata(id, table);
+    });
+    function edit(){
+        console.log("edit");
+    }
+
+    // $(".edit").on('click', function(){
+
+    // });
 
 </script>
