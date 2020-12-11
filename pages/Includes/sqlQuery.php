@@ -1,10 +1,11 @@
 <?php
 require_once dirname(__FILE__).'/globalVariables.php';
+// can rename this file to CreateTable.php
 
 
 
 function createTable($conn) {
-    $sql = "CREATE TABLE IF NOT EXISTS Users(
+    $sql = "CREATE TABLE IF NOT EXISTS User(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
         firstName varchar(256) not null,
         lastName varchar(256) not null,
@@ -13,6 +14,19 @@ function createTable($conn) {
         role varchar (256) not null
     );";
     $conn->query($sql);
+
+    $sql = "CREATE TABLE IF NOT EXISTS Customer(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        firstName varchar(256) not null,
+        lastName varchar(256) not null,
+        email varchar(256) not null,
+        streetAddress varchar(256) not null,
+        cityAddress varchar(256) not null,
+        zipCodeAddress varchar(256) not null,
+        countryAddress varchar(256) not null
+    );";
+    $conn->query($sql);
+
 
     // $sql = "CREATE TABLE IF NOT EXISTS HomeUser(
     //                 Hid INT(100) AUTO_INCREMENT PRIMARY KEY,
@@ -30,19 +44,76 @@ function createTable($conn) {
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
         name varchar(256) not null,
         description varchar(256),
-        points int(11) not null
-    )";
+        rewards int(11) not null
+    );";
     $conn->query($sql); 
 
     $sql = "CREATE TABLE IF NOT EXISTS MembershipCondition(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        dateJoin date not null,
         membershipLevelId int(11) not null,
         memberId int(11)not null,
         points int(11) not null,
-        FOREIGN KEY(membershipLevelId) REFERENCES Users(id)
-        
-    )";
+        FOREIGN KEY(membershipLevelId) REFERENCES MembershipLevel(id),
+        FOREIGN KEY(memberId) REFERENCES Customer(id)    
+    );";
     $conn->query($sql); 
+
+
+    // $sql = "CREATE TABLE IF NOT EXISTS Product(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     name varchar(256) not null,
+    //     price int(11)not null,
+    // )";
+    // $conn->query($sql); 
+
+    // $sql = "CREATE TABLE IF NOT EXISTS Topping(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     name varchar(256) not null,
+    //     price int(11)not null,
+    // )";
+    // $conn->query($sql);
+
+    // $sql = "CREATE TABLE IF NOT EXISTS ProductTopping(
+    //     productId int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     toppingId varchar(256) not null,
+    //     quantity int(11)not null,
+    //      FOREIGN KEY(productId) REFERENCES Product(id)
+    //      FOREIGN KEY(toppingId) REFERENCES Topping(id)
+    // )";
+    // $conn->query($sql);
+    
+    
+
+
+    // $sql = "CREATE TABLE IF NOT EXISTS ProductOrdered(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     productId varchar(256) not null,
+    //     orderId int(11)not null,
+    //     iceLevel varchar(256) not null, //normal, less, half...
+    //     sugarLevel varchar(256) not null, //normal, less, half...
+    //     extraToppings varchar(256) not null, //normal, less, half...
+    //     FOREIGN KEY(productId) REFERENCES Product(id),
+    //     FOREIGN KEY(orderId) REFERENCES CustomerOrder(id)
+
+    //     description varchar(256),
+    //     price int(11)not null,
+    //     -- points int(11) not null,  
+    // )";
+    // $conn->query($sql); 
+
+    // $sql = "CREATE TABLE IF NOT EXISTS CustomerOrder(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     customerId varchar(256) not null,
+    //     status varchar(256),
+    //     totalPrice int(11)not null,
+    //      rewardsUsed int(11) not null,
+    //      employeeId int(11) not null,
+    //     FOREIGN KEY(customerId) REFERENCES Customer(id),
+    //     FOREIGN KEY(employeeId) REFERENCES User(id),
+        
+    // )";
+    // $conn->query($sql);    
 }
 function getData ($table){
     $sql = "SELECT * FROM $table";
@@ -86,12 +157,6 @@ function deleteData($id, $table){
     $result = mysqli_query($GLOBALS["conn"], $sql);
     // $numOfRows = mysqli_num_rows($result);
     if($result){
-        // if($numOfRows>0){
-        //     while($row=mysqli_fetch_assoc($result)){
-                
-        //     }
-        // }
-       
         echo "Deleted!";
     }else{
         echo mysqli_error($GLOBALS["conn"]);

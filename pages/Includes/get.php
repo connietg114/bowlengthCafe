@@ -20,11 +20,7 @@ $sql = "SELECT * FROM $table";
                 $variable = $fieldNamesString[$j];
                 // echo $j .", $variable".  ": " . $fetchItem[$variable] . " ";
                 $aRow[$variable] = $fetchItem[$variable];
-                // echo json_encode($fetchItem[$variable]. " ");
-                
             }
-            // echo $aRow;
-            // return $aRow;
             $data[$i] = $aRow;
         }
         echo json_encode($data);

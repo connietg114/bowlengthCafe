@@ -37,8 +37,11 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
         <div class="sidenav">
             <a href="#">Home</a>
             <a href="#">Members</a>
-            <a href="#">About</a>
-            <a href="#">Settings</a>
+            <a href="#">Orders</a>
+            <a href="#">Products</a>
+            <a href="#">Lost/Found</a>
+            <a href="#">Events</a>
+            <a href="#">Profile</a>
             <a href="#">Log Out</a>
         </div>
 
@@ -49,12 +52,6 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
             </table>
 
             <?php
-            // for($i=0; $i<count(getFields("users")); $i++){
-            //     echo getFields("users")[$i] . " ";
-            //     // print_r(getFields("users")[$i]);
-            // } 
-            
-
             ?>
         </div>
     </body>
