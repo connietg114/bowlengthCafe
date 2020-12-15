@@ -55,7 +55,7 @@ function serviceDropdownMenu() {
 function showCategory(id) {
     var innerId = id + "List";
     document.getElementById(innerId).classList.toggle("show-category-list");
-    // change arrow direction 
+    // change arrow direction
     var arrowDown = document.getElementById("arrow-down").style.display;
     var arrowUp = document.getElementById("arrow-up").style.display;
     console.log("arrow-down-Style: " + arrowDown);
@@ -91,7 +91,7 @@ window.onclick = function(event) {
     if (!event.target.matches(".category")) {
         console.log("!event matches '.category'");
         var categorylist = document.getElementsByClassName("category-list");
-        // change arrow direction 
+        // change arrow direction
         var arrowDown = document.getElementById("arrow-down").style.display;
         var arrowUp = document.getElementById("arrow-up").style.display;
         if (arrowUp === "inline") {
@@ -143,7 +143,6 @@ window.onload = function() {
             // url is /?location or /?menu page
             if (lastIndexStr.includes("/")) {
                 var splitStr = lastIndexStr.split("/");
-                console.log(splitStr[0], splitStr[1]);
 
                 // Decides /?locations or /?menu (new-ranges)
                 // load locationDetails
@@ -179,8 +178,6 @@ window.onload = function() {
                 // load newRangesDetails
                 // new-ranges/rangeTitle
                 else if (splitStr[0] == "new-ranges") {
-                    console.log("splitStr[1] = " + splitStr[1]);
-                    console.log("lastIndexStr = " + lastIndexStr);
                     // ?new-ranges/product-name
                     if (splitStr[1].includes("-")) {
                         var rangetitle = splitStr[1].replace(/-/g, " ");
@@ -194,9 +191,6 @@ window.onload = function() {
                     // ?new-ranges/(Category)
                     // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
                     else {
-                        console.log("enter new-ranges/(Category):");
-                        console.log("url is :" + url);
-                        console.log("lastIndexStr = " + lastIndexStr);
                         $(".pageContent").load(
                             "pages/" + splitStr[0] + ".html",
                             function() {
