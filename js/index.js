@@ -74,6 +74,7 @@ function showCategory(id) {
 }
 
 window.onclick = function(event) {
+
     // Close the dropdown if the user clicks outside of it
     if (!event.target.matches(".dropbtn")) {
         console.log("event not matches '.dropbtn'");
@@ -88,35 +89,46 @@ window.onclick = function(event) {
         }
     }
 
-    if (!event.target.matches(".category")) {
-        console.log("event not matches '.category'");
-        var categorylist = document.getElementsByClassName("category-list");
-        // change arrow direction
-        var arrowUpExist = document.getElementById("arrow-up");
-        var arrowDownExist = document.getElementById("arrow-down");
-        if (arrowUpExist || arrowDownExist){
-          console.log("#arrowUp or #arrowDown exist");
-          var arrowUp = document.getElementById("arrow-up").style.display;
-          console.log("can read property of arrow-up style");
-          var arrowDown = document.getElementById("arrow-down").style.display;
-          console.log("can read property of arrow-down style");
-          if (arrowUp === "inline") {
-              console.log("if: arrowUp === inline ; " + arrowUp);
-              document.getElementById("arrow-up").style.display = "none";
-              document.getElementById("arrow-down").style.display = "inline";
-          } else {
-              console.log("else: arrowUp!== inline; style: " + arrowUp);
-          }
-        }
-        // hide category list
-        var i;
-        for (i = 0; i < categorylist.length; i++) {
-            var openCategory = categorylist[i];
-            console.log(".cateory for loop: " + i);
-            if (openCategory.classList.contains("show-category-list")) {
-                openCategory.classList.remove("show-category-list");
+    // execute following when .cateory exist only
+    var locationExist = document.getElementById("locationCategory");
+    var newRangesExist = document.getElementById("newRangesCategory");
+    if (locationExist || newRangesExist){
+        console.log("#locationCategory or #newRangesCategory exist");
+
+      if (!event.target.matches(".category")) {
+          console.log("event not matches '.category'");
+          var categorylist = document.getElementsByClassName("category-list");
+          // change arrow direction
+          var arrowUpExist = document.getElementById("arrow-up");
+          var arrowDownExist = document.getElementById("arrow-down");
+          if (arrowUpExist || arrowDownExist){
+            console.log("#arrowUp or #arrowDown exist");
+            var arrowUp = document.getElementById("arrow-up").style.display;
+            console.log("can read property of arrow-up style");
+            var arrowDown = document.getElementById("arrow-down").style.display;
+            console.log("can read property of arrow-down style");
+            if (arrowUp === "inline") {
+                console.log("if: arrowUp === inline ; " + arrowUp);
+                document.getElementById("arrow-up").style.display = "none";
+                document.getElementById("arrow-down").style.display = "inline";
+            } else {
+                console.log("else: arrowUp!== inline; style: " + arrowUp);
             }
-        }
+          }
+          // hide category list
+          var i;
+          for (i = 0; i < categorylist.length; i++) {
+              var openCategory = categorylist[i];
+              console.log(".cateory for loop: " + i);
+              if (openCategory.classList.contains("show-category-list")) {
+                  openCategory.classList.remove("show-category-list");
+              }
+          }
+      }
+
+
+    } else {
+      console.log("#locationCategory or #newRangesCategory not exist");
     }
 };
 
