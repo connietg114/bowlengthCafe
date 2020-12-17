@@ -1,6 +1,7 @@
 <div class="main-page">
     <div class="container">
         <div class="membership">
+          
             <div class="register">
          <!--<form onsubmit="handleRegister(event)">-->
                 <form action="register.php" method="POST">
@@ -18,7 +19,7 @@
 
                         <label for="psw"><b>Re-type Password</b></label>
                         <input type="password" placeholder="Enter Password" name="passwordRepeat" id="psw" required>
-                        
+
                         <label for="firstname"><b>First Name</b></label>
                         <input name = "firstname"type="firstname" placeholder="Enter First Name" required>
 
@@ -42,14 +43,14 @@
                         <button onclick="showPage('?membership')" class="backbtn">Back</button>
                         <button type="submit" name="registerSubmit"class="registerbtn">Register</button>
                     </div>
-                    
+
                     <div class="registerContainer signin">
                         <p>Already have an account? <a onclick="showPage('?membership')" >Sign in</a>.</p>
                     </div>
                 </form>
             </div>
-           
-           
+
+
 
         </div>
     </div>
