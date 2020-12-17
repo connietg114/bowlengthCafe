@@ -38,10 +38,10 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+    	<p> <a onclick="showPage('?membership')?logout='1'" style="color: red;decoration:underline;">logout</a> </p>
     <?php endif ?>
     <div class="login-home-page">
-      <a href="membership.html"><button type="button" class="btn">GO BACK</button></a>
+      <a onclick="showPage('?membership')"><button type="button" class="btn">GO BACK</button></a>
     </div>
 </div>
 

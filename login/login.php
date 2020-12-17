@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>Registration system PHP and MySQL</title>
-  <link rel="stylesheet" type="text/css" href="login/login.css">
+  <link rel="stylesheet" type="text/css" href="login.css">
 </head>
 <body>
   <div class="login-header">
@@ -11,7 +11,7 @@
   </div>
   <div class="login-form">
 
-  <form method="post" action="login.php">
+  <form method="post" action="login/login.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   		<label>Username</label>
