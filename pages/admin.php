@@ -37,8 +37,8 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
         <div class="sidenav">
             <a href="#">Home</a>
             <a href="#">Members</a>
-            <a href="#">Orders</a>
-            <a href="#">Products</a>
+            <a onclick="showPage('orders.php')">Orders</a>
+            <a onclick="showPage('products.php')">Products</a>
             <a href="#">Lost/Found</a>
             <a href="#">Events</a>
             <a href="#">Profile</a>
@@ -57,6 +57,10 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
     </body>
 </html>
 <script>
+
+    function showPage(url){
+        $(".main").load(url);
+    }
     //  $(function() {
     // renderData(get("users"));
     // });

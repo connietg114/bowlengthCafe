@@ -26,19 +26,7 @@ function createTable($conn) {
         countryAddress varchar(256) not null
     );";
     $conn->query($sql);
-
-
-    // $sql = "CREATE TABLE IF NOT EXISTS HomeUser(
-    //                 Hid INT(100) AUTO_INCREMENT PRIMARY KEY,
-    //                 HName VARCHAR (200) NOT NULL,
-    //                 HNRIC VARCHAR (20) NOT NULL,
-    //                 HContatcnum VARCHAR (15) NOT NULL,
-    //                 HEmail VARCHAR (50) NOT NULL,
-    //                 HPromocode VARCHAR (10) NOT NULL,
-    //                 HICFront VARCHAR (80),
-    //                 HICBack VARCHAR (80),
-    //                 HUtilitybill VARCHAR (80));";
-    // $conn->query($sql);  
+    //INSERT INTO `Customer`( `firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`, `zipCodeAddress`, `countryAddress`) VALUES ("Connie", "Tang", "kourtneytg@gmail.com", "3 Fairholme Avenue, Epsom", "Auckland", "1023", "New Zealand")
 
     $sql = "CREATE TABLE IF NOT EXISTS MembershipLevel(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
@@ -47,6 +35,9 @@ function createTable($conn) {
         rewards int(11) not null
     );";
     $conn->query($sql); 
+    //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Bronze", null, 500);
+    //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Medal", null, 500);
+    //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Gold", null, 500);
 
     $sql = "CREATE TABLE IF NOT EXISTS MembershipCondition(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
@@ -59,61 +50,100 @@ function createTable($conn) {
     );";
     $conn->query($sql); 
 
-
-    // $sql = "CREATE TABLE IF NOT EXISTS Product(
-    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-    //     name varchar(256) not null,
-    //     price int(11)not null,
-    // )";
-    // $conn->query($sql); 
-
-    // $sql = "CREATE TABLE IF NOT EXISTS Topping(
-    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-    //     name varchar(256) not null,
-    //     price int(11)not null,
-    // )";
-    // $conn->query($sql);
-
-    // $sql = "CREATE TABLE IF NOT EXISTS ProductTopping(
-    //     productId int(11) AUTO_INCREMENT PRIMARY KEY not null,
-    //     toppingId varchar(256) not null,
-    //     quantity int(11)not null,
-    //      FOREIGN KEY(productId) REFERENCES Product(id)
-    //      FOREIGN KEY(toppingId) REFERENCES Topping(id)
-    // )";
-    // $conn->query($sql);
-    
-    
-
-
-    // $sql = "CREATE TABLE IF NOT EXISTS ProductOrdered(
-    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-    //     productId varchar(256) not null,
-    //     orderId int(11)not null,
-    //     iceLevel varchar(256) not null, //normal, less, half...
-    //     sugarLevel varchar(256) not null, //normal, less, half...
-    //     extraToppings varchar(256) not null, //normal, less, half...
-    //     FOREIGN KEY(productId) REFERENCES Product(id),
-    //     FOREIGN KEY(orderId) REFERENCES CustomerOrder(id)
-
-    //     description varchar(256),
-    //     price int(11)not null,
-    //     -- points int(11) not null,  
-    // )";
-    // $conn->query($sql); 
-
-    // $sql = "CREATE TABLE IF NOT EXISTS CustomerOrder(
-    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-    //     customerId varchar(256) not null,
-    //     status varchar(256),
-    //     totalPrice int(11)not null,
-    //      rewardsUsed int(11) not null,
-    //      employeeId int(11) not null,
-    //     FOREIGN KEY(customerId) REFERENCES Customer(id),
-    //     FOREIGN KEY(employeeId) REFERENCES User(id),
+    $sql = "CREATE TABLE IF NOT EXISTS MenuCategory(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        name varchar(256) not null,
+        description varchar(256)
         
-    // )";
-    // $conn->query($sql);    
+    )";
+    $conn->query($sql); 
+
+    $sql = "CREATE TABLE IF NOT EXISTS Product(
+         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+         categoryId int(11) not null,
+         name varchar(256) not null,
+         description varchar(256),
+         image varchar(256),
+
+         FOREIGN KEY(categoryId) REFERENCES MenuCategory(id)    
+    )";
+    $conn->query($sql); 
+    //INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Coffee", null)
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Milk Tea", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Fresh Tea", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Specialty", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Bean Lovers", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Tea Latte", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Milk Foam", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Brown Sugar", null);
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Winter Melon", null);
+
+//image not decided yet
+
+    $sql = "CREATE TABLE IF NOT EXISTS Attribute(
+         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+         name varchar(256) not null,
+         categoryId int(11) not null,
+         FOREIGN KEY(categoryId) REFERENCES MenuCategory(id)    
+    )";
+    $conn->query($sql); 
+
+    $sql = "CREATE TABLE IF NOT EXISTS ProductAttribute(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        productId int(11) not null,
+        attributeId int(11) not null,
+        description varchar(256) not null,
+        cost int(11) not null,
+
+        FOREIGN KEY(productId) REFERENCES Product(id),   
+        FOREIGN KEY(attributeId) REFERENCES Attribute(id)
+   )";
+   $conn->query($sql); 
+
+
+   $sql = "CREATE TABLE IF NOT EXISTS OrderTracking(
+       id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+       customerId int(11) not null,
+       price int(11) not null,
+       operatorId int(11) not null,
+       dateTime datetime not null,
+       pointsUsed int(11) not null,
+       FOREIGN KEY(customerId) REFERENCES Customer(id),
+       FOREIGN KEY(operatorId) REFERENCES User(id)
+
+    )";
+    $conn->query($sql); 
+
+    $sql = "CREATE TABLE IF NOT EXISTS ProductOrder(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        orderId int(11) not null,
+        productId int(11) not null,
+        quantity int(11) not null,
+        price int(11) not null,
+
+        FOREIGN KEY(orderId) REFERENCES OrderTracking(id),
+        FOREIGN KEY(productId) REFERENCES Product(id)
+     )";
+     $conn->query($sql); 
+
+
+     $sql = "CREATE TABLE IF NOT EXISTS ProductOrderAttribute(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        productAttributeId int(11) not null,
+        productOrderId int(11) not null,
+
+        FOREIGN KEY(productAttributeId) REFERENCES ProductAttribute(id),
+        FOREIGN KEY(productOrderId) REFERENCES ProductOrder(id)
+     )";
+     $conn->query($sql); 
+
+
+
+    //  $sql = "CREATE TABLE IF NOT EXISTS Product(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //  )";
+    //  $conn->query($sql); 
+
 }
 function getData ($table){
     $sql = "SELECT * FROM $table";
