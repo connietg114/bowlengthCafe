@@ -12,4 +12,4 @@ $dbPassword = "";
 $dbName = "LoginSystem";
 
 $conn = mysqli_connect($dbServerName, $dbUsername, $dbPassword, $dbName, 3306);
-?>
+?> 

@@ -8,13 +8,16 @@ $dbPassword = "";
 $dbName = "LoginSystem";
 //for connection to xampp PhpMyAdmin
 
-$conn = mysqli_connect($dbServerName, $dbUsername, $dbPassword, $dbName, 3306);
-if ($conn->connect_error) {
-    die("Connection failed: " . mysqli_connect_error());
+$conn =new mysqli($dbServerName, $dbUsername, $dbPassword);
+if ($conn->connect_errno) {
+    echo("Connection failed: " . $conn->connect_err);
+    exit;
 }
-else{
-    // echo 'connected';   
-};
+$sql="CREATE DATABASE IF NOT EXISTS ".$dbName.";";
+$conn->query($sql);
+if(!$conn->select_db($dbName)){
+    echo "Error create database: ". $conn->error;
+}
 
 if (createTable($conn)===true){
     echo "Table MyGuests created successfully";
