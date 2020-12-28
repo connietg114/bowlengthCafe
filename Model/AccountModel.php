@@ -1,6 +1,8 @@
 <?php
 
 require_once dirname(__FILE__).'/globalVariables.php';
+require_once dirname(__FILE__).'/Includes/sqlQuery.php';
+
 class AccountModel{
         private $id;
         private $username;
@@ -12,11 +14,11 @@ class AccountModel{
         /*
             New user function
         */
-        // function newUser( $username, $password, $firstname,$lastname,$email="",$language){
-        //     if(!$result=$conn->query("INSERT INTO `account` VALUES (NULL, '$username', '$password','$firstname','$lastname','$email','$language');")){
-        //         echo "Insert error";
-        //     }
-        // }
+        function newUser( $username, $password, $firstname,$lastname,$email=""){
+            if(!$result=$GLOBALS["conn"]->query("INSERT INTO `account` VALUES (NULL, '$username', '$password','$firstname','$lastname','$email');")){
+                echo "Insert error";
+            }
+        }
 
         /*
             Get and Set function

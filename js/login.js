@@ -1,6 +1,7 @@
 function getEle(id) {
     return document.getElementById(id);
 }
+var exist = true;
 
 function check() {
     var flag = 0;
@@ -75,31 +76,60 @@ function loginSubmit() {
     });
 }
 
+function checkUsername() {
+    var username = getEle('newUser').value;
+    $.get("controller/register.php", {
+        username: username
+    }, function(feedback) {
+        var obj = JSON.parse(feedback);
+        if (obj.code == 1) {
+            getEle('existed').setAttribute("class", "reminder");
+            getEle('existed').innerHTML = obj.status;
+            exist = false;
+        } else if (obj.code == 0) {
+            getEle('existed').setAttribute("class", "warning");
+            getEle('existed').innerHTML = obj.status;
+            exist = true;
+        } else if (feedback == 2) {
+            getEle('existed').innerHTML = "";
+            exist = true;
+        }
+
+    });
+}
+
 function registerSubmit() {
     if (check() && !exist) {
         var username = getEle('newUser').value;
         var password = getEle('newPass').value;
+        var repass = getEle('newRepass').value;
         var fn = getEle('newFN').value;
         var ln = getEle('newLN').value;
         var email = getEle('newEmail').value;
-        var language = getEle('newLang').value;
-        $.post("controller/register.php", {
-            newUser: username,
-            newPass: password,
-            newFN: fn,
-            newLN: ln,
-            newEmail: email,
-            newLang: language
-        }, function(feedback) {
-            var obj = JSON.parse(feedback);
+        var regcode = "reg";
+        if (password == repass) {
+            $.post("Controller/AccountController.php", {
+                code: regcode,
+                newUser: username,
+                newPass: password,
+                newFN: fn,
+                newLN: ln,
+                newEmail: email,
+            }, function(feedback) {
+                var obj = JSON.parse(feedback);
 
-            if (obj.code == 1) {
-                alert("Register Success");
-                gotourl('?language=en&page=login&type=phtml');
-            } else if (obj.code == 0) {
-                alert("Register Error");
-            }
-        });
+                if (obj.code == 1) {
+                    alert("Register Success");
+                    showPage('?membership');
+                } else if (obj.code == 0) {
+                    alert("Register Error");
+                }
+            });
+        } else {
+            //Error matching password and repassword
+
+        }
+
     } else {
         alert("Please check your input infomation");
     }
