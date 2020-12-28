@@ -1,9 +1,9 @@
 <div class="main-page">
     <div class="container">
         <div class="membership">
-          
+
             <div class="register">
-         <!--<form onsubmit="handleRegister(event)">-->
+                <!--<form onsubmit="handleRegister(event)">-->
                 <form action="register.php" method="POST">
                     <div class="registerContainer">
                         <h1>Register</h1>
@@ -11,23 +11,23 @@
                         <hr>
                         <label for="username"><b>Username</b></label>
                         <input name="username" type="username" placeholder="Enter Username" required>
-                        <span style="color:red"class="error"></span>
+                        <span style="color:red" class="error"></span>
                         <br>
 
                         <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="password" id="psw" required>
+                        <input type="password" placeholder="Enter Password" name="password" id="newPss" required>
 
                         <label for="psw"><b>Re-type Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="passwordRepeat" id="psw" required>
+                        <input type="password" placeholder="Enter Password" name="passwordRepeat" id="newRepass" required>
 
                         <label for="firstname"><b>First Name</b></label>
-                        <input name = "firstname"type="firstname" placeholder="Enter First Name" required>
+                        <input name="firstname" id="FN" type="firstname" placeholder="Enter First Name" required>
 
                         <label for="lastname"><b>Last Name</b></label>
-                        <input name="lastname"type="lastname" placeholder="Enter Last Name" required>
+                        <input name="lastname" id="LN" type="lastname" placeholder="Enter Last Name" required>
 
                         <label for="email"><b>Email</b></label>
-                        <input name="email" type="text" placeholder="Enter Email"  id="email">
+                        <input name="email" type="text" placeholder="Enter Email" id="newEmail">
 
                         <!--<label for="photo"><b>Photo</b></label>
                         <input name="photo"type="file" id="myfile" name="myfile"><br><br>
@@ -41,11 +41,11 @@
                         <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
                         <button onclick="showPage('?membership')" class="backbtn">Back</button>
-                        <button type="submit" name="registerSubmit"class="registerbtn">Register</button>
+                        <button type="submit" name="registerSubmit" class="registerbtn">Register</button>
                     </div>
 
                     <div class="registerContainer signin">
-                        <p>Already have an account? <a onclick="showPage('?membership')" >Sign in</a>.</p>
+                        <p>Already have an account? <a onclick="showPage('?membership')">Sign in</a>.</p>
                     </div>
                 </form>
             </div>
