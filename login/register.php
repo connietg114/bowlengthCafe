@@ -1,4 +1,3 @@
-<?php include('server.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +10,7 @@
   </div>
 <div class="login-form">
 
-  <form method="post" action="login/register.php">
+  <form action="">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   	  <label>Username</label>
@@ -30,7 +29,7 @@
   	  <input type="password" name="password_2">
   	</div>
   	<div class="input-group">
-  	  <button type="submit" class="btn" name="reg_user">Register</button>
+  	  <button class="btn" onclick="" id="reg_user" name="reg_user">Register</button>
   	</div>
   	<p>
   		Already a member? <a class="sign-in-up" onclick="showPage('?login')">Sign in</a>

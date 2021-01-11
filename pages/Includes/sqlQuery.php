@@ -5,6 +5,27 @@ require_once dirname(__FILE__).'/globalVariables.php';
 
 
 function createTable($conn) {
+    $result=$conn->query("SHOW TABLES LIKE 'account';");
+    if ($result->num_rows == 0) {
+        $sql="CREATE TABLE `account`(
+            `id` int(8) UNSIGNED UNIQUE NOT NULL AUTO_INCREMENT,
+            `username` varchar(256) DEFAULT NULL,
+            `password` varchar(256) DEFAULT NULL,
+            `firstname` varchar(256) DEFAULT NULL,
+            `lastname` varchar(256) DEFAULT NULL,
+            `email` varchar(256) DEFAULT NULL,
+            PRIMARY KEY(`id`)
+        )";
+        if(!$conn->query($sql)){
+            echo "Error creating table account";
+        }
+        
+        if(!$conn->query("INSERT INTO `account` (`username`, `password`,`firstname`,`lastname`,`email`) VALUES('leoliang',md5('123'),'Leo','Liang','leoliangziao@gmail.com');")){
+            echo "Failed creating sample account";
+        }
+    }
+    
+
     $sql = "CREATE TABLE IF NOT EXISTS User(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
         firstName varchar(256) not null,
