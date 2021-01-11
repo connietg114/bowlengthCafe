@@ -22,5 +22,45 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
     
     <body>
         <h1>Products</h1>
+        <div class="w3-container container"> 
+
+        </div>
     </body>
 </html>
+
+<script>
+    getProducts();
+    function getProducts(){
+        var dataReturn;
+        $.ajax({
+            type: 'POST',
+            url: "Includes/products/get.php",
+            data: {table: "Product"},
+            success: function (items){
+                console.log(items);
+                // dataReturn = items;
+                dataReturn = jQuery.parseJSON(items);
+            },
+            async:false   
+        });
+        return dataReturn;
+    }
+    console.log(getMenuCategory());
+    function getMenuCategory(){
+        var dataReturn;
+        $.ajax({
+            type: 'POST',
+            url: "Includes/products/getMenuCategory.php",
+            data: {table: "MenuCategory"},
+            success: function (items){
+                console.log(items);
+                // dataReturn = items;
+                dataReturn = jQuery.parseJSON(items);
+            },
+            async:false   
+        });
+        return dataReturn;
+    }
+    
+
+</script>

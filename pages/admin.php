@@ -68,7 +68,7 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
     
     renderData(get("table"));
     function deletedata(id, table){
-        $.post("Includes/delete.php", {id: id, table: table}, message =>{
+        $.post("Includes/home/delete.php", {id: id, table: table}, message =>{
             if(jQuery.parseJSON(message).status=="success"){
                 $(".row"+id).html("");
             }
@@ -76,17 +76,19 @@ require_once dirname(__FILE__).'/Includes/sqlQuery.php';
     }
 
     function get(table){
-        var data;
+        var dataReturn;
         $.ajax({
             type: 'POST',
-            url: "Includes/get.php",
+            url: "Includes/home/get.php",
             data: {table: "users"},
             success: function (items){
-                data = jQuery.parseJSON(items);
+                // console.log(items);
+                // dataReturn = items;
+                dataReturn = jQuery.parseJSON(items);
             },
             async:false   
         });
-        return data;
+        return dataReturn;
     }
     function renderData(data){
         $(".showMembers").append("<tr><th>No.</th><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th><th>Role</th><th>Delete</th><th>Edit</th></tr>");

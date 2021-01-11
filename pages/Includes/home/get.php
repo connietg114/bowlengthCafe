@@ -1,9 +1,10 @@
 <?php
-require_once dirname(__FILE__).'/globalVariables.php';
-require_once dirname(__FILE__).'/sqlQuery.php';
+require_once dirname(__FILE__).'/../globalVariables.php';
+require_once dirname(__FILE__).'/../sqlQuery.php';
 
 $table = isset($_POST['table']) ? $_POST['table'] : null;
 // echo $table;
+
 $sql = "SELECT * FROM $table";
     $result = mysqli_query($GLOBALS["conn"], $sql);
     $numOfRows = mysqli_num_rows($result);

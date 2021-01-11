@@ -50,3 +50,7 @@ table {
   /* .editCol, .deleteCol{
       text-align: center !important;
   } */
+
+  .container{
+    border-style:ridge;
+    }
