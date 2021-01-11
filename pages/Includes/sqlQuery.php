@@ -89,7 +89,7 @@ function createTable($conn) {
          FOREIGN KEY(categoryId) REFERENCES MenuCategory(id)    
     )";
     $conn->query($sql); 
-    //INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Coffee", null)
+    // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Coffee", null)
     // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Milk Tea", null);
     // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Fresh Tea", null);
     // INSERT INTO `MenuCategory`(`name`, `description`) VALUES ("Specialty", null);
