@@ -1,7 +1,7 @@
 <?php
 
-require_once dirname(__FILE__).'/globalVariables.php';
-require_once dirname(__FILE__).'/Includes/sqlQuery.php';
+require_once '../pages/Includes/globalVariables.php';
+require_once '../pages/Includes/sqlQuery.php';
 
 class AccountModel{
         private $id;

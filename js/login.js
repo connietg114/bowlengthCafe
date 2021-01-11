@@ -99,40 +99,39 @@ function checkUsername() {
 }
 
 function registerSubmit() {
-    if (check() && !exist) {
-        var username = getEle('newUser').value;
-        var password = getEle('newPass').value;
-        var repass = getEle('newRepass').value;
-        var fn = getEle('newFN').value;
-        var ln = getEle('newLN').value;
-        var email = getEle('newEmail').value;
-        var regcode = "reg";
-        if (password == repass) {
-            $.post("Controller/AccountController.php", {
-                code: regcode,
-                newUser: username,
-                newPass: password,
-                newFN: fn,
-                newLN: ln,
-                newEmail: email,
-            }, function(feedback) {
-                var obj = JSON.parse(feedback);
+    // if (check()) {
+    var username = getEle('newUser').value;
+    var password = getEle('newPass').value;
+    var repass = getEle('newRepass').value;
+    var fn = getEle('newFN').value;
+    var ln = getEle('newLN').value;
+    var email = getEle('newEmail').value;
+    var regcode = "reg";
 
-                if (obj.code == 1) {
-                    alert("Register Success");
-                    showPage('?membership');
-                } else if (obj.code == 0) {
-                    alert("Register Error");
-                }
-            });
-        } else {
-            //Error matching password and repassword
+    $.post("Controller/AccountController.php", {
+        code: regcode,
+        newUser: username,
+        newPass: password,
+        newRepass: repass,
+        newFN: fn,
+        newLN: ln,
+        newEmail: email,
+    }, function(feedback) {
+        // var obj = JSON.parse(feedback);
+        alert(feedback);
 
-        }
-
-    } else {
-        alert("Please check your input infomation");
-    }
+        // if (obj.code == 1) {
+        //     alert("Register Success");
+        //     showPage('?membership');
+        // } else if (obj.code == 0) {
+        //     alert("Register Error");
+        // } else if (obj.code == 2) {
+        //     alert("Two password you enter are different");
+        // }
+    });
+    // } else {
+    //     alert("Please check your input infomation");
+    // }
 
 }
 
