@@ -83,9 +83,10 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             url: "home/get.php",
             data: {table: "users"},
             success: function (items){
-                console.log(items);
+                // console.log(items);
                 // dataReturn = items;
                 dataReturn = jQuery.parseJSON(items);
+                // console.log(dataReturn);
             },
             async:false   
         });

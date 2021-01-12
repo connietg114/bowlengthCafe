@@ -24,7 +24,18 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     <body>
         <h1>Products</h1>
         <div class="w3-container container"> 
-
+            <br>
+            <div class="buttonGroup"></div>
+            <br>
+            <table class="productsItems" categoryId="1">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </table>
+            <br>
         </div>
     </body>
 </html>
@@ -38,7 +49,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             url: "products/get.php",
             data: {table: "Product"},
             success: function (items){
-                // console.log(items);
+                console.log(items);
                 // dataReturn = items;
                 dataReturn = jQuery.parseJSON(items);
             },
@@ -47,11 +58,16 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         return dataReturn;
     }
     $.map(getMenuCategory(), function(value, index){
-        $(".container").append("<button>"+ value + "</button>");
-    })
-    
+        $(".buttonGroup").append("<button onclick="+ '"changeCategoryId(' + "'"+value.id+ "'" +')" '+ " id="+ "'"+value.id + "'" +">"+ value.name+"</button> ");
+        // $(".productsItems").append("<tr>" + "<td>"+ value.id +"</td>" + "<td>"+value.name + "</td>" + "</tr>");
 
-    console.log(getMenuCategory());
+    })
+    // console.log(getMenuCategory());
+
+    function changeCategoryId(id){
+        $(".productsItems").attr("categoryId", id);
+    }
+
     function getMenuCategory(){
         var dataReturn;
         $.ajax({
