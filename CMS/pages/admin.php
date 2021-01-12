@@ -86,7 +86,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 // console.log(items);
                 // dataReturn = items;
                 dataReturn = jQuery.parseJSON(items);
-                console.log(dataReturn);
+                // console.log(dataReturn);
             },
             async:false   
         });
