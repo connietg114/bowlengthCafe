@@ -1,7 +1,5 @@
 <?php
 include_once "sqlQuery.php";
-
-
 $dbServerName = "localhost";
 $dbUsername = "root";
 $dbPassword = "";

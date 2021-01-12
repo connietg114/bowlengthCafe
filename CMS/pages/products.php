@@ -23,7 +23,15 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     <body>
         <h1>Products</h1>
         <div class="w3-container container"> 
-
+            <br>
+            <div class="buttonGroup"></div>
+            <br>
+            <table class="productsItems">
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+            </table>
+            <br>
         </div>
     </body>
 </html>
@@ -46,7 +54,10 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         return dataReturn;
     }
     $.map(getMenuCategory(), function(value, index){
-        $(".container").append("<button>"+ value + "</button>");
+        $(".buttonGroup").append("<button"+ " id="+ "'"+value.id + "'" +">"+ value.name+"</button> ");
+       
+        // $(".productsItems").append("<tr>" + "<td>"+ value.id +"</td>" + "<td>"+value.name + "</td>" + "</tr>");
+
     })
     
 

@@ -11,6 +11,7 @@ $sql = "SELECT * FROM $table";
     $data = array();
     $fieldNames = getFields($table);
     $fieldNamesString = implode(getFields($table)) ;
+
     $fieldNamesString = explode(" ", $fieldNamesString);
 
     if ($result){
@@ -19,6 +20,7 @@ $sql = "SELECT * FROM $table";
             $fetchItem = mysqli_fetch_assoc($result);
             for($j=0; $j<sizeof($fieldNames); $j++){
                 $variable = $fieldNamesString[$j];
+
                 // echo $j .", $variable".  ": " . $fetchItem[$variable] . " ";
                 $aRow[$variable] = $fetchItem[$variable];
             }
