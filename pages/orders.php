@@ -1,8 +1,7 @@
 <?php
-include_once "Includes/dbConnect.php";
-require_once dirname(__FILE__).'/Includes/globalVariables.php';
-require_once dirname(__FILE__).'/Includes/sqlQuery.php';
-
+    include_once "Includes/dbConnect.php";
+    require_once dirname(__FILE__).'/Includes/globalVariables.php';
+    require_once dirname(__FILE__).'/Includes/sqlQuery.php';
 ?>
 
 <!DOCTYPE html>
