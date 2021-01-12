@@ -1,0 +1,15 @@
+.about h1 {
+    text-align: center;
+}
+
+.about-content-text {
+    max-width: 30em;
+    margin: 5px auto;
+    font-family: proxima-nova;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.02em;
+    line-height: 2.2em;
+    text-transform: none;
+    color: rgba(82, 82, 82, 0.6);
+}

@@ -1,0 +1,9 @@
+.slideShow {
+    display: block;
+    margin: 0 auto;
+}
+
+.mySlides {
+    display: none;
+    padding: 5px auto;
+}
