@@ -1,5 +1,5 @@
 <?php
-include_once "Includes/sqlQuery.php";
+include_once "sqlQuery.php";
 
 
 $dbServerName = "localhost";

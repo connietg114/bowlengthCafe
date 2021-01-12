@@ -1,6 +1,6 @@
 <?php
-require_once dirname(__FILE__).'/../globalVariables.php';
-require_once dirname(__FILE__).'/../sqlQuery.php';
+require_once dirname(__FILE__).'/../../Includes/globalVariables.php';
+require_once dirname(__FILE__).'/../../Includes/sqlQuery.php';
 
 $table = isset($_POST['table']) ? $_POST['table'] : null;
 // echo $table;
