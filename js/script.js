@@ -18,11 +18,11 @@ window.onload = function() {
                         if (locationDetails[i].title.toLowerCase() == address) {
                             var id = locationDetails[i].id;
                             $(".pageContent").load(
-                                "pages/" + splitStr[0] + ".html",
+                                "dynamic_pages/" + splitStr[0] + ".html",
                                 function() {
                                     showLocationDetails(
                                         id,
-                                        "pages/locationDetails.html",
+                                        "dynamic_pages/locationDetails.html",
                                         locationDetails
                                     );
                                 }
@@ -31,10 +31,10 @@ window.onload = function() {
                     }
                 } else {
                     $(".pageContent").load(
-                        "pages/" + splitStr[0] + ".html",
+                        "dynamic_pages/" + splitStr[0] + ".html",
                         function() {
                             $(".locationPageContent").load(
-                                "pages/" + lastIndexStr + ".html"
+                                "dynamic_pages/" + lastIndexStr + ".html"
                             );
                         }
                     );
@@ -69,9 +69,10 @@ window.onload = function() {
                 alert("url is : " + url + "\nno such page exit!");
             }
         } else if (lastIndexStr == "locations") {
-            link = "pages/" + lastIndexStr + ".html";
+            link = "dynamic_pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link, function() {
-                $(".locationPageContent").load("pages/locations/all.html");
+                console.log(link);
+                $(".locationPageContent").load("dynamic_pages/locations/all.html");
             });
         } else if (lastIndexStr == "login") {
             link = "login/" + lastIndexStr + ".php";
