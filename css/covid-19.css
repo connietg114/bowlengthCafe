@@ -1,0 +1,49 @@
+.covid-19 {
+    width: 50%;
+    margin: 5% auto;
+}
+
+.covid-19 h1 {
+    font-family: din-condensed-web;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.075em;
+    line-height: 1.2em;
+    text-transform: uppercase;
+    font-size: 4.8ex;
+    margin-bottom: 1em;
+}
+
+.covid-19 h2 {
+    font-family: din-condensed-web;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    letter-spacing: 0.075em;
+    line-height: 1.4em;
+    text-transform: uppercase;
+}
+
+.covid-19 h3 {
+    margin: 15px 0 10px;
+    font-family: proxima-nova;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    line-height: 1.8em;
+    text-transform: uppercase;
+}
+
+.covid-19 p {
+    margin: 13px 0;
+    font-family: proxima-nova;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    line-height: 2.2em;
+    text-transform: none;
+    color: rgba(82, 82, 82, 0.6);
+}
+

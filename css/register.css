@@ -1,0 +1,90 @@
+.register {
+    /* width:60%; */
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.registerContainer {
+    padding: 16px;
+    background-color: white;
+}
+
+input[type=text],
+input[type=password],
+input[type=username],
+input[type=firstname],
+input[type=lastname] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=file] {
+    width: 100%;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+}
+
+select {
+    width: 100%;
+    padding: 7px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.registerbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    width: auto;
+    float: right;
+}
+
+.backbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    width: auto;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.signin a:hover {
+    color: blue;
+}
+
+@media screen and (max-width: 600px) {
+    .register {
+        width: 100%;
+    }
+}
