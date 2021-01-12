@@ -1,0 +1,26 @@
+<div style="background-color: #FFFDDE; height:30px; border:thin solid #EDDD00">
+
+    <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 1......</li>
+    <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 2.......</li>
+    <li class="annoucement" style='padding-top:5px;text-align:center;font-family:Verdana'>ANNOUCEMENT 3.......</li>
+
+</div>
+
+<script>
+    var myIndex = 0;
+    annoucementBanner();
+
+    function annoucementBanner() {
+        var i;
+        var x = document.getElementsByClassName("annoucement");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) {
+            myIndex = 1
+        }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(annoucementBanner, 4000);
+    }
+</script>
