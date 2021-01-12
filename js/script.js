@@ -49,7 +49,7 @@ window.onload = function() {
                     for (var i = 0; i < newRangeDetails.length; i++) {
                         if (newRangeDetails[i].title.toLowerCase() == rangetitle) {
                             var id = newRangeDetails[i].id;
-                            showRangeDetails(id, "pages/rangeDetails.html", newRangeDetails);
+                            showRangeDetails(id, "dynamic_pages/rangeDetails.html", newRangeDetails);
                         }
                     }
                 }
@@ -57,10 +57,10 @@ window.onload = function() {
                 // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
                 else {
                     $(".pageContent").load(
-                        "pages/" + splitStr[0] + ".html",
+                        "dynamic_pages/" + splitStr[0] + ".html",
                         function() {
                             $(".new-rangesPageContent").load(
-                                "pages/newRangesCategory/" + splitStr[1] + ".html"
+                                "dynamic_pages/newRangesCategory/" + splitStr[1] + ".html"
                             );
                         }
                     );
@@ -71,27 +71,24 @@ window.onload = function() {
         } else if (lastIndexStr == "locations") {
             link = "dynamic_pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link, function() {
-                console.log(link);
                 $(".locationPageContent").load("dynamic_pages/locations/all.html");
             });
         } else if (lastIndexStr == "login") {
             link = "login/" + lastIndexStr + ".php";
-            console.log("login link : "+ link)
+            console.log("login link : " + link)
             $(".pageContent").load(link);
         } else if (lastIndexStr == "logindex") {
             link = "login/" + lastIndexStr + ".php";
-            console.log("login link : "+ link)
+            console.log("login link : " + link)
             $(".pageContent").load(link);
-        }
-        else if (lastIndexStr == "register2") {
+        } else if (lastIndexStr == "register2") {
             link = "login/register" + ".php";
-            console.log("login link : "+ link)
+            console.log("login link : " + link)
             $(".pageContent").load(link);
-        }
-        else {
+        } else {
             link = "pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link);
-            
+
         }
     } else if (url.includes("bowlengthCafe")) {
         $(".myCafe").load("indexContent.html", function() {
