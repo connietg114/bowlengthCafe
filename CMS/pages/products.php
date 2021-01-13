@@ -2,9 +2,7 @@
 require_once dirname(__FILE__)."/../Includes/dbConnect.php";
 require_once dirname(__FILE__).'/../Includes/globalVariables.php';
 require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
-
 ?>
-
 <!DOCTYPE html>
 <html>
     <body>
@@ -27,22 +25,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 </html>
 
 <script>
-    getProducts();
-    function getProducts(){
-        var dataReturn;
-        $.ajax({
-            type: 'POST',
-            url: "products/get.php",
-            data: {table: "Product"},
-            success: function (items){
-                // console.log(items);
-                dataReturn = jQuery.parseJSON(items);
-            },
-            async:false   
-        });
-        return dataReturn;
-    }
-
     $.map(getMenuCategory(), function(value, index){
         $(".buttonGroup").append("<button onclick="+ '"changeCategoryId(' + "'"+value.id+ "'" +')" '+ " id="+ "'"+value.id + "'" +">"+ value.name+"</button> ");
     })
@@ -55,14 +37,14 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     }
 
     function renderProducts(array, id){
-        console.log(array);
+        // console.log(array);
         $.map(array, function(value, index){
             if(value.categoryId==id){
-                $(".productsItems").append("<tr>" + 
+                $(".productsItems").append("<tr onclick='navigateToDetails("+value.id +")'>" + 
                 "<td>"+ value.id +"</td>" + 
                 "<td>"+value.name + "</td>" + 
-                "<td>"+value.description + "</td>" + 
-                "<td>"+ value.image + "</td>"+ 
+                "<td>"+ (value.description || "-") + "</td>" + 
+                "<td>"+ (value.image || "-") + "</td>"+ 
                 "<td onclick='deleteProduct()'><i class='fa fa-trash'></i>" + "</td>"
                 +  "<td><i class='fa fa-pen'></i>" + "</td>" +
                 "</tr>");
@@ -70,22 +52,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         })
     }
     function deleteProduct(){
-        console.log("delete");
-    }
-
-    function getMenuCategory(){
-        var dataReturn;
-        $.ajax({
-            type: 'POST',
-            url: "products/getMenuCategory.php",
-            data: {table: "MenuCategory"},
-            success: function (items){
-                // console.log(items);
-                dataReturn = jQuery.parseJSON(items);
-            },
-            async:false   
-        });
-        return dataReturn;
+        // console.log("delete");
     }
     
 

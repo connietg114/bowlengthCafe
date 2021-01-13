@@ -54,3 +54,8 @@ table {
   .container{
     border-style:ridge;
     }
+
+  .productName{
+    font-weight: bold;
+    /* text-decoration: underline; */
+  }

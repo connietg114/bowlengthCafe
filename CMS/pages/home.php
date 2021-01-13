@@ -56,7 +56,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 "<td>" + value.lastName + "</td>" + 
                 "<td>" + value.email + "</td>" + 
                 "<td>" + value.pwd + "</td>" + 
-                "<td>" + value.role + "</td>" +
+                "<td>" + (value.role || "") + "</td>" +
                 "<td class = 'deleteCol'><i class='fa fa-trash delete' id="+value.id + " table = " + "'users'"+ "></i>" + "</td>"
                 +  "<td class = 'editCol' onclick='edit()'><i class='fa fa-pen'></i>" + "</td>"+ 
                 "</tr>"

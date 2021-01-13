@@ -8,19 +8,15 @@ $table = isset($_POST['table']) ? $_POST['table'] : null;
 $sql = "SELECT * FROM $table";
     $result = mysqli_query($GLOBALS["conn"], $sql);
     $numOfRows = mysqli_num_rows($result);
+    $numOfCol =mysqli_num_fields($result);
     $data = array();
-    $fieldNames = getFields($table);
-    $fieldNamesString = implode(getFields($table)) ;
-
-    $fieldNamesString = explode(" ", $fieldNamesString);
 
     if ($result){
         for($i=0; $i<$numOfRows; $i++){
             $aRow = array();
             $fetchItem = mysqli_fetch_assoc($result);
-            for($j=0; $j<sizeof($fieldNames); $j++){
-                $variable = $fieldNamesString[$j];
-
+            for($j=0; $j<$numOfCol; $j++){
+                $variable = mysqli_fetch_field_direct($result, $j)->name;
                 // echo $j .", $variable".  ": " . $fetchItem[$variable] . " ";
                 $aRow[$variable] = $fetchItem[$variable];
             }

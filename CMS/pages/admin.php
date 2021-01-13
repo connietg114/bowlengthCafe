@@ -36,10 +36,10 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 
         ?>
         <div class="sidenav">
-            <a onclick="showPage('home.php')">Home</a>
+            <a onclick="showPage('?home')">Home</a>
             <a href="#">Members</a>
-            <a onclick="showPage('orders.php')">Orders</a>
-            <a onclick="showPage('products.php')">Products</a>
+            <a onclick="showPage('?orders')">Orders</a>
+            <a onclick="showPage('?products')">Products</a>
             <a href="#">Lost/Found</a>
             <a href="#">Events</a>
             <a href="#">Profile</a>
@@ -55,11 +55,3 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         </div>
     </body>
 </html>
-<script>
-    window.onload= function(){
-        showPage('home.php');
-    }
-    function showPage(url){
-        $(".main").load(url);
-    }
-</script>

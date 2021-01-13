@@ -1,5 +1,6 @@
 window.onload = function() {
     var url = window.location.href;
+    
     console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
