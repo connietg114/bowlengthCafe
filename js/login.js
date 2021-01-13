@@ -66,7 +66,7 @@ function loginSubmit() {
     var username = getEle('username').value;
     var password = getEle('password').value;
 
-    $.post("controller/login.php", {
+    $.post("Controller/AccountController.php", {
         username: username,
         password: password
     }, function(feedback) {

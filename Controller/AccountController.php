@@ -1,6 +1,8 @@
 <?php
 
 require_once '../Model/AccountModel.php';
+require_once '../Model/AccountCollectionModel.php';
+
     function testInput($data){
         $data = trim($data);
         $data = stripslashes($data);
@@ -32,5 +34,36 @@ require_once '../Model/AccountModel.php';
             }
             echo json_encode($test);
         }
+    }else if($code=="login"){
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            $loginUser=testInput($_POST["username"]);
+            $loginPass=testInput($_POST["password"]);
+            $count=0;
+            
+            if((isset($loginUser))&&(isset($loginPass))){
+                $collection=new AccountCollectionModel();
+                $collection->getIdArray();
+                $users=$collection->createAllAccount();
+                foreach($users as $user){
+                    if($user->getUser()==$loginUser){
+                        $count++;
+                        if(md5($loginPass)==$user->getPassword()){
+                            session_start();
+                            $_SESSION["username"]=$loginUser;
+                            $_SESSION["name"]=$user->getName();
+                            $feedback=array("status"=>"success","response"=>"Login Success","code"=>"1","page"=>"?index");
+                        }else{
+                            $feedback=array("status"=>"fail","response"=>"Login Fail, Password not match","code"=>"1","page"=>"?member");
+                        }
+                        break;
+                    }
+                }
+            }
+            if($count==0){
+                $feedback=array("status"=>"fail","response"=>"Login Fail, Username not existed","code"=>"2","page"=>"?member");
+            }
+            echo json_encode($feedback);
+        }
     }
+    
 ?>
