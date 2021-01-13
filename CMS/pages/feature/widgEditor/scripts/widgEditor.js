@@ -313,12 +313,6 @@ function writeFile() {
 		return;
 	}
 
-	// if(currentFile.includes("html")){
-	// 	var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML; 
-	// } else {
-	// 	var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
-	// }
-
 	var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
 	
 	
@@ -379,6 +373,15 @@ function readFile(filename){
 			$.get(`../../${folder}/${filename}`, function (data) {
 				var theIframe = document.getElementById('noiseWidgIframe');
 				theIframe.contentWindow.document.write(data);
+				var scrollHeight = theIframe.contentDocument.getElementsByTagName('body')[0].scrollHeight;
+	
+				console.log(scrollHeight);
+				if(scrollHeight > 600){
+					scrollHeight = '600';
+				} else if(scrollHeight < 200){
+					scrollHeight = '200'
+				}
+				theIframe.style.height = scrollHeight +"px";
 			});
 		});
 		
