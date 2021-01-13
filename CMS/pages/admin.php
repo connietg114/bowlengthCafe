@@ -38,7 +38,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         ?>
         <div class="sidenav">
             <a onclick="showPage('?home')">Home</a>
-            <a href="#">Members</a>
+            <a onclick="showPage('?members')">Members</a>
             <a onclick="showPage('?orders')">Orders</a>
             <a onclick="showPage('?products')">Products</a>
             <a href="#">Lost/Found</a>

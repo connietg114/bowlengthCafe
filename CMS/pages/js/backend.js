@@ -8,9 +8,12 @@ window.onload= function(){
         if (lastIndexStr.includes("/")) {
             var splitStr = lastIndexStr.split("/");
             if(splitStr[0]=="productDetails"){
-                $(".main").load("productDetails.php", function(){
-                    // console.log(getProducts());
+                $(".main").load(splitStr[0]+".php", function(){
                     renderProductDetails(splitStr[1]);
+                });
+            }else if(splitStr[0]=="productEdit"){
+                $(".main").load(splitStr[0]+".php", function(){
+                    // renderProductDetails(splitStr[1]);
                 });
             }
             
@@ -20,6 +23,8 @@ window.onload= function(){
 
             });
         }
+    }else{
+        $(".main").load("home.php");
     }
 
 }
@@ -99,6 +104,8 @@ function getProductPriceList(id){
     return dataReturn;
     //productDetailsPriceList
 }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 const openFeature = page => {
     const pageContainer = document.getElementsByClassName("main")[0];
