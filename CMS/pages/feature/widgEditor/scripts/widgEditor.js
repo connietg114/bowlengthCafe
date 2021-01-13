@@ -334,7 +334,7 @@ function writeFile() {
 			if (data.includes("file saved")) {
 				alert("File save successed");
 			} else{
-				alert(data);
+				alert("registered")
 				location.reload();
 			}
 
