@@ -183,7 +183,7 @@ function widgInit()
 				
 				setTimeout("new widgEditor('" + theTextarea.id + "')", 500 * (i));
 
-				console.log(theTextarea.id);
+				// console.log(theTextarea.id);
 			}
 		}
 	}
@@ -277,9 +277,9 @@ function renderButtons(){
 		"../Includes/getHtml.php",
 		{},
 		data => {
-			console.log(data);
+			// console.log(data);
 			responseJson = JSON.parse(data);
-			console.log(responseJson);
+			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
 				document.getElementById('buttons').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
 			}
@@ -290,9 +290,9 @@ function renderButtons(){
 		"../Includes/getCSS.php",
 		{},
 		data => {
-			console.log(data);
+			// console.log(data);
 			responseJson = JSON.parse(data);
-			console.log(responseJson);
+			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
 				document.getElementById('buttons').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
 			}

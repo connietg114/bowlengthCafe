@@ -1,7 +1,7 @@
 <?php
 
-require_once '../pages/Includes/globalVariables.php';
-require_once '../pages/Includes/sqlQuery.php';
+require_once '../CMS/Includes/globalVariables.php';
+require_once '../CMS/Includes/sqlQuery.php';
 
 class AccountModel{
         private $id;
@@ -72,21 +72,21 @@ class AccountModel{
             return $name;
         }
 
-        // public function load($id){
-        //     if(!$result=$this->db->query("SELECT * FROM `account` WHERE `id` =$id;")){
-        //         error_log("Fail to load account");
-        //     }
+        public function load($id){
+            if(!$result=$GLOBALS["conn"]->query("SELECT * FROM `account` WHERE `id` =$id;")){
+                error_log("Fail to load account");
+            }
 
-        //     $result=$result->fetch_assoc();
-        //     $this->id=$id;
-        //     $this->username=$result['username'];
-        //     $this->password=$result['password'];
-        //     $this->firstname=$result['firstname'];
-        //     $this->lastname=$result['lastname'];
-        //     $this->email=$result['email'];
-        //     $this->language=$result['language'];
-        //     return $this;
-        // }
+            $result=$result->fetch_assoc();
+            $this->id=$id;
+            $this->username=$result['username'];
+            $this->password=$result['password'];
+            $this->firstname=$result['firstname'];
+            $this->lastname=$result['lastname'];
+            $this->email=$result['email'];
+            $this->language=$result['language'];
+            return $this;
+        }
         
     }
 ?>
