@@ -16,6 +16,7 @@
     font-size: 25px;
     color: #818181;
     display: block;
+    cursor: pointer;
     }
 
 .sidenav a:hover {
@@ -54,3 +55,4 @@ table {
   .container{
     border-style:ridge;
     }
+
