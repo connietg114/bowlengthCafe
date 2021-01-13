@@ -30,7 +30,7 @@ function showPage(url){
 function navigateToDetails(id){
     showPage("?productDetails/" + id);
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
 getProducts();
 function getProducts(){
     var dataReturn = {};
@@ -61,7 +61,7 @@ function getMenuCategory(){
     });
     return dataReturn;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Product Details Page//////////////////////////////////////////////////////////////////////
 function renderProductDetails(id){
     // console.log(getProducts());
     var product = getProducts().filter(product=>product.id==id)[0];
@@ -99,4 +99,13 @@ function getProductPriceList(id){
     return dataReturn;
     //productDetailsPriceList
 }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+const openFeature = page => {
+    const pageContainer = document.getElementsByClassName("main")[0];
+    const url = "feature/widgEditor/" + page + ".htm";
+    $.get(url, function(data, status) {
+        pageContainer.innerHTML = data;
+        widgInit();
+    });
+};
 
