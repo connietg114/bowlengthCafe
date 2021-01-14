@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'/../../Includes/sqlQuery.php';
 $table = isset($_POST['table']) ? $_POST['table'] : null;
 $sql = "SELECT p.id, p.categoryId, p.name, p.description, p.image, m.name as categoryName FROM Product p, MenuCategory m WHERE p.categoryId = m.id";
 // $sql = "SELECT * FROM $table";
+// echo $table;
 $result = mysqli_query($GLOBALS["conn"], $sql);
 $numOfRows = mysqli_num_rows($result);
 $numOfCol =mysqli_num_fields($result);

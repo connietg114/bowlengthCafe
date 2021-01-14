@@ -9,8 +9,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <h1>Edit Product</h1>
         <div class="w3-container container"> 
         <div class="productDetails">
-            <p>ID: </p> 
-            <p>Category ID: </p><input></input>
+            <p>Name: </p><input></input>
+            <p>Category: </p><input></input>
             <p>Description: </p><input></input>
             <p>Image: </p>
         </div>

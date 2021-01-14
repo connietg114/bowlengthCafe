@@ -36,7 +36,7 @@ function navigateToDetails(id){
     showPage("?productDetails/" + id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
-getProducts();
+// getProducts();
 function getProducts(){
     var dataReturn = {};
     $.ajax({
