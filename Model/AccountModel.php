@@ -84,7 +84,7 @@ class AccountModel{
             $this->firstname=$result['firstname'];
             $this->lastname=$result['lastname'];
             $this->email=$result['email'];
-            $this->language=$result['language'];
+            
             return $this;
         }
         
