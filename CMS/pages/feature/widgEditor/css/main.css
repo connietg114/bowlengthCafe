@@ -40,10 +40,6 @@ fieldset.submit input
 	color: #FFFFFF;
 }
 
-form
-{
-	margin-top: 1.5em;
-}
 
 label
 {
@@ -64,15 +60,21 @@ textarea
 	padding: 0;
 }
 
+.button-container{
+	display: inline-block;
+	width: 49%;
+}
 
+.button-container div{
+	width:  20em;
+	padding: 0.25em;
+}
 
 
 /* OBJECT TAGS */
 
 #content
 {
-	/* clear: both; */
-	padding: 0 2em;
 	background-color: #FFFFFF;
 }
 
@@ -95,8 +97,11 @@ textarea
 	left: -10000px;
 }
 
-#buttons a{
-	width: 100%;
-	display: block;
-	margin-left: 25px;
+#buttons{
+	max-width: none;
+}
+
+ul{
+	
+	padding: -20px;
 }

@@ -30,18 +30,43 @@
 		<form action="submit.php" onsubmit="alert('Your submitted HTML was:\n\n' + document.getElementById('noise').value); return false;">
 			
 			<div id = 'buttons'>
-				
+				<ul>
+					<li class="dropdown">
+						<a class="dropbtn">HTML</a>
+						<div id = "html" class="dropdown-content">
+						</div>
+					</li>
+					<li class="dropdown">
+						<a class="dropbtn">CSS</a>
+						<div id = "CSS" class="dropdown-content">
+						</div>
+					</li>
+					<li class="dropdown">
+						<a class="dropbtn">DYNAMIC HTML</a>
+						<div id = "d_html" class="dropdown-content">
+							<a href="#">Link 1</a>
+							<a href="#">Link 2</a>
+							<a href="#">Link 3</a>
+						</div>
+					</li>
+				  </ul>				  
 			</div>
 			<fieldset>
 				<label for="noise">
 					Upload a new file:
 				</label>
 				<input onchange="readFileFromUpload(event)" type="file" name="file" id="widgetFile">
-				<!-- <div onclick="writeFile()" name="download" id="widgetFileDownload" style="cursor: pointer; border: 1px solid black">Download</div> -->
+				
 				<textarea id="noise" name="noise" class="widgEditor nothing">&lt;p&gt;widgEditor &lt;strong&gt;automatically&lt;/strong&gt; integrates the content that was in the textarea!&lt;/p&gt;</textarea>
 			</fieldset>
 			<fieldset class="submit">
-				<input type="submit" value="Check the submitted code" />
+				<div class = 'button-container'>
+					<input type="submit" value="Check the submitted code" />
+				</div>
+
+				<div class = 'button-container'>
+					<div onclick="writeFile()" name="Save file" id="widgetFileDownload" style="cursor: pointer; border: 1px solid black">Download</div>
+				</div>	
 			</fieldset>
 		</form>
 	</div>
