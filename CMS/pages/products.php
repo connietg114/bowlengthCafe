@@ -70,6 +70,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     function editProduct(id){
         showPage("?productEdit/"+id);
     }
+
     
 
 </script>

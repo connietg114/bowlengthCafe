@@ -21,10 +21,9 @@ function createTable($conn) {
         }
         
         if(!$conn->query("INSERT INTO `account` (`username`, `password`,`firstname`,`lastname`,`email`) VALUES('leoliang',md5('123'),'Leo','Liang','leoliangziao@gmail.com');")){
-            echo "Failed creating sample account";
+            echo "Failed creating sample account";    
         }
     }
-    
 
     $sql = "CREATE TABLE IF NOT EXISTS User(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
@@ -49,13 +48,14 @@ function createTable($conn) {
     $conn->query($sql);
     //INSERT INTO `Customer`( `firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`, `zipCodeAddress`, `countryAddress`) VALUES ("Connie", "Tang", "kourtneytg@gmail.com", "3 Fairholme Avenue, Epsom", "Auckland", "1023", "New Zealand")
 
-    $sql = "CREATE TABLE IF NOT EXISTS MembershipLevel(
-        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-        name varchar(256) not null,
-        description varchar(256),
-        rewards int(11) not null
-    );";
-    $conn->query($sql); 
+    // $sql = "CREATE TABLE IF NOT EXISTS MembershipLevel(
+    //     id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+    //     name varchar(256) not null,
+    //     description varchar(256),
+    //     rewards int(11) not null
+    // );";
+    // $conn->query($sql); 
+
     //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Bronze", null, 500);
     //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Medal", null, 500);
     //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Gold", null, 500);
@@ -63,10 +63,8 @@ function createTable($conn) {
     $sql = "CREATE TABLE IF NOT EXISTS MembershipCondition(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
         dateJoin date not null,
-        membershipLevelId int(11) not null,
         memberId int(11)not null,
         points int(11) not null,
-        FOREIGN KEY(membershipLevelId) REFERENCES MembershipLevel(id),
         FOREIGN KEY(memberId) REFERENCES Customer(id)    
     );";
     $conn->query($sql); 
@@ -85,7 +83,6 @@ function createTable($conn) {
          name varchar(256) not null,
          description varchar(256),
          image varchar(256),
-
          FOREIGN KEY(categoryId) REFERENCES MenuCategory(id)    
     )";
     $conn->query($sql); 
@@ -124,11 +121,12 @@ function createTable($conn) {
 
    $sql = "CREATE TABLE IF NOT EXISTS OrderTracking(
        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
-       customerId int(11) not null,
+       customerId int(11),
        price int(11) not null,
        operatorId int(11) not null,
        dateTime datetime not null,
        pointsUsed int(11) not null,
+       tableNo int(11),
        FOREIGN KEY(customerId) REFERENCES Customer(id),
        FOREIGN KEY(operatorId) REFERENCES User(id)
 

@@ -9,17 +9,26 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <h1>Edit Product</h1>
         <div class="w3-container container"> 
         <div class="productDetails">
-            <p>Name: </p><input></input>
-            <p>Category: </p><input></input>
-            <p>Description: </p><input></input>
-            <p>Image: </p>
+            <br>
+            <label>Name: </label>
+            <input value= "" class="productEditName" ></input><br><br>
+
+            <label>Category: </label>
+            <input class="productEditCategory"></input><br><br>
+
+            <label>Description: </label>
+            <input class="productEditDescription"></input><br><br>
+
+            <label>Image: </label><br><br>
         </div>
 
-        <table class="productDetailsPriceList">
+        <table class="productEditPriceList">
             <th>No.</th>
             <th>Attribute</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Delete</th>
+            <th>Add</th>
         </table>
         <br>
         </div>

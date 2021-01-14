@@ -30,7 +30,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         $.ajax({
             type: 'POST',
             url: "home/get.php",
-            data: {table: "users"},
+            data: {table: "User"},
             success: function (items){
                 // console.log(items);
                 dataReturn = jQuery.parseJSON(items);
@@ -53,7 +53,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 "<td>" + value.email + "</td>" + 
                 "<td>" + value.pwd + "</td>" + 
                 "<td>" + (value.role || "") + "</td>" +
-                "<td class = 'deleteCol'><i class='fa fa-trash delete' id="+value.id + " table = " + "'users'"+ "></i>" + "</td>"
+                "<td class = 'deleteCol'><i class='fa fa-trash delete' id="+value.id + " table = " + "'User'"+ "></i>" + "</td>"
                 +  "<td class = 'editCol' onclick='edit()'><i class='fa fa-pen'></i>" + "</td>"+ 
                 "</tr>"
                 );

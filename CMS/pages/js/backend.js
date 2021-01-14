@@ -2,7 +2,7 @@ console.log(window.location.href);
 
 window.onload = function() {
     var url = window.location.href;
-    
+
 
     // console.log("url : " + url);
     if (url.includes("?")) {
@@ -17,7 +17,7 @@ window.onload = function() {
                 });
             } else if (splitStr[0] == "productEdit") {
                 $(".main").load(splitStr[0] + ".php", function() {
-                    // renderProductDetails(splitStr[1]);
+                    renderProductEdit(splitStr[1]);
                 });
             }
 
@@ -36,9 +36,8 @@ function showPage(url) {
     window.location.href = url;
     // $(".main").load(url);
 }
-
-function navigateToDetails(id) {
-    showPage("?productDetails/" + id);
+function navigateToDetails(id){
+    showPage("?productDetails/"+id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
 
@@ -128,7 +127,36 @@ function getProductPriceList(id) {
     return dataReturn;
     //productDetailsPriceList
 }
+//////////////////////////////////////Product Edit Page////////////////////////////////////////////////////////////////////
+function renderProductEdit(id){
+    var product = getProducts().filter(product => product.id == id)[0];
+    $(".productEditName").attr("value", product.name);
+    $(".productEditCategory").attr("value", product.categoryName);
+    $(".productEditDescription").attr("value", product.description);
 
+    $.map(getProductPriceList(id), function(value, index) {
+        $(".productEditPriceList").append("<tr>" +
+            "<td>" + (index + 1) + "</td>" +
+            "<td><input value= '"+ value.name + "'>" + "</input></td>" +
+            "<td><input value= '" + value.description + "'>" + "</input></td>" +
+            "<td><input value= '" + value.cost + "'>" + "</input></td>" +
+            "<td><i class='fa fa-trash'></i>" + "</td>"
+            +  "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
+            "</tr>")
+    })
+
+    console.log(product);
+}
+function addProductEditPriceListRow(){
+    $(".productEditPriceList").append("<tr>" +
+    "<td>" + "</td>" +
+    "<td><input value= ''></input></td>" +
+    "<td><input value= ''></input></td>" +
+    "<td><input value= ''></input></td>" +
+    "<td><i class='fa fa-trash'></i>" + "</td>"
+    +  "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
+    "</tr>")
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 const openFeature = page => {
