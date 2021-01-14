@@ -80,28 +80,6 @@ function loginSubmit() {
     });
 }
 
-function checkUsername() {
-    var username = getEle('newUser').value;
-    $.get("controller/register.php", {
-        username: username
-    }, function(feedback) {
-        var obj = JSON.parse(feedback);
-        if (obj.code == 1) {
-            getEle('existed').setAttribute("class", "reminder");
-            getEle('existed').innerHTML = obj.status;
-            exist = false;
-        } else if (obj.code == 0) {
-            getEle('existed').setAttribute("class", "warning");
-            getEle('existed').innerHTML = obj.status;
-            exist = true;
-        } else if (feedback == 2) {
-            getEle('existed').innerHTML = "";
-            exist = true;
-        }
-
-    });
-}
-
 function registerSubmit() {
     if (check()) {
         var username = getEle('newUser').value;
@@ -149,15 +127,11 @@ function checkUsername() {
     }, function(feedback) {
         var obj = JSON.parse(feedback);
         if (obj.code == 1) {
-            getEle('existed').setAttribute("class", "reminder");
-            getEle('existed').innerHTML = obj.status;
+            getEle('existed').setAttribute("class", "hide");
             exist = false;
         } else if (obj.code == 0) {
-            getEle('existed').setAttribute("class", "warning");
+            getEle('existed').setAttribute("class", "appear");
             getEle('existed').innerHTML = obj.status;
-            exist = true;
-        } else if (feedback == 2) {
-            getEle('existed').innerHTML = "";
             exist = true;
         }
 
