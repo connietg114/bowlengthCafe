@@ -10,24 +10,33 @@
                     <p>Please fill in this form to create an account.</p>
                     <hr>
                     <label for="username"><b>Username</b></label>
-                    <input id="newUser" name="username" type="username" placeholder="Enter Username" required>
-                    <!-- <span style="color:red" class="error"></span> -->
+                    <input id="newUser" name="username" type="username" onkeyup="checkUsername()" placeholder="Enter Username" required>
+                    <br>
+                    <div id="existed" class="hide">Username existed</div>
+                    <span id="userReminder" class="reminder">(alphanumeric character and number only)</span>
                     <br>
 
                     <label for="psw"><b>Password</b></label>
                     <input type="password" placeholder="Enter Password" name="password" id="newPass" required>
+                    <span id="passReminder" class="reminder">(7 to 15 alphanumeric character with at least one uppercase letter and lowercase letter)</span>
 
-                    <label for="psw"><b>Re-type Password</b></label>
+                    <label for="repsw"><b>Re-type Password</b></label>
                     <input type="password" placeholder="Enter Password" name="passwordRepeat" id="newRepass" required>
+                    <br>
+                    <span id="repassReminder" class="reminder">(Should match the password you input before)</span>
 
                     <label for="firstname"><b>First Name</b></label>
                     <input name="firstname" id="newFN" type="firstname" placeholder="Enter First Name" required>
+                    <br>
+                    <span id="fnReminder" class="reminder">(alphanumeric character only)</span>
 
                     <label for="lastname"><b>Last Name</b></label>
                     <input name="lastname" id="newLN" type="lastname" placeholder="Enter Last Name" required>
+                    <br><span id="lnReminder" class="reminder">(alphanumeric character only)</span>
 
                     <label for="email"><b>Email</b></label>
                     <input name="email" type="text" placeholder="Enter Email" id="newEmail">
+                    <br><span id="email" class="reminder">(Email style only)</span>
 
                     <!--<label for="photo"><b>Photo</b></label>
                         <input name="photo"type="file" id="myfile" name="myfile"><br><br>

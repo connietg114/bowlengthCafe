@@ -63,6 +63,28 @@ require_once '../Model/AccountCollectionModel.php';
             }
              echo json_encode($feedback);
         }
+    }else if($code=="username"){
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            $regUser=testInput($_POST["regUser"]);
+            $count=0;
+            if(isset($regUser)){
+                $collection=new AccountCollectionModel();
+                $collection->getIdArray();
+                $users=$collection->createAllAccount();
+                foreach($users as $user){
+                    if($user->getUser()==$regUser){
+                        $count++;
+                        break;
+                    }
+                }
+                if($count==0){
+                    $feedback=array("status"=>"Username is availble","code"=>"1");
+                }else{
+                    $feedback=array("status"=>"This username has been used","code"=>"0");
+                }
+                echo json_encode($feedback);
+            }
+        }
     }
     
 ?>

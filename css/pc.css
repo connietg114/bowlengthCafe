@@ -143,3 +143,28 @@ html {
 .fbLink:hover {
     color: gray;
 }
+
+.warning {
+    color: red;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.reminder {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.appear {
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+    display: block;
+    text-align: center;
+}

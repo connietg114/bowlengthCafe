@@ -36,8 +36,9 @@ function showPage(url) {
     window.location.href = url;
     // $(".main").load(url);
 }
-function navigateToDetails(id){
-    showPage("?productDetails/"+id);
+
+function navigateToDetails(id) {
+    showPage("?productDetails/" + id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
 
@@ -128,7 +129,7 @@ function getProductPriceList(id) {
     //productDetailsPriceList
 }
 //////////////////////////////////////Product Edit Page////////////////////////////////////////////////////////////////////
-function renderProductEdit(id){
+function renderProductEdit(id) {
     var product = getProducts().filter(product => product.id == id)[0];
     $(".productEditName").attr("value", product.name);
     $(".productEditCategory").attr("value", product.categoryName);
@@ -137,25 +138,26 @@ function renderProductEdit(id){
     $.map(getProductPriceList(id), function(value, index) {
         $(".productEditPriceList").append("<tr>" +
             "<td>" + (index + 1) + "</td>" +
-            "<td><input value= '"+ value.name + "'>" + "</input></td>" +
+            "<td><input value= '" + value.name + "'>" + "</input></td>" +
             "<td><input value= '" + value.description + "'>" + "</input></td>" +
             "<td><input value= '" + value.cost + "'>" + "</input></td>" +
-            "<td><i class='fa fa-trash'></i>" + "</td>"
-            +  "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
+            "<td><i class='fa fa-trash'></i>" + "</td>" +
+            "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
             "</tr>")
     })
 
     console.log(product);
 }
-function addProductEditPriceListRow(){
+
+function addProductEditPriceListRow() {
     $(".productEditPriceList").append("<tr>" +
-    "<td>" + "</td>" +
-    "<td><input value= ''></input></td>" +
-    "<td><input value= ''></input></td>" +
-    "<td><input value= ''></input></td>" +
-    "<td><i class='fa fa-trash'></i>" + "</td>"
-    +  "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
-    "</tr>")
+        "<td>" + "</td>" +
+        "<td><input value= ''></input></td>" +
+        "<td><input value= ''></input></td>" +
+        "<td><input value= ''></input></td>" +
+        "<td><i class='fa fa-trash'></i>" + "</td>" +
+        "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
+        "</tr>")
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
