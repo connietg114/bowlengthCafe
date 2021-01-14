@@ -20,8 +20,9 @@ function createTable($conn) {
             echo "Error creating table account";
         }
         
-        if(!$conn->query("INSERT INTO `account` (`username`, `password`,`firstname`,`lastname`,`email`) VALUES('leoliang',md5('123'),'Leo','Liang','leoliangziao@gmail.com');")){
-            echo "Failed creating sample account";    
+
+        if(!$conn->query("INSERT INTO `account` (`username`, `password`,`firstname`,`lastname`,`email`) VALUES('a',md5('a'),'Leo','Liang','leoliangziao@gmail.com');")){
+            echo "Failed creating sample account";
         }
     }
 

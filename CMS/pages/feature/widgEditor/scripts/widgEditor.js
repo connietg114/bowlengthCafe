@@ -182,7 +182,7 @@ function widgInit()
 				
 				
 				setTimeout("new widgEditor('" + theTextarea.id + "')", 500 * (i));
-
+				document.getElementsByClassName('main')[0].style.padding = "0";
 				// console.log(theTextarea.id);
 			}
 		}
@@ -274,27 +274,46 @@ var currentFile;
 function renderButtons(){
 
 	$.post(
-		"../Includes/getHtml.php",
-		{},
+		"../Includes/getDhtml.php",
+		{
+			data: '../../pages',
+		},
 		data => {
 			// console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				document.getElementById('buttons').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+				document.getElementById('html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
 			}
 		}
 	); 
 
 	$.post(
-		"../Includes/getCSS.php",
-		{},
+		"../Includes/getDhtml.php",
+		{
+			data: '../../dynamic_pages',
+		},
 		data => {
-			// console.log(data);
+			console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				document.getElementById('buttons').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+				document.getElementById('d_html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+			}
+		}
+	); 
+
+	$.post(
+		"../Includes/getDhtml.php",
+		{
+			data: '../../css',
+		},
+		data => {
+			console.log(data);
+			responseJson = JSON.parse(data);
+			// console.log(responseJson);
+			for(var i = 0; i < responseJson.length; i++){
+				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
 			}
 		}
 	); 
