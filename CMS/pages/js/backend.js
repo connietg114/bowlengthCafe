@@ -1,5 +1,9 @@
+console.log(window.location.href);
+
 window.onload = function() {
     var url = window.location.href;
+    
+
     // console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
@@ -39,10 +43,7 @@ function navigateToDetails(id) {
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
 
 // getProducts();
-function getProducts() { >>>
-    >>>
-    > ce9fd4656058ae0aa8a9f3bd4278f4f54684abf6
-    var dataReturn = {};
+function getProducts() {
     $.ajax({
         type: 'POST',
         url: "products/get.php",

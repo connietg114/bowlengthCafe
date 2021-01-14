@@ -151,7 +151,7 @@ function changeUrl(id, array) {
 
 function showPage(url) {
     window.location.href = url;
-    console.log(window.location.href);
+    // console.log(window.location.href);
 }
 
 var locationDetails = [{
