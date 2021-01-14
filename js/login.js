@@ -74,7 +74,8 @@ function loginSubmit() {
         var obj = JSON.parse(feedback);
         alert(obj.response);
         if (obj.code == 1) {
-            showpage(obj.page);
+            //login success
+            showPage("?index");
         }
     });
 }
