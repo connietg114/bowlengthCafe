@@ -37,9 +37,11 @@ function navigateToDetails(id) {
     showPage("?productDetails/" + id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
-getProducts();
 
-function getProducts() {
+// getProducts();
+function getProducts() { >>>
+    >>>
+    > ce9fd4656058ae0aa8a9f3bd4278f4f54684abf6
     var dataReturn = {};
     $.ajax({
         type: 'POST',

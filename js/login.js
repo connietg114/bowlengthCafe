@@ -63,16 +63,20 @@ function check() {
 }
 
 function loginSubmit() {
-    var username = getEle('username').value;
-    var password = getEle('password').value;
+    var username = getEle('loginUsername').value;
+    var password = getEle('loginPassword').value;
 
     $.post("Controller/AccountController.php", {
+        code: "login",
         username: username,
         password: password
     }, function(feedback) {
         var obj = JSON.parse(feedback);
         alert(obj.response);
-        gotourl(obj.page);
+        if (obj.code == 1) {
+            //login success
+            showPage("?index");
+        }
     });
 }
 
@@ -117,17 +121,16 @@ function registerSubmit() {
         newLN: ln,
         newEmail: email,
     }, function(feedback) {
-        // var obj = JSON.parse(feedback);
-        alert(feedback);
+        var obj = JSON.parse(feedback);
 
-        // if (obj.code == 1) {
-        //     alert("Register Success");
-        //     showPage('?membership');
-        // } else if (obj.code == 0) {
-        //     alert("Register Error");
-        // } else if (obj.code == 2) {
-        //     alert("Two password you enter are different");
-        // }
+        if (obj.code == 1) {
+            alert("Register Success");
+            showPage('?membership');
+        } else if (obj.code == 0) {
+            alert("Register Error");
+        } else if (obj.code == 2) {
+            alert("Two password you enter are different");
+        }
     });
     // } else {
     //     alert("Please check your input infomation");

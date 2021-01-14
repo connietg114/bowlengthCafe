@@ -14,9 +14,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     </table>
 </html>
 <script>
-    //  $(function() {
-    // renderData(get("users"));
-    // });
     // INSERT INTO `users`(`firstName`, `lastName`, `email`, `pwd`, `role`) VALUES ("firstname", "lastname", "email", "password", "role" )
     
     renderData(get("table"));
@@ -36,7 +33,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             data: {table: "users"},
             success: function (items){
                 // console.log(items);
-                // dataReturn = items;
                 dataReturn = jQuery.parseJSON(items);
                 // console.log(dataReturn);
             },
@@ -72,9 +68,4 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     function edit(){
         console.log("edit");
     }
-
-    // $(".edit").on('click', function(){
-
-    // });
-
 </script>
