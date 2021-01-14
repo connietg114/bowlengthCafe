@@ -74,8 +74,9 @@ function loginSubmit() {
         var obj = JSON.parse(feedback);
         alert(obj.response);
         if (obj.code == 1) {
-            window.location ="http://localhost:8080/bowlengthCafe/CMS/pages/admin.php?home";
+            // window.location ="http://localhost:8080/CMS/pages/admin.php?home";
             //username:leoliang ; password:123
+            showPage("../bowlengthCafe/CMS/pages/admin.php?home")
         }
     });
 }
