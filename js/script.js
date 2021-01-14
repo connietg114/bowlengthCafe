@@ -1,6 +1,6 @@
 window.onload = function() {
     var url = window.location.href;
-    
+
     console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
@@ -74,6 +74,7 @@ window.onload = function() {
             $(".pageContent").load(link, function() {
                 $(".locationPageContent").load("dynamic_pages/locations/all.html");
             });
+            ///////////   kerry login test (ignored) ///////////
         } else if (lastIndexStr == "login") {
             link = "login/" + lastIndexStr + ".php";
             console.log("login link : " + link)
@@ -86,6 +87,8 @@ window.onload = function() {
             link = "login/register" + ".php";
             console.log("login link : " + link)
             $(".pageContent").load(link);
+
+            ///////////   kerry login test (ignored) ///////////
         } else {
             link = "pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link);

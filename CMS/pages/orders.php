@@ -22,6 +22,10 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     <body>
         <h1>Orders</h1>
         <button onclick="alert()">test</button>
+        <div class="w3-container container">
+            <br>
+            <table class="orderDetails"></table>
+        </div>
     </body>
 </html>
 

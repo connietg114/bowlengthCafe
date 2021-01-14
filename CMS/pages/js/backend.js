@@ -1,5 +1,9 @@
-window.onload= function(){
+console.log(window.location.href);
+
+window.onload = function() {
     var url = window.location.href;
+    
+
     // console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
@@ -7,99 +11,119 @@ window.onload= function(){
         // console.log(lastIndexStr);
         if (lastIndexStr.includes("/")) {
             var splitStr = lastIndexStr.split("/");
-            if(splitStr[0]=="productDetails"){
-                $(".main").load(splitStr[0]+".php", function(){
+            if (splitStr[0] == "productDetails") {
+                $(".main").load(splitStr[0] + ".php", function() {
                     renderProductDetails(splitStr[1]);
                 });
-            }else if(splitStr[0]=="productEdit"){
-                $(".main").load(splitStr[0]+".php", function(){
+            } else if (splitStr[0] == "productEdit") {
+                $(".main").load(splitStr[0] + ".php", function() {
                     // renderProductDetails(splitStr[1]);
                 });
             }
-            
-        }
-        else{
-            $(".main").load(lastIndexStr + ".php", function(){
+
+        } else {
+            $(".main").load(lastIndexStr + ".php", function() {
 
             });
         }
-    }else{
+    } else {
         $(".main").load("home.php");
     }
 
 }
-function showPage(url){
+
+function showPage(url) {
     window.location.href = url;
     // $(".main").load(url);
 }
-function navigateToDetails(id){
+
+function navigateToDetails(id) {
     showPage("?productDetails/" + id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
-getProducts();
-function getProducts(){
-    var dataReturn = {};
+
+// getProducts();
+function getProducts() {
     $.ajax({
         type: 'POST',
         url: "products/get.php",
-        data: {table: "Product"},
-        success: function (items){
-            // console.log(items);
+        data: { table: "Product" },
+        success: function(items) {
+            // console.log("getProducts(): " + items);
             dataReturn = jQuery.parseJSON(items);
         },
-        async:false   
+        async: false
+    });
+    return dataReturn;
+}
+//////////////////////////// Members Page //
+
+function getCustomers() {
+    var dataReturn = {};
+    $.ajax({
+        type: 'POST',
+        url: "members/get.php",
+        data: { table: "Customer" },
+        success: function(items) {
+            // console.log(items);
+            dataReturn = jQuery.parseJSON(items);
+            console.log("JSON: ");
+            console.log(dataReturn);
+        },
+        async: false
     });
     return dataReturn;
 }
 
-function getMenuCategory(){
+
+function getMenuCategory() {
     var dataReturn;
     $.ajax({
         type: 'POST',
         url: "products/getMenuCategory.php",
-        data: {table: "MenuCategory"},
-        success: function (items){
+        data: { table: "MenuCategory" },
+        success: function(items) {
             // console.log(items);
             dataReturn = jQuery.parseJSON(items);
         },
-        async:false   
+        async: false
     });
     return dataReturn;
 }
 //////////////////////////////////// Product Details Page//////////////////////////////////////////////////////////////////////
-function renderProductDetails(id){
+function renderProductDetails(id) {
     // console.log(getProducts());
-    var product = getProducts().filter(product=>product.id==id)[0];
-    
-    $(".productDetails").html("<h4 class='productName'>"+product.categoryName + ": "+ product.name+"</h4>"+
-                                "<p> ID: " + product.id +  "</p>"+
-                                // "<p> Category: "+product.categoryName+"</p>"+
-                                "<p> Category ID: "+product.categoryId+"</p>"+
-                                "<p> Description: "+(product.description || "")+"</p>"+
-                                "<p> Image: "+ (product.image || "")+"</p>");
-    
-    $.map(getProductPriceList(id), function(value, index){
-        $(".productDetailsPriceList").append("<tr>"+
-        "<td>" + (index+1) + "</td>"+
-        "<td>" + value.name + "</td>"+
-        "<td>" + value.description + "</td>"+
-        "<td>" + value.cost + "</td>"+
-        "</tr>")
+    var product = getProducts().filter(product => product.id == id)[0];
+
+    $(".productDetails").html("<h4 class='productName'>" + product.categoryName + ": " + product.name + "</h4>" +
+        "<p> ID: " + product.id + "</p>" +
+        // "<p> Category: "+product.categoryName+"</p>"+
+        "<p> Category ID: " + product.categoryId + "</p>" +
+        "<p> Description: " + (product.description || "") + "</p>" +
+        "<p> Image: " + (product.image || "") + "</p>");
+
+    $.map(getProductPriceList(id), function(value, index) {
+        $(".productDetailsPriceList").append("<tr>" +
+            "<td>" + (index + 1) + "</td>" +
+            "<td>" + value.name + "</td>" +
+            "<td>" + value.description + "</td>" +
+            "<td>" + value.cost + "</td>" +
+            "</tr>")
     })
-    
+
 }
 
-function getProductPriceList(id){
+function getProductPriceList(id) {
     var dataReturn = {};
     $.ajax({
         type: 'POST',
         url: "productDetails/get.php",
-        data: {table: "ProductAttribute", productId:id},
-        success: function (items){
+        data: { table: "ProductAttribute", productId: id },
+        success: function(items) {
             console.log(items);
             dataReturn = jQuery.parseJSON(items);
         },
-        async:false   
+        async: false
     });
     return dataReturn;
     //productDetailsPriceList
@@ -116,4 +140,3 @@ const openFeature = page => {
     });
 
 };
-

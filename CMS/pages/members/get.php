@@ -3,15 +3,21 @@ require_once dirname(__FILE__).'/../../Includes/globalVariables.php';
 require_once dirname(__FILE__).'/../../Includes/sqlQuery.php';
 
 $table = isset($_POST['table']) ? $_POST['table'] : null;
-// printf ($table);
-
 $sql = "SELECT * FROM $table";
+// echo ("Customer: $table");
 $result = mysqli_query($GLOBALS["conn"], $sql);
 $numOfRows = mysqli_num_rows($result);
 $numOfCol =mysqli_num_fields($result);
-// echo $numOfCol;
-$data = array();
 
+// $fieldNameArr = array();
+// for($i = 0; $i < $numOfCol; $i++) {
+//     $field_info = mysqli_fetch_field_direct($result, $i);
+//     $fieldNameArr[$i] = $field_info->name;
+//     // echo " {$field_info->name} ";
+// }
+
+
+$data = array();
 if ($result){
     for($i=0; $i<$numOfRows; $i++){
         $aRow = array();
@@ -23,6 +29,7 @@ if ($result){
         }
         $data[$i] = $aRow;
     }
+    // print_r($data);
     echo json_encode($data);
 }
 else{

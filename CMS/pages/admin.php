@@ -37,6 +37,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 
         ?>
         <div class="sidenav">
+            <!-- show login username eg. Hi, Leo Liang -->
             <a onclick="showPage('?home')">Home</a>
             <a onclick="showPage('?members')">Members</a>
             <a onclick="showPage('?orders')">Orders</a>

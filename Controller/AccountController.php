@@ -21,18 +21,16 @@ require_once '../Model/AccountCollectionModel.php';
             if($repass==$pass){
                 if((isset($user))&&(isset($pass))&&(isset($fn))&&(isset($ln))&&(isset($email))){
                     $collection= new AccountModel();
-                    $collection->newUser($user,$pass,$fn,$ln,$email);
+                    $collection->newUser($user,md5($pass),$fn,$ln,$email);
                     $feedback=array("status"=>"Success","code"=>"1"); 
-                    $test="1";
+                    
                 }else{
                     $feedback=array("status"=>"Fail","code"=>"0");
-                    $test="0";
                 }
             }else{
                 $feedback=array("status"=>"Fail","code"=>"0");
-                $test="2";
             }
-            echo json_encode($test);
+            echo json_encode($feedback);
         }
     }else if($code=="login"){
         if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -51,7 +49,8 @@ require_once '../Model/AccountCollectionModel.php';
                             session_start();
                             $_SESSION["username"]=$loginUser;
                             $_SESSION["name"]=$user->getName();
-                            $feedback=array("status"=>"success","response"=>"Login Success","code"=>"1","page"=>"?index");
+                            $response="Login Success, Welcome ".$user->getName();
+                            $feedback=array("status"=>"success","response"=>$response,"code"=>"1","page"=>"?index");
                         }else{
                             $feedback=array("status"=>"fail","response"=>"Login Fail, Password not match","code"=>"1","page"=>"?member");
                         }
@@ -62,7 +61,7 @@ require_once '../Model/AccountCollectionModel.php';
             if($count==0){
                 $feedback=array("status"=>"fail","response"=>"Login Fail, Username not existed","code"=>"2","page"=>"?member");
             }
-            echo json_encode($feedback);
+             echo json_encode($feedback);
         }
     }
     
