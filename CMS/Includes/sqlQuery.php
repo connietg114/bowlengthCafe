@@ -61,7 +61,7 @@ function createTable($conn) {
     //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Medal", null, 500);
     //INSERT INTO `MembershipLevel`(`name`, `description`, `rewards`) VALUES ("Gold", null, 500);
 
-    $sql = "CREATE TABLE IF NOT EXISTS MembershipCondition(
+    $sql = "CREATE TABLE IF NOT EXISTS Membership(
         id int(11) AUTO_INCREMENT PRIMARY KEY not null,
         dateJoin date not null,
         memberId int(11)not null,
