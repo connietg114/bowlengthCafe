@@ -144,7 +144,7 @@ function checkUsername() {
     var username = getEle('newUser').value;
     $.post("Controller/AccountController.php", {
         code: "username",
-        username: username
+        regUser: username
 
     }, function(feedback) {
         var obj = JSON.parse(feedback);
