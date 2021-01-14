@@ -274,8 +274,10 @@ var currentFile;
 function renderButtons(){
 
 	$.post(
-		"../Includes/getHtml.php",
-		{},
+		"../Includes/getDhtml.php",
+		{
+			data: '../../pages',
+		},
 		data => {
 			// console.log(data);
 			responseJson = JSON.parse(data);
@@ -287,10 +289,27 @@ function renderButtons(){
 	); 
 
 	$.post(
-		"../Includes/getCSS.php",
-		{},
+		"../Includes/getDhtml.php",
+		{
+			data: '../../dynamic_pages',
+		},
 		data => {
-			// console.log(data);
+			console.log(data);
+			responseJson = JSON.parse(data);
+			// console.log(responseJson);
+			for(var i = 0; i < responseJson.length; i++){
+				document.getElementById('d_html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+			}
+		}
+	); 
+
+	$.post(
+		"../Includes/getDhtml.php",
+		{
+			data: '../../css',
+		},
+		data => {
+			console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){

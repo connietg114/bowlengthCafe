@@ -31,6 +31,7 @@ fieldset.submit
 
 fieldset.submit input
 {
+	float: right;
 	width: 20em;
 	border: 2px solid #003399;
 	border-top-color: #0099FF;
@@ -66,6 +67,7 @@ textarea
 }
 
 .button-container div{
+	float: left;
 	width:  20em;
 	padding: 0.25em;
 }
@@ -102,6 +104,5 @@ textarea
 }
 
 ul{
-	
 	padding: -20px;
 }
