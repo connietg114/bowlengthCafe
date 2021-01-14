@@ -74,7 +74,6 @@ function loginSubmit() {
         var obj = JSON.parse(feedback);
         alert(obj.response);
         if (obj.code == 1) {
-            // window.location ="http://localhost:8080/CMS/pages/admin.php?home";
             //username:leoliang ; password:123
             showPage("../bowlengthCafe/CMS/pages/admin.php?home")
         }
@@ -104,38 +103,38 @@ function checkUsername() {
 }
 
 function registerSubmit() {
-    // if (check()) {
-    var username = getEle('newUser').value;
-    var password = getEle('newPass').value;
-    var repass = getEle('newRepass').value;
-    var fn = getEle('newFN').value;
-    var ln = getEle('newLN').value;
-    var email = getEle('newEmail').value;
-    var regcode = "reg";
+    if (check()) {
+        var username = getEle('newUser').value;
+        var password = getEle('newPass').value;
+        var repass = getEle('newRepass').value;
+        var fn = getEle('newFN').value;
+        var ln = getEle('newLN').value;
+        var email = getEle('newEmail').value;
+        var regcode = "reg";
 
-    $.post("Controller/AccountController.php", {
-        code: regcode,
-        newUser: username,
-        newPass: password,
-        newRepass: repass,
-        newFN: fn,
-        newLN: ln,
-        newEmail: email,
-    }, function(feedback) {
-        var obj = JSON.parse(feedback);
+        $.post("Controller/AccountController.php", {
+            code: regcode,
+            newUser: username,
+            newPass: password,
+            newRepass: repass,
+            newFN: fn,
+            newLN: ln,
+            newEmail: email,
+        }, function(feedback) {
+            var obj = JSON.parse(feedback);
 
-        if (obj.code == 1) {
-            alert("Register Success");
-            showPage('?membership');
-        } else if (obj.code == 0) {
-            alert("Register Error");
-        } else if (obj.code == 2) {
-            alert("Two password you enter are different");
-        }
-    });
-    // } else {
-    //     alert("Please check your input infomation");
-    // }
+            if (obj.code == 1) {
+                alert("Register Success");
+                showPage('?membership');
+            } else if (obj.code == 0) {
+                alert("Register Error");
+            } else if (obj.code == 2) {
+                alert("Two password you enter are different");
+            }
+        });
+    } else {
+        alert("Please check your input infomation");
+    }
 
 }
 
@@ -143,8 +142,10 @@ var exist = true;
 
 function checkUsername() {
     var username = getEle('newUser').value;
-    $.get("controller/register.php", {
+    $.post("Controller/AccountController.php", {
+        code: "username",
         username: username
+
     }, function(feedback) {
         var obj = JSON.parse(feedback);
         if (obj.code == 1) {
