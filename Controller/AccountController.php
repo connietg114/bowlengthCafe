@@ -18,18 +18,34 @@ require_once '../Model/AccountCollectionModel.php';
             $fn=testInput($_POST["newFN"]);
             $ln=testInput($_POST["newLN"]);
             $email=testInput($_POST["newEmail"]);
-            if($repass==$pass){
-                if((isset($user))&&(isset($pass))&&(isset($fn))&&(isset($ln))&&(isset($email))){
-                    $collection= new AccountModel();
-                    $collection->newUser($user,md5($pass),$fn,$ln,$email);
-                    $feedback=array("status"=>"Success","code"=>"1"); 
-                    
+            $i=0;
+            //check username exist or not, prevent the duplication of name
+            if(isset($user)){
+                $collection=new AccountCollectionModel();
+                $collection->getIdArray();
+                $users=$collection->createAllAccount();
+                foreach($users as $member){
+                    if(($member->getUser())==$user){
+                        $i++;
+                        break;
+                    }
+                }
+            }
+            if($i==0){
+                if($repass==$pass){
+                    if((isset($user))&&(isset($pass))&&(isset($fn))&&(isset($ln))&&(isset($email))){
+                        $collection= new AccountModel();
+                        $collection->newUser($user,md5($pass),$fn,$ln,$email);
+                        $feedback=array("status"=>"Success","code"=>"1"); 
+                        
+                    }else{
+                        $feedback=array("status"=>"Fail","code"=>"0");
+                    }
                 }else{
                     $feedback=array("status"=>"Fail","code"=>"0");
                 }
-            }else{
-                $feedback=array("status"=>"Fail","code"=>"0");
             }
+            
             echo json_encode($feedback);
         }
     }else if($code=="login"){

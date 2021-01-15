@@ -9,8 +9,6 @@
 @import "./membership.css";
 @import "./menu.css";
 @import "./register.css";
-
-
 .container {
     max-width: 1400px;
     margin: 10px auto;
@@ -44,6 +42,7 @@
         padding-top: 50px;
     }
 }
+
 
 /* The Pop on Modal (background) */
 
@@ -101,6 +100,7 @@
     padding: 10px;
     cursor: pointer;
 }
+
 
 /* Mobile style */
 
@@ -174,3 +174,27 @@
     }
 }
 
+.warning {
+    color: red;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.reminder {
+    font-size: 13px;
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.appear {
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+    display: block;
+    text-align: center;
+}
