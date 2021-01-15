@@ -8,9 +8,9 @@ foreach ($iterator as $file) {
     array_push($fileList, $path);
 }
 
-for ($i = 0; $i < count($fileList); $i++) {
-    $fileList[$i] = basename($fileList[$i]);
-}
+// for ($i = 0; $i < count($fileList); $i++) {
+//     $fileList[$i] = basename($fileList[$i]);
+// }
 
 echo json_encode($fileList);
 

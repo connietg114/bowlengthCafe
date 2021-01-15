@@ -283,7 +283,8 @@ function renderButtons(){
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				document.getElementById('html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+				responseJson[i] = responseJson[i].replace("\\","/");
+				document.getElementById('html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
 	); 
@@ -294,11 +295,13 @@ function renderButtons(){
 			data: '../../dynamic_pages',
 		},
 		data => {
-			console.log(data);
+			// console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				document.getElementById('d_html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+				responseJson[i] = responseJson[i].replace("\\","/");
+				const inner = responseJson[i].split('\\').pop().split('/').pop()
+				document.getElementById('d_html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${inner}</a>`;
 			}
 		}
 	); 
@@ -309,14 +312,19 @@ function renderButtons(){
 			data: '../../css',
 		},
 		data => {
-			console.log(data);
+			// console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="file" class="widgetFile">${responseJson[i]}</a>`;
+				responseJson[i] = responseJson[i].replace("\\","/");
+				// console.log(responseJson[i].split('\\').pop().split('/').pop());
+				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
-	); 
+	);
+
+	console.log(document.getElementById('CSS').innerHTML);
+	
 }
 
 
@@ -333,7 +341,8 @@ function writeFile() {
 	}
 
 	var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
-	
+	// console.log(elHtml);
+	console.log(currentFile);
 	
 	$.post(
 		"../Includes/modify.php",
@@ -374,14 +383,10 @@ function readFileFromUpload(event){
 }
 
 function readFile(filename){
-	document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML = '';
-	var folder = "pages";
-	if(filename.includes("css")){
-		folder = "css";
-	}
-	currentFile = filename;
 	console.log(filename);
-	var f = new File(["text/html"], `../../${folder}/${filename}`);
+	document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML = '';
+
+	var f = new File(["text/html"], `${filename}`);
 	const reader = new FileReader();
 
 	reader.addEventListener('load', (event) => {
@@ -389,12 +394,12 @@ function readFile(filename){
 
 
 		$(function() {
-			$.get(`../../${folder}/${filename}`, function (data) {
+			$.get(`${filename}`, function (data) {
 				var theIframe = document.getElementById('noiseWidgIframe');
 				theIframe.contentWindow.document.write(data);
 				var scrollHeight = theIframe.contentDocument.getElementsByTagName('body')[0].scrollHeight;
 	
-				console.log(scrollHeight);
+				// console.log(scrollHeight);
 				if(scrollHeight > 600){
 					scrollHeight = '600';
 				} else if(scrollHeight < 200){
@@ -407,6 +412,8 @@ function readFile(filename){
 	});
 
 	console.log(f);
+	currentFile = f.name;
+	console.log(currentFile);
 	reader.readAsText(f);
 	f = null;
 }
