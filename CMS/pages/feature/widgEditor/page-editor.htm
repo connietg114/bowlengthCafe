@@ -18,8 +18,8 @@
 <link rel="stylesheet" href="feature/widgEditor/css/info.css"/>
 <link rel="stylesheet" href="feature/widgEditor/css/main.css"/>
 <link rel="stylesheet" href="feature/widgEditor/css/widgEditor.css"/>
+<script type="text/javascript" src="scripts/index.js"></script>
 <script type="text/javascript" src="scripts/widgEditor.js"></script>
-<script type="text/javascript" src="scripts/script.js"></script>
 </head>
 
 
@@ -31,6 +31,9 @@
 			
 			<div id = 'buttons'>
 				<ul>
+					<li class="dropdown">
+						<a class="dropbtn" onclick = "renderNewFile()">New File</a>
+					</li>
 					<li class="dropdown">
 						<a class="dropbtn">HTML</a>
 						<div id = "html" class="dropdown-content">
@@ -48,12 +51,7 @@
 					</li>
 				  </ul>				  
 			</div>
-			<fieldset>
-				<label for="noise">
-					Upload a new file:
-				</label>
-				<input onchange="readFileFromUpload(event)" type="file" name="file" id="widgetFile">
-				
+			<fieldset>				
 				<textarea id="noise" name="noise" class="widgEditor nothing">&lt;p&gt;widgEditor &lt;strong&gt;automatically&lt;/strong&gt; integrates the content that was in the textarea!&lt;/p&gt;</textarea>
 			</fieldset>
 			<fieldset class="submit">

@@ -16,7 +16,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" type="text/css" href="css/backend.css">
-        <script type="text/javascript" src="feature/widgEditor/scripts/widgEditor.js"></script>
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         
         <script src="js/backend.js"></script>
@@ -46,7 +45,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <a href="#">Events</a>
             <a href="#">Profile</a>
             <a href="#">Log Out</a>
-            <a onclick = "openFeature('page-editor')">
+            <a onclick = "showPage('?page-editor')">
+            <!-- <a onclick = "openFeature('page-editor')"> -->
                 <div>
                     <span>Page Editor</span>
                 </div>

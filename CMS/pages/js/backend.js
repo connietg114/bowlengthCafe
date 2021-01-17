@@ -168,5 +168,4 @@ const openFeature = page => {
         pageContainer.innerHTML = data;
         widgInit();
     });
-
 };

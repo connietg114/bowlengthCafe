@@ -268,7 +268,6 @@ function widgEditor(replacedTextareaID)
 	return true;
 }
 
-
 var currentFile;
 
 function renderButtons(){
@@ -322,8 +321,6 @@ function renderButtons(){
 			}
 		}
 	);
-
-	console.log(document.getElementById('CSS').innerHTML);
 	
 }
 
