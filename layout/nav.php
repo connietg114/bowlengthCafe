@@ -1,11 +1,12 @@
 
 <?php
+$username="";
+$name="";
+$user="";
 session_start();
-$username=$_SESSION["username"];
-$name=$_SESSION["name"];
 
-if(isset($username)&&isset($name)){
-    $user="Welcome, ".$name;
+if(isset($_SESSION["username"])&&isset($_SESSION["name"])){
+    $user="Welcome, ".$_SESSION["name"];
 }
 
 
@@ -21,7 +22,11 @@ if(isset($username)&&isset($name)){
     
 
     <div id="myMenu" class="menu-content">
-        <div class="greeting"><?php echo $user; ?></div>
+        <div class="greeting">
+            <?php echo $user; ?>
+            <a onclick="<?php session_destroy(); header("Refresh:0; url='../index.php'");?>">Logout</a>
+        </div>
+
         <a class="navButton" onclick="showPage('?home')">Home</a>
         <a class="navButton" onclick="showPage('?covid-19')">Covid-19</a>
         <a class="navButton" onclick="showPage('?menu')">Menu</a>
