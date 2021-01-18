@@ -191,6 +191,7 @@ ul {
   }
   
   li a, .dropbtn {
+	cursor: pointer;
 	display: inline-block;
 	color: white;
 	text-align: center;

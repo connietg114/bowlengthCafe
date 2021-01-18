@@ -327,8 +327,24 @@ function renderButtons(){
 
 function writeFile() {
 	if(currentFile == undefined){
-		alert("select a file from above");
-		return;
+		const filename = document.getElementById('fname').value;
+
+		if(filename == ''){
+			alert("filename cannot be empty");
+			return
+		}
+
+		const folder = document.getElementById("types").value;
+
+		var extension;
+		if(folder == 'css'){
+			extension = '.css';
+		} else {
+			extension = '.html';
+		}
+
+		currentFile = `../../${folder}/${filename}${extension}`;
+		var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
 	}
 
 	if(!currentFile.includes("html") && !currentFile.includes("css")){
@@ -380,6 +396,7 @@ function readFileFromUpload(event){
 }
 
 function readFile(filename){
+	document.getElementById("newFileContainer").style.display = "none";
 	console.log(filename);
 	document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML = '';
 

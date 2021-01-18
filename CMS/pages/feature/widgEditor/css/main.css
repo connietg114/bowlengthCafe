@@ -80,7 +80,14 @@ textarea
 	background-color: #FFFFFF;
 }
 
+#newFileContainer{
+	display: none;
+	padding: 10px 0;
+}
 
+#newFileContainer div{
+	padding: 2px 0;
+}
 
 
 /* CLASSES */
