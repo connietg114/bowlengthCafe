@@ -4,11 +4,10 @@ session_start();
 $username=$_SESSION["username"];
 $name=$_SESSION["name"];
 
-$count=0;
-$user="";
-if(isset($name)&&isset($username)){
-    $user="Welcome,".$username;
+if(isset($username)&&isset($name)){
+    $user="Welcome, ".$name;
 }
+
 
 ?>
 
@@ -19,9 +18,10 @@ if(isset($name)&&isset($username)){
     <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
         <img class="menuImg" src="img/menubut.PNG"></img>
     </a>
-    <div id="greeting" class="greeting"><?php echo $user; ?></div>
+    
 
     <div id="myMenu" class="menu-content">
+        <div class="greeting"><?php echo $user; ?></div>
         <a class="navButton" onclick="showPage('?home')">Home</a>
         <a class="navButton" onclick="showPage('?covid-19')">Covid-19</a>
         <a class="navButton" onclick="showPage('?menu')">Menu</a>

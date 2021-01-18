@@ -6,7 +6,7 @@ $.get("layout/annoucement.html",
     }
 );
 
-$.get("layout/nav.phtml",
+$.get("layout/nav.php",
     function(data, status) {
         document.getElementById("myTopnav").innerHTML = data;
     }
