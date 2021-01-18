@@ -1,26 +1,26 @@
 $.get("layout/annoucement.html",
-    function (data, status) {
+    function(data, status) {
         document.getElementById("annoucement").innerHTML = data;
         var myIndex = 0;
         annoucementBanner(myIndex);
     }
 );
 
-$.get("layout/nav.html",
-    function (data, status) {
-      document.getElementById("myTopnav").innerHTML = data;
+$.get("layout/nav.phtml",
+    function(data, status) {
+        document.getElementById("myTopnav").innerHTML = data;
     }
 );
 
 $.get("dynamic_pages/footer-list.html",
-    function (data, status) {
-      document.getElementById("footer-list").innerHTML = data;
+    function(data, status) {
+        document.getElementById("footer-list").innerHTML = data;
     }
 );
 
 $.get("layout/footer.html",
-    function (data, status) {
-      document.getElementById("footer").innerHTML = data;
+    function(data, status) {
+        document.getElementById("footer").innerHTML = data;
     }
 );
 

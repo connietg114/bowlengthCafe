@@ -1,4 +1,17 @@
 
+<?php
+session_start();
+$username=$_SESSION["username"];
+$name=$_SESSION["name"];
+
+$count=0;
+$user="";
+if(isset($name)&&isset($username)){
+    $user="Welcome,".$username;
+}
+
+?>
+
 <div class="topnav" id="myTopnav">
     <div class="logoDiv" style="cursor:pointer" onclick="showPage('?home')">
         <img class='active' id="logo" src="img/logo.png" alt="profile">
@@ -6,6 +19,7 @@
     <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
         <img class="menuImg" src="img/menubut.PNG"></img>
     </a>
+    <div id="greeting" class="greeting"><?php echo $user; ?></div>
 
     <div id="myMenu" class="menu-content">
         <a class="navButton" onclick="showPage('?home')">Home</a>
