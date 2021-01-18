@@ -66,7 +66,7 @@ function loginSubmit() {
     var username = getEle('loginUsername').value;
     var password = getEle('loginPassword').value;
 
-    $.post("Controller/AccountController.php", {
+    $.post("_sys/Controller/AccountController.php", {
         code: "login",
         username: username,
         password: password
@@ -90,7 +90,7 @@ function registerSubmit() {
         var email = getEle('newEmail').value;
         var regcode = "reg";
 
-        $.post("Controller/AccountController.php", {
+        $.post("_sys/Controller/AccountController.php", {
             code: regcode,
             newUser: username,
             newPass: password,
@@ -120,7 +120,7 @@ var exist = true;
 
 function checkUsername() {
     var username = getEle('newUser').value;
-    $.post("Controller/AccountController.php", {
+    $.post("_sys/Controller/AccountController.php", {
         code: "username",
         regUser: username
 
