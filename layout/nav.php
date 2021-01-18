@@ -14,18 +14,18 @@ if(isset($_SESSION["username"])&&isset($_SESSION["name"])){
 
 <div class="topnav" id="myTopnav">
     <div class="logoDiv" style="cursor:pointer" onclick="showPage('?home')">
-        <img class='active' id="logo" src="img/logo.png" alt="profile">
+        <img class='active' id="logo" src="file/img/logo.png" alt="profile">
     </div>
     <a class="icon" id="menu-icon" href="javascript:void(0);" onclick="myFunction()">
-        <img class="menuImg" src="img/menubut.PNG"></img>
+        <img class="menuImg" src="file/img/menubut.PNG"></img>
     </a>
     
 
     <div id="myMenu" class="menu-content">
-        <div class="greeting">
+        <!-- <div class="greeting">
             <?php echo $user; ?>
             <a onclick="<?php session_destroy(); header("Refresh:0; url='../index.php'");?>">Logout</a>
-        </div>
+        </div> -->
 
         <a class="navButton" onclick="showPage('?home')">Home</a>
         <a class="navButton" onclick="showPage('?covid-19')">Covid-19</a>
