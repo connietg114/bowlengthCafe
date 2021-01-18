@@ -275,7 +275,7 @@ function renderButtons(){
 	$.post(
 		"../Includes/getDhtml.php",
 		{
-			data: '../../pages',
+			data: '../../../pages',
 		},
 		data => {
 			// console.log(data);
@@ -291,7 +291,7 @@ function renderButtons(){
 	$.post(
 		"../Includes/getDhtml.php",
 		{
-			data: '../../dynamic_pages',
+			data: '../../../dynamic_pages',
 		},
 		data => {
 			// console.log(data);
@@ -308,7 +308,7 @@ function renderButtons(){
 	$.post(
 		"../Includes/getDhtml.php",
 		{
-			data: '../../css',
+			data: '../../../css',
 		},
 		data => {
 			// console.log(data);
@@ -343,7 +343,7 @@ function writeFile() {
 			extension = '.html';
 		}
 
-		currentFile = `../../${folder}/${filename}${extension}`;
+		currentFile = `../../../${folder}/${filename}${extension}`;
 		var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
 	}
 
