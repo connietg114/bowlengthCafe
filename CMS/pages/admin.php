@@ -33,10 +33,12 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         // }
 
         // updateData("firstName = 'connie'", "users", 2);
+            
 
         ?>
         <div class="sidenav">
             <!-- show login username eg. Hi, Leo Liang -->
+
             <a onclick="showPage('?home')">Home</a>
             <a onclick="showPage('?members')">Members</a>
             <a onclick="showPage('?orders')">Orders</a>
@@ -47,6 +49,9 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <a href="#">Log Out</a>
             <a onclick = "showPage('?page-editor')">
             <!-- <a onclick = "openFeature('page-editor')"> -->
+            <a onclick="showPage('../../index.html');logout()">Log Out</a>
+            <a onclick = "openFeature('page-editor')">
+
                 <div>
                     <span>Page Editor</span>
                 </div>

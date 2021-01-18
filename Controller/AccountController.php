@@ -63,6 +63,8 @@ require_once '../Model/AccountCollectionModel.php';
                         $count++;
                         if(md5($loginPass)==$user->getPassword()){
                             session_start();
+                            $_SESSION["id"]=$user->getId();
+                            $_SESSION["password"]=$user->getPassword();
                             $_SESSION["username"]=$loginUser;
                             $_SESSION["name"]=$user->getName();
                             $response="Login Success, Welcome ".$user->getName();
