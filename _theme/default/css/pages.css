@@ -1,13 +1,4 @@
-@import "./about.css";
-@import "./contact.css";
-@import "./covid-19.css";
-@import "./dynamic-page-detail.css";
-@import "./dynamic-page.css";
-@import "./forget-password.css";
-@import "./home.css";
-@import "./membership.css";
-@import "./menu.css";
-@import "./register.css";
+
 .container {
     max-width: 1400px;
     margin: 10px auto;
