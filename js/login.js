@@ -71,6 +71,7 @@ function loginSubmit() {
         username: username,
         password: password
     }, function(feedback) {
+        console.log(feedback);
         var obj = JSON.parse(feedback);
         alert(obj.response);
         if (obj.code == 1) {

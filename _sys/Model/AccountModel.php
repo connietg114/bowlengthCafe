@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../CMS/Includes/globalVariables.php';
-require_once '../../CMS/Includes/sqlQuery.php';
+require_once '../../_/CMS/Includes/globalVariables.php';
+require_once '../../_/CMS/Includes/sqlQuery.php';
 
 class AccountModel{
         private $id;

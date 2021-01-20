@@ -2,7 +2,7 @@
 
 
 require_once '../Model/AccountModel.php';
-require_once '../../CMS/Includes/globalVariables.php';
+require_once '../../_/CMS/Includes/globalVariables.php';
 
 class AccountCollectionModel {
 
