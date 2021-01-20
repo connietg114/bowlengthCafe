@@ -278,11 +278,11 @@ function renderButtons(){
 			data: '../../../_data/pages',
 		},
 		data => {
-			console.log(data);
+			// console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace("\\","/");
+				responseJson[i] = responseJson[i].replace(/\\/g,"/");
 				document.getElementById('html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
@@ -298,7 +298,7 @@ function renderButtons(){
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace("\\","/");
+				responseJson[i] = responseJson[i].replace(/\\/g,"/");
 				const inner = responseJson[i].split('\\').pop().split('/').pop()
 				document.getElementById('d_html').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${inner}</a>`;
 			}
@@ -315,7 +315,7 @@ function renderButtons(){
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace("\\","/");
+				responseJson[i] = responseJson[i].replace(/\\/g,"/");
 				// console.log(responseJson[i].split('\\').pop().split('/').pop());
 				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
@@ -332,7 +332,7 @@ function renderButtons(){
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace("\\","/");
+				responseJson[i] = responseJson[i].replace(/\\/g,"/");
 				// console.log(responseJson[i].split('\\').pop().split('/').pop());
 				document.getElementById('menu').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
