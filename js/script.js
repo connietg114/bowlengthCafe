@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     var url = window.location.href;
 
     console.log("url : " + url);
@@ -19,11 +19,11 @@ window.onload = function() {
                         if (locationDetails[i].title.toLowerCase() == address) {
                             var id = locationDetails[i].id;
                             $(".pageContent").load(
-                                "dynamic_pages/" + splitStr[0] + ".html",
-                                function() {
+                                "_data/dynamic_pages/" + splitStr[0] + ".html",
+                                function () {
                                     showLocationDetails(
                                         id,
-                                        "dynamic_pages/locationDetails.html",
+                                        "_data/dynamic_pages/locationDetails.html",
                                         locationDetails
                                     );
                                 }
@@ -32,10 +32,10 @@ window.onload = function() {
                     }
                 } else {
                     $(".pageContent").load(
-                        "dynamic_pages/" + splitStr[0] + ".html",
-                        function() {
+                        "_data/dynamic_pages/" + splitStr[0] + ".html",
+                        function () {
                             $(".locationPageContent").load(
-                                "dynamic_pages/" + lastIndexStr + ".html"
+                                "_data/dynamic_pages/" + lastIndexStr + ".html"
                             );
                         }
                     );
@@ -50,7 +50,7 @@ window.onload = function() {
                     for (var i = 0; i < newRangeDetails.length; i++) {
                         if (newRangeDetails[i].title.toLowerCase() == rangetitle) {
                             var id = newRangeDetails[i].id;
-                            showRangeDetails(id, "dynamic_pages/rangeDetails.html", newRangeDetails);
+                            showRangeDetails(id, "_data/dynamic_pages/rangeDetails.html", newRangeDetails);
                         }
                     }
                 }
@@ -58,10 +58,10 @@ window.onload = function() {
                 // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
                 else {
                     $(".pageContent").load(
-                        "dynamic_pages/" + splitStr[0] + ".html",
-                        function() {
+                        "_data/dynamic_pages/" + splitStr[0] + ".html",
+                        function () {
                             $(".new-rangesPageContent").load(
-                                "dynamic_pages/newRangesCategory/" + splitStr[1] + ".html"
+                                "_data/dynamic_pages/newRangesCategory/" + splitStr[1] + ".html"
                             );
                         }
                     );
@@ -70,9 +70,9 @@ window.onload = function() {
                 alert("url is : " + url + "\nno such page exit!");
             }
         } else if (lastIndexStr == "locations") {
-            link = "dynamic_pages/" + lastIndexStr + ".html";
-            $(".pageContent").load(link, function() {
-                $(".locationPageContent").load("dynamic_pages/locations/all.html");
+            link = "_data/dynamic_pages/" + lastIndexStr + ".html";
+            $(".pageContent").load(link, function () {
+                $(".locationPageContent").load("_data/dynamic_pages/locations/all.html");
             });
             ///////////   kerry login test (ignored) ///////////
         } else if (lastIndexStr == "login") {
@@ -89,14 +89,16 @@ window.onload = function() {
             $(".pageContent").load(link);
 
             ///////////   kerry login test (ignored) ///////////
+        } else if (lastIndexStr == "menu") {
+            $(".pageContent").load("_data/menu/menu.html");
         } else {
-            link = "pages/" + lastIndexStr + ".html";
+            link = "_data/pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link);
 
         }
     } else if (url.includes("bowlengthCafe")) {
-        $(".myCafe").load("indexContent.html", function() {
-            $(".pageContent").load("pages/home.html");
+        $(".myCafe").load("indexContent.html", function () {
+            $(".pageContent").load("_data/pages/home.html");
         });
     } else {
         alert("Page not found!");

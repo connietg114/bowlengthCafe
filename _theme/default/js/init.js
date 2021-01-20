@@ -15,7 +15,7 @@ $.getJSON("_data/site_setup/config.json", function (json) {
         }
     );
 
-    $.get("dynamic_pages/footer-list.html",
+    $.get("_data/dynamic_pages/footer-list.html",
         function (data, status) {
             document.getElementById("footer-list").innerHTML = data;
         }
