@@ -320,25 +320,7 @@ function renderButtons(){
 				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
-	);
-
-	$.post(
-		"../Includes/getDhtml.php",
-		{
-			data: '../../../_data/menu',
-		},
-		data => {
-			// console.log(data);
-			responseJson = JSON.parse(data);
-			// console.log(responseJson);
-			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace(/\\/g,"/");
-				// console.log(responseJson[i].split('\\').pop().split('/').pop());
-				document.getElementById('menu').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
-			}
-		}
-	);
-	
+	);	
 }
 
 

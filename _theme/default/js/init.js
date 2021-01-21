@@ -3,17 +3,7 @@ $.getJSON("_data/site_setup/config.json", function (json) {
 
     var s = document.createElement("script");
     s.type = "text/javascript";
-    s.src = `_theme/${THEME}/js/login.js`;
-    $("head").append(s);
-
-    var s = document.createElement("script");
-    s.type = "text/javascript";
     s.src = `_theme/${THEME}/js/index.js`;
-    $("head").append(s);
-
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    s.src = `_theme/${THEME}/js/script.js`;
     $("head").append(s);
 
 
