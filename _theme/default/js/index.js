@@ -93,9 +93,7 @@ window.onload = function () {
             $(".pageContent").load(link);
 
             ///////////   kerry login test (ignored) ///////////
-        } else if (lastIndexStr == "menu") {
-            $(".pageContent").load("_data/menu/menu.html");
-        } else {
+        }  else {
             link = "_data/pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link);
 
