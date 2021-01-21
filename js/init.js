@@ -10,6 +10,10 @@ $.getJSON("_data/site_setup/config.json", function (json) {
     var script = document.createElement('script');
     script.setAttribute('src', `_theme/${THEME}/js/init.js`);
     document.head.appendChild(script);
+
+    var script = document.createElement('script');
+    script.setAttribute('src', `_theme/${THEME}/js/index.js`);
+    document.head.appendChild(script);
 });
 
 function loadcssfile(filename, media) {

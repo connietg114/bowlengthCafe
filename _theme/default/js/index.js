@@ -2,6 +2,254 @@ window.onscroll = function() {
     scrollFunction();
 };
 
+window.onload = function () {
+    var url = window.location.href;
+
+    console.log("url : " + url);
+    if (url.includes("?")) {
+        var str = url.split("?");
+        var lastIndexStr = str[str.length - 1];
+        var link;
+        // url is /?location or /?menu page
+        if (lastIndexStr.includes("/")) {
+            var splitStr = lastIndexStr.split("/");
+
+            // Decides /?locations or /?menu (new-ranges)
+            // load locationDetails
+            if (splitStr[0] == "locations") {
+                if (lastIndexStr.includes("-")) {
+                    var address = splitStr[1].replace(/-/g, " ");
+                    for (var i = 0; i < locationDetails.length; i++) {
+                        if (locationDetails[i].title.toLowerCase() == address) {
+                            var id = locationDetails[i].id;
+                            $(".pageContent").load(
+                                "_data/dynamic_pages/" + splitStr[0] + ".html",
+                                function () {
+                                    showLocationDetails(
+                                        id,
+                                        "_data/dynamic_pages/locationDetails.html",
+                                        locationDetails
+                                    );
+                                }
+                            );
+                        }
+                    }
+                } else {
+                    $(".pageContent").load(
+                        "_data/dynamic_pages/" + splitStr[0] + ".html",
+                        function () {
+                            $(".locationPageContent").load(
+                                "_data/dynamic_pages/" + lastIndexStr + ".html"
+                            );
+                        }
+                    );
+                }
+            }
+            // load newRangesDetails
+            // new-ranges/rangeTitle
+            else if (splitStr[0] == "new-ranges") {
+                // ?new-ranges/product-name
+                if (splitStr[1].includes("-")) {
+                    var rangetitle = splitStr[1].replace(/-/g, " ");
+                    for (var i = 0; i < newRangeDetails.length; i++) {
+                        if (newRangeDetails[i].title.toLowerCase() == rangetitle) {
+                            var id = newRangeDetails[i].id;
+                            showRangeDetails(id, "_data/dynamic_pages/rangeDetails.html", newRangeDetails);
+                        }
+                    }
+                }
+                // ?new-ranges/(Category)
+                // lastIndexStr = allRanges/available/limitedAvailable/limitedStock/limitedTime
+                else {
+                    $(".pageContent").load(
+                        "_data/dynamic_pages/" + splitStr[0] + ".html",
+                        function () {
+                            $(".new-rangesPageContent").load(
+                                "_data/dynamic_pages/newRangesCategory/" + splitStr[1] + ".html"
+                            );
+                        }
+                    );
+                }
+            } else {
+                alert("url is : " + url + "\nno such page exit!");
+            }
+        } else if (lastIndexStr == "locations") {
+            link = "_data/dynamic_pages/" + lastIndexStr + ".html";
+            $(".pageContent").load(link, function () {
+                $(".locationPageContent").load("_data/dynamic_pages/locations/all.html");
+            });
+            ///////////   kerry login test (ignored) ///////////
+        } else if (lastIndexStr == "login") {
+            link = "login/" + lastIndexStr + ".php";
+            console.log("login link : " + link)
+            $(".pageContent").load(link);
+        } else if (lastIndexStr == "logindex") {
+            link = "login/" + lastIndexStr + ".php";
+            console.log("login link : " + link)
+            $(".pageContent").load(link);
+        } else if (lastIndexStr == "register2") {
+            link = "login/register" + ".php";
+            console.log("login link : " + link)
+            $(".pageContent").load(link);
+
+            ///////////   kerry login test (ignored) ///////////
+        } else if (lastIndexStr == "menu") {
+            $(".pageContent").load("_data/menu/menu.html");
+        } else {
+            link = "_data/pages/" + lastIndexStr + ".html";
+            $(".pageContent").load(link);
+
+        }
+    } else if (url.includes("bowlengthCafe")) {
+        $(".myCafe").load("indexContent.html", function () {
+            $(".pageContent").load("_data/pages/home.html");
+        });
+    } else {
+        alert("Page not found!");
+    }
+};
+
+function getEle(id) {
+    return document.getElementById(id);
+}
+var exist = true;
+
+function check() {
+    var flag = 0;
+    var alphaNumOnly = /^[0-9A-Za-z]+$/;
+    var passwordType = /^(?=.*[A-Z])[A-Za-z0-9]{7,15}$/;
+    var alphaOnly = /^[A-Za-z]+$/;
+    var emailStyle = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (!getEle('newUser').value.match(alphaNumOnly)) {
+        getEle('userReminder').classList.add('warning');
+        flag++;
+    } else {
+        if ($('#userReminder').hasClass('warning')) {
+            $('#userReminder').removeClass('warning');
+        }
+    }
+
+    if (!getEle('newPass').value.match(passwordType)) {
+        getEle('passReminder').classList.add('warning');
+        flag++;
+    } else {
+        if ($('#passReminder').hasClass('warning')) {
+            $('#passReminder').removeClass('warning');
+        }
+    }
+
+    if (!getEle('newFN').value.match(alphaOnly)) {
+        getEle('fnReminder').classList.add('warning');
+        flag++;
+    } else {
+        if ($('#fnReminder').hasClass('warning')) {
+            $('#fnReminder').removeClass('warning');
+        }
+    }
+
+    if (!getEle('newLN').value.match(alphaOnly)) {
+        getEle('lnReminder').classList.add('warning');
+        flag++;
+    } else {
+        if ($('#lnReminder').hasClass('warning')) {
+            $('#lnReminder').removeClass('warning');
+        }
+    }
+    if (!getEle('newEmail').value === "") {
+        if (!getEle('newEmail').value.match(emailStyle)) {
+            getEle('emailReminder').classList.add('warning');
+            flag++;
+        } else {
+            if ($('#emailReminder').hasClass('warning')) {
+                $('#emailReminder').removeClass('warning');
+            }
+        }
+    }
+    if (flag == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function loginSubmit() {
+    var username = getEle('loginUsername').value;
+    var password = getEle('loginPassword').value;
+
+    $.post("_sys/Controller/AccountController.php", {
+        code: "login",
+        username: username,
+        password: password
+    }, function(feedback) {
+        console.log(feedback);
+        var obj = JSON.parse(feedback);
+        alert(obj.response);
+        if (obj.code == 1) {
+            //username:leoliang ; password:123
+            showPage(obj.page);
+        }
+    });
+}
+
+function registerSubmit() {
+    if (check()) {
+        var username = getEle('newUser').value;
+        var password = getEle('newPass').value;
+        var repass = getEle('newRepass').value;
+        var fn = getEle('newFN').value;
+        var ln = getEle('newLN').value;
+        var email = getEle('newEmail').value;
+        var regcode = "reg";
+
+        $.post("_sys/Controller/AccountController.php", {
+            code: regcode,
+            newUser: username,
+            newPass: password,
+            newRepass: repass,
+            newFN: fn,
+            newLN: ln,
+            newEmail: email,
+        }, function(feedback) {
+            var obj = JSON.parse(feedback);
+
+            if (obj.code == 1) {
+                alert("Register Success");
+                showPage('?membership');
+            } else if (obj.code == 0) {
+                alert("Register Error");
+            } else if (obj.code == 2) {
+                alert("Two password you enter are different");
+            }
+        });
+    } else {
+        alert("Please check your input infomation");
+    }
+
+}
+
+var exist = true;
+
+function checkUsername() {
+    var username = getEle('newUser').value;
+    $.post("_sys/Controller/AccountController.php", {
+        code: "username",
+        regUser: username
+
+    }, function(feedback) {
+        var obj = JSON.parse(feedback);
+        if (obj.code == 1) {
+            getEle('existed').setAttribute("class", "hide");
+            exist = false;
+        } else if (obj.code == 0) {
+            getEle('existed').setAttribute("class", "appear");
+            getEle('existed').innerHTML = obj.status;
+            exist = true;
+        }
+
+    });
+}
+
 function scrollFunction() {
     topnavChange();
 
