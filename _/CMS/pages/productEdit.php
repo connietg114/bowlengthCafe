@@ -14,7 +14,12 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <input value= "" class="productEditName" ></input><br><br>
 
             <label>Category: </label>
-            <input class="productEditCategory"></input><br><br>
+            <select class="productEditCategory">
+                <!-- <option value=""></option> -->
+            </select>
+            <button title = "Add More Category" > 
+                <i class='fa fa-plus'></i></button>
+            <br><br>
 
             <label>Description: </label>
             <input class="productEditDescription"></input><br><br>
@@ -22,7 +27,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <label>Image: </label><br><br>
         </div>
 
-        <table class="productEditPriceList">
+        <table class="productEditPriceList" id="productEditPriceList">
             <th>No.</th>
             <th>Attribute</th>
             <th>Description</th>
@@ -31,6 +36,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <th>Add</th>
         </table>
         <br>
+        <button style="float:right" onclick="UpdateProduct()">Submit</button>
+        <br><br>
         </div>
     </body>
 </html>
