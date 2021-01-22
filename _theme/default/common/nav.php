@@ -22,11 +22,11 @@ if(isset($_SESSION["username"])&&isset($_SESSION["name"])){
     
 
     <div id="myMenu" class="menu-content">
-        <div class="greeting">
+        <div id="greeting" class="greeting">
             <?php 
                 echo $user; 
             ?>
-            <a onclick="">Logout</a>
+            <a onclick="logout()">Logout</a>
         </div>
 
         <a class="navButton" onclick="showPage('?home')">Home</a>

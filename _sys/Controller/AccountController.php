@@ -103,6 +103,12 @@ require_once '../Model/AccountCollectionModel.php';
                 echo json_encode($feedback);
             }
         }
+    }else if($code=="logout"){
+        if($_SERVER["REQUEST_METHOD"]=="POST"){
+            session_start();
+            session_unset();
+            session_destroy();
+        }
     }
     
 ?>
