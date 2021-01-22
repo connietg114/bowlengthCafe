@@ -39,13 +39,13 @@ INSERT INTO `User`(`firstName`, `lastName`, `email`, `pwd`, `role`) VALUES ("fir
 -- INSERT DATA TO Customer
 
 INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Jian", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
-INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Jian", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
-INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Jian", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
-INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Jian", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
-INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Jian", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
+INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("John", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
+INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Lily", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
+INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Abi", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
+INSERT INTO `Customer`(`firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`,`zipCodeAddress`,`countryAddress`) VALUES ("Abu", "Zhang", "zhangjian@abc.com", "60 cook street","Auckland" , "1111", "NZ" );
+INSERT INTO `Customer`( `firstName`, `lastName`, `email`, `streetAddress`, `cityAddress`, `zipCodeAddress`, `countryAddress`) VALUES ("Connie", "Tang", "kourtneytg@gmail.com", "3 something", "Auckland", 1023, "New Zealand");
 
-
--- INSERT DATA TO Customer
+-- INSERT DATA TO Membership
 
 INSERT INTO `Membership`(`dateJoin`, `memberid`, `points`) VALUES ("2021-01-14", 1, 100);
 

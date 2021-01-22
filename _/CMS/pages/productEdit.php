@@ -7,6 +7,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 <html>
     <body>
         <h1>Edit Product</h1>
+        <span class="errorMessage" style="color:red"></span>
         <div class="w3-container container"> 
         <div class="productDetails">
             <br>
@@ -17,7 +18,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <select class="productEditCategory">
                 <!-- <option value=""></option> -->
             </select>
-            <button title = "Add More Category" > 
+            <button title = "Add More Category" onclick="showPage('?addCategory')"> 
                 <i class='fa fa-plus'></i></button>
             <br><br>
 

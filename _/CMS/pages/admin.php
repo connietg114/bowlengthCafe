@@ -44,8 +44,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <a onclick="showPage('?orders')">Orders</a>
             <a onclick="showPage('?products')">Products</a>
             <a href="#">Lost/Found</a>
-            <a href="#">Events</a>
-            <a href="#">Profile</a>
+            <a onclick="showPage('?events')">Events</a>
+            <a onclick="showPage('?profile')">Profile</a>
             <a onclick = "showPage('?page-editor')">
             <!-- <a onclick = "openFeature('page-editor')"> -->
             <a onclick="showPage('../../../index.html');logout()">Log Out</a>

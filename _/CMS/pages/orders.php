@@ -6,25 +6,23 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="css/backend.css">
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        
-        <script src="js/backend.js"></script>
-    </head>
-    
     <body>
         <h1>Orders</h1>
-        <button onclick="alert()">test</button>
         <div class="w3-container container">
+        <br>
+        <button style="float:right" onclick="showPage('?addOrder')">Add Order</button>
+            <br><br>
+            <table class="orderDetails">
+            <th>No.</th>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Price</th>
+            <th>Operator</th>
+            <th>Date & Time</th>
+            <th>Points used</th>
+            <th>Table No.</th>
+            </table>
             <br>
-            <table class="orderDetails"></table>
         </div>
     </body>
 </html>
@@ -33,4 +31,5 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     function alert(){
         console.log("test");
     }
+    renderOrders();
 </script>

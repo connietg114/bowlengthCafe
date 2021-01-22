@@ -1,8 +1,5 @@
-console.log(window.location.href);
-
 window.onload = function() {
     var url = window.location.href;
-
 
     // console.log("url : " + url);
     if (url.includes("?")) {
@@ -154,7 +151,7 @@ function renderProductEdit(id) {
             "<td><i onclick='addProductEditPriceListRow()' class='fa fa-plus'></i>" + "</td>" +
             "</tr>")
     })
-    // console.log(product);
+    console.log(product);
 }
 
 function addProductEditPriceListRow() {
@@ -169,11 +166,25 @@ function addProductEditPriceListRow() {
         "</tr>")
 }
 
-
 function UpdateProduct(){
     var name = $(".productEditName").val();
     var category = $(".productEditCategory").val();
+    var categoryId = getMenuCategory().filter(cat => cat.name == category)[0].id;
+
     var desc = $(".productEditDescription").val();
+    if (!name.match(/^[a-zA-Z ]*$/)){
+        $(".errorMessage").text("Name has to be letters.");
+    }else if(name.length == 0){
+        $(".errorMessage").text("Name cannot be empty.");
+    }
+    else if(!desc.match(/^[a-zA-Z0-9 ]*$/)){
+        $(".errorMessage").text("Description can only be letters & numbers.");
+    }else{
+        $(".errorMessage").text();
+        postProduct(name, categoryId, desc);
+    }
+    
+   
 
     var test;
     var table = document.getElementById("productEditPriceList");
@@ -185,7 +196,7 @@ function UpdateProduct(){
             }
         }  
     }
-    postProduct(name, category, desc);
+    
     // console.log("name: "+ name);
     // console.log("category: " + category);
     // console.log($(".productEditDescription").val());
@@ -195,7 +206,7 @@ function postProduct(name, categoryId, description){
     var dataReturn;
     $.ajax({
         type: 'POST',
-        url: "products/post.php",
+        url: "products/edit.php",
         data: {name:name, categoryId:categoryId, description:description },
         success: function(items) {
             // return items;
@@ -205,6 +216,37 @@ function postProduct(name, categoryId, description){
         async: false
     });
     return dataReturn;
+}
+///////////////////////////////////////Orders Page//////////////////////////////////////////////////////////////////
+// getOrders();
+function getOrders(){
+    var dataReturn = {};
+    $.ajax({
+        type: 'POST',
+        url: "orders/get.php",
+        data: { table: "OrderTracking" },
+        success: function(items) {
+            console.log(items);
+            dataReturn = jQuery.parseJSON(items);
+        },
+        async: false
+    });
+    return dataReturn;
+}
+
+function renderOrders(){
+    $.map(getOrders(), function(value, index) {
+        $(".orderDetails").append("<tr>" +
+            "<td>" + (index + 1) + "</td>" +
+            "<td>" + value.id + "</td>" +
+            "<td>" + value.customerId + "</td>" +
+            "<td>" + value.price + "</td>" +
+            "<td>" + value.operatorId + "</td>" +
+            "<td>" + value.dateTime + "</td>" +
+            "<td>" + value.pointsUsed + "</td>" +
+            "<td>" + value.tableNo + "</td>" +
+            "</tr>")
+    })
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
