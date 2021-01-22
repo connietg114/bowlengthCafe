@@ -278,7 +278,7 @@ function renderButtons(){
 			data: '../../../_data/pages',
 		},
 		data => {
-			// console.log(data);
+			console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
@@ -306,17 +306,17 @@ function renderButtons(){
 	); 
 
 	$.post(
-		"../Includes/getDhtml.php",
+		"../Includes/getCSS.php",
 		{
-			data: '../../../_theme/default/css',
+			data: '../../../_data/pages',
 		},
 		data => {
 			// console.log(data);
 			responseJson = JSON.parse(data);
-			// console.log(responseJson);
+			console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
 				responseJson[i] = responseJson[i].replace(/\\/g,"/");
-				// console.log(responseJson[i].split('\\').pop().split('/').pop());
+				console.log(responseJson[i].split('\\').pop().split('/').pop());
 				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
