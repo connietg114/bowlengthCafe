@@ -186,6 +186,11 @@ function loginSubmit() {
         if (obj.code == 1) {
             //username:leoliang ; password:123
             showPage(obj.page);
+            if ($('#greeting').hasClass('hide')) {
+                $('#greeting').removeClass('hide');
+                $('#greeting').addClass('greeting');
+                getEle('logoutBtn').innerText = "Logout";
+            }
         }
     });
 }
@@ -254,7 +259,12 @@ function logout() {
     }, function() {
         alert("Logout Success!");
         showPage("?home");
-        getEle('greeting').setAttribute = '';
+        if ($('#greeting').hasClass("greeting")) {
+            $('#greeting').removeClass("greeting");
+            $('#greeting').addClass("hide");
+            getEle('logoutBtn').innerText = "";
+        }
+
     })
 }
 
