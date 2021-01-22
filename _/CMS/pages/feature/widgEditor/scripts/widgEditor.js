@@ -334,21 +334,15 @@ function writeFile() {
 		}
 
 		const folder = document.getElementById("types").value;
+		const extension = document.getElementById("extension").value;
 
-		var extension;
-		if(folder == 'css'){
-			extension = '.css';
-		} else {
-			extension = '.html';
-		}
-
-		currentFile = `../../../${folder}/${filename}${extension}`;
+		currentFile = `../../../_data/${folder}/${filename}.${extension}`;
 		var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
 	}
-
+	console.log(currentFile);
 	if(!currentFile.includes("html") && !currentFile.includes("css")){
 		const extension = currentFile.split('.');
-		alert(`.${extension[extension.length-1]} files are not allowed to be saved in this system`);
+		alert(`.${extension} files are not allowed to be saved in this system`);
 		return;
 	}
 
@@ -1858,4 +1852,11 @@ String.prototype.validTags = function()
 		});
 		
 	return theString;
+}
+
+//new file
+function renderNewFile(){
+	document.getElementById("newFileContainer").style.display = "block";
+	document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML = '';
+	currentFile = undefined;
 }
