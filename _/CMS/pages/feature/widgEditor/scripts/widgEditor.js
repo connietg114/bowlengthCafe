@@ -278,7 +278,7 @@ function renderButtons(){
 			data: '../../../_data/pages',
 		},
 		data => {
-			// console.log(data);
+			console.log(data);
 			responseJson = JSON.parse(data);
 			// console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
@@ -306,39 +306,21 @@ function renderButtons(){
 	); 
 
 	$.post(
-		"../Includes/getDhtml.php",
+		"../Includes/getCSS.php",
 		{
-			data: '../../../_theme/default/css',
+			data: '../../../_data/pages',
 		},
 		data => {
 			// console.log(data);
 			responseJson = JSON.parse(data);
-			// console.log(responseJson);
+			console.log(responseJson);
 			for(var i = 0; i < responseJson.length; i++){
 				responseJson[i] = responseJson[i].replace(/\\/g,"/");
-				// console.log(responseJson[i].split('\\').pop().split('/').pop());
+				console.log(responseJson[i].split('\\').pop().split('/').pop());
 				document.getElementById('CSS').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
 			}
 		}
-	);
-
-	$.post(
-		"../Includes/getDhtml.php",
-		{
-			data: '../../../_data/menu',
-		},
-		data => {
-			// console.log(data);
-			responseJson = JSON.parse(data);
-			// console.log(responseJson);
-			for(var i = 0; i < responseJson.length; i++){
-				responseJson[i] = responseJson[i].replace(/\\/g,"/");
-				// console.log(responseJson[i].split('\\').pop().split('/').pop());
-				document.getElementById('menu').innerHTML += `<a onclick = "readFile('${responseJson[i]}')" type="file" name="${responseJson[i]}" class="widgetFile">${responseJson[i].split('\\').pop().split('/').pop()}</a>`;
-			}
-		}
-	);
-	
+	);	
 }
 
 
@@ -352,21 +334,15 @@ function writeFile() {
 		}
 
 		const folder = document.getElementById("types").value;
+		const extension = document.getElementById("extension").value;
 
-		var extension;
-		if(folder == 'css'){
-			extension = '.css';
-		} else {
-			extension = '.html';
-		}
-
-		currentFile = `../../../${folder}/${filename}${extension}`;
+		currentFile = `../../../_data/${folder}/${filename}.${extension}`;
 		var elHtml = document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML;
 	}
-
+	console.log(currentFile);
 	if(!currentFile.includes("html") && !currentFile.includes("css")){
 		const extension = currentFile.split('.');
-		alert(`.${extension[extension.length-1]} files are not allowed to be saved in this system`);
+		alert(`.${extension} files are not allowed to be saved in this system`);
 		return;
 	}
 
@@ -1876,4 +1852,11 @@ String.prototype.validTags = function()
 		});
 		
 	return theString;
+}
+
+//new file
+function renderNewFile(){
+	document.getElementById("newFileContainer").style.display = "block";
+	document.getElementById('noiseWidgIframe').contentDocument.getElementsByTagName('body')[0].innerHTML = '';
+	currentFile = undefined;
 }

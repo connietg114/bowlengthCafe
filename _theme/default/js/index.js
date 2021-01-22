@@ -2,7 +2,7 @@ window.onscroll = function() {
     scrollFunction();
 };
 
-window.onload = function () {
+window.onload = function() {
     var url = window.location.href;
 
     console.log("url : " + url);
@@ -24,7 +24,7 @@ window.onload = function () {
                             var id = locationDetails[i].id;
                             $(".pageContent").load(
                                 "_data/dynamic_pages/" + splitStr[0] + ".html",
-                                function () {
+                                function() {
                                     showLocationDetails(
                                         id,
                                         "_data/dynamic_pages/locationDetails.html",
@@ -37,7 +37,7 @@ window.onload = function () {
                 } else {
                     $(".pageContent").load(
                         "_data/dynamic_pages/" + splitStr[0] + ".html",
-                        function () {
+                        function() {
                             $(".locationPageContent").load(
                                 "_data/dynamic_pages/" + lastIndexStr + ".html"
                             );
@@ -63,7 +63,7 @@ window.onload = function () {
                 else {
                     $(".pageContent").load(
                         "_data/dynamic_pages/" + splitStr[0] + ".html",
-                        function () {
+                        function() {
                             $(".new-rangesPageContent").load(
                                 "_data/dynamic_pages/newRangesCategory/" + splitStr[1] + ".html"
                             );
@@ -75,7 +75,7 @@ window.onload = function () {
             }
         } else if (lastIndexStr == "locations") {
             link = "_data/dynamic_pages/" + lastIndexStr + ".html";
-            $(".pageContent").load(link, function () {
+            $(".pageContent").load(link, function() {
                 $(".locationPageContent").load("_data/dynamic_pages/locations/all.html");
             });
             ///////////   kerry login test (ignored) ///////////
@@ -93,15 +93,13 @@ window.onload = function () {
             $(".pageContent").load(link);
 
             ///////////   kerry login test (ignored) ///////////
-        } else if (lastIndexStr == "menu") {
-            $(".pageContent").load("_data/menu/menu.html");
         } else {
             link = "_data/pages/" + lastIndexStr + ".html";
             $(".pageContent").load(link);
 
         }
     } else if (url.includes("bowlengthCafe")) {
-        $(".myCafe").load("indexContent.html", function () {
+        $(".myCafe").load("indexContent.html", function() {
             $(".pageContent").load("_data/pages/home.html");
         });
     } else {
@@ -188,6 +186,11 @@ function loginSubmit() {
         if (obj.code == 1) {
             //username:leoliang ; password:123
             showPage(obj.page);
+            if ($('#greeting').hasClass('hide')) {
+                $('#greeting').removeClass('hide');
+                $('#greeting').addClass('greeting');
+                getEle('logoutBtn').innerText = "Logout";
+            }
         }
     });
 }
@@ -248,6 +251,21 @@ function checkUsername() {
         }
 
     });
+}
+
+function logout() {
+    $.post("_sys/Controller/AccountController.php", {
+        code: "logout"
+    }, function() {
+        alert("Logout Success!");
+        showPage("?home");
+        if ($('#greeting').hasClass("greeting")) {
+            $('#greeting').removeClass("greeting");
+            $('#greeting').addClass("hide");
+            getEle('logoutBtn').innerText = "";
+        }
+
+    })
 }
 
 function scrollFunction() {
@@ -340,43 +358,43 @@ window.onclick = function(event) {
     // execute following when .cateory exist only
     var locationExist = document.getElementById("locationCategory");
     var newRangesExist = document.getElementById("newRangesCategory");
-    if (locationExist || newRangesExist){
+    if (locationExist || newRangesExist) {
         console.log("#locationCategory or #newRangesCategory exist");
 
-      if (!event.target.matches(".category")) {
-          console.log("event not matches '.category'");
-          var categorylist = document.getElementsByClassName("category-list");
-          // change arrow direction
-          var arrowUpExist = document.getElementById("arrow-up");
-          var arrowDownExist = document.getElementById("arrow-down");
-          if (arrowUpExist || arrowDownExist){
-            console.log("#arrowUp or #arrowDown exist");
-            var arrowUp = document.getElementById("arrow-up").style.display;
-            console.log("can read property of arrow-up style");
-            var arrowDown = document.getElementById("arrow-down").style.display;
-            console.log("can read property of arrow-down style");
-            if (arrowUp === "inline") {
-                console.log("if: arrowUp === inline ; " + arrowUp);
-                document.getElementById("arrow-up").style.display = "none";
-                document.getElementById("arrow-down").style.display = "inline";
-            } else {
-                console.log("else: arrowUp!== inline; style: " + arrowUp);
+        if (!event.target.matches(".category")) {
+            console.log("event not matches '.category'");
+            var categorylist = document.getElementsByClassName("category-list");
+            // change arrow direction
+            var arrowUpExist = document.getElementById("arrow-up");
+            var arrowDownExist = document.getElementById("arrow-down");
+            if (arrowUpExist || arrowDownExist) {
+                console.log("#arrowUp or #arrowDown exist");
+                var arrowUp = document.getElementById("arrow-up").style.display;
+                console.log("can read property of arrow-up style");
+                var arrowDown = document.getElementById("arrow-down").style.display;
+                console.log("can read property of arrow-down style");
+                if (arrowUp === "inline") {
+                    console.log("if: arrowUp === inline ; " + arrowUp);
+                    document.getElementById("arrow-up").style.display = "none";
+                    document.getElementById("arrow-down").style.display = "inline";
+                } else {
+                    console.log("else: arrowUp!== inline; style: " + arrowUp);
+                }
             }
-          }
-          // hide category list
-          var i;
-          for (i = 0; i < categorylist.length; i++) {
-              var openCategory = categorylist[i];
-              console.log(".cateory for loop: " + i);
-              if (openCategory.classList.contains("show-category-list")) {
-                  openCategory.classList.remove("show-category-list");
-              }
-          }
-      }
+            // hide category list
+            var i;
+            for (i = 0; i < categorylist.length; i++) {
+                var openCategory = categorylist[i];
+                console.log(".cateory for loop: " + i);
+                if (openCategory.classList.contains("show-category-list")) {
+                    openCategory.classList.remove("show-category-list");
+                }
+            }
+        }
 
 
     } else {
-      console.log("#locationCategory or #newRangesCategory not exist");
+        console.log("#locationCategory or #newRangesCategory not exist");
     }
 };
 

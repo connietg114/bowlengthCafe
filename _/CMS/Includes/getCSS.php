@@ -5,10 +5,11 @@ $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($_POST[
 foreach ($iterator as $file) {
     if ($file->isDir()) continue;
     $path = $file->getPathname();
-    if(strpos($path, '.html')){
+    if(strpos($path, '.css')){
         array_push($fileList, $path);
     }
 }
+
 
 echo json_encode($fileList);
 
