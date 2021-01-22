@@ -23,8 +23,10 @@ if(isset($_SESSION["username"])&&isset($_SESSION["name"])){
 
     <div id="myMenu" class="menu-content">
         <div class="greeting">
-            <?php echo $user; ?>
-            <a onclick="<?php session_destroy(); header("Refresh:0; url='../index.php'");?>">Logout</a>
+            <?php 
+                echo $user; 
+            ?>
+            <a onclick="">Logout</a>
         </div>
 
         <a class="navButton" onclick="showPage('?home')">Home</a>
