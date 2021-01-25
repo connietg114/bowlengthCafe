@@ -98,11 +98,12 @@ window.onload = function() {
             $(".pageContent").load(link);
 
         }
-    } else if (url.includes("bowlengthCafe")) {
-        $(".myCafe").load("indexContent.html", function() {
-            $(".pageContent").load("_data/pages/home.html");
-        });
-    } else {
+    } else if (url.includes("bowlengthCafe/")) {
+        $(".pageContent").load("_data/pages/home.html");
+    }
+   
+    else {
+
         alert("Page not found!");
     }
 };

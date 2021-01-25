@@ -166,10 +166,12 @@ function addProductEditPriceListRow() {
         "</tr>")
 }
 
+// var productPriceArray;
 function UpdateProduct(){
     var name = $(".productEditName").val();
     var category = $(".productEditCategory").val();
     var categoryId = getMenuCategory().filter(cat => cat.name == category)[0].id;
+    // productPriceArray+=...;
 
     var desc = $(".productEditDescription").val();
     if (!name.match(/^[a-zA-Z ]*$/)){
