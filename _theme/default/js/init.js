@@ -1,4 +1,4 @@
-$.getJSON("_data/site_setup/config.json", function (json) {
+$.getJSON("_data/site_setup/config.json", function(json) {
     const THEME = json.theme;
 
     var s = document.createElement("script");
@@ -8,7 +8,7 @@ $.getJSON("_data/site_setup/config.json", function (json) {
 
 
     $.get(`_theme/${THEME}/common/annoucement.html`,
-        function (data, status) {
+        function(data, status) {
             document.getElementById("annoucement").innerHTML = data;
             var myIndex = 0;
             annoucementBanner(myIndex);
@@ -16,19 +16,19 @@ $.getJSON("_data/site_setup/config.json", function (json) {
     );
 
     $.get(`_theme/${THEME}/common/nav.php`,
-        function (data, status) {
+        function(data, status) {
             document.getElementById("myTopnav").innerHTML = data;
         }
     );
 
     $.get("_data/dynamic_pages/footer-list.html",
-        function (data, status) {
+        function(data, status) {
             document.getElementById("footer-list").innerHTML = data;
         }
     );
 
     $.get(`_theme/${THEME}/common/footer.html`,
-        function (data, status) {
+        function(data, status) {
             document.getElementById("footer").innerHTML = data;
         }
     );
@@ -45,9 +45,8 @@ $.getJSON("_data/site_setup/config.json", function (json) {
         }
         x[myIndex - 1].style.display = "block";
 
-        setTimeout(function () {
+        setTimeout(function() {
             annoucementBanner(myIndex);
         }, 4000);
     }
 });
-
