@@ -1,7 +1,7 @@
 window.onload = function() {
     var url = window.location.href;
 
-    // console.log("url : " + url);
+    console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
         var lastIndexStr = str[str.length - 1];
@@ -15,6 +15,10 @@ window.onload = function() {
             } else if (splitStr[0] == "productEdit") {
                 $(".main").load(splitStr[0] + ".php", function() {
                     renderProductEdit(splitStr[1]);
+                });
+            }else if(splitStr[0] == "categoryEdit"){
+                $(".main").load("categoryEdit.php", function() {
+                    
                 });
             }
 

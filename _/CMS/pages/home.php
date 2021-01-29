@@ -20,6 +20,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     function deletedata(id, table){
         $.post("home/delete.php", {id: id, table: table}, message =>{
             if(jQuery.parseJSON(message).status=="success"){
+                console.log($(".row"+id));
                 $(".row"+id).html("");
             }
         })
