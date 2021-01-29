@@ -2,7 +2,7 @@ window.onscroll = function() {
     scrollFunction();
 };
 
-window.onload = function() {
+$(document).ready(function() {
     var url = window.location.href;
 
     console.log("url : " + url);
@@ -100,13 +100,12 @@ window.onload = function() {
         }
     } else if (url.includes("bowlengthCafe/")) {
         $(".pageContent").load("_data/pages/home.html");
-    }
-   
-    else {
+    } else {
 
         alert("Page not found!");
     }
-};
+});
+
 
 function getEle(id) {
     return document.getElementById(id);

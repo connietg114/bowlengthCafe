@@ -1,4 +1,4 @@
-$.getJSON("_data/site_setup/config.json", function (json) {
+$.getJSON("_data/site_setup/config.json", function(json) {
     const THEME = json.theme;
     console.log(THEME); // show the JSON file content into console
 
