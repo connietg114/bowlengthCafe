@@ -28,7 +28,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 
 <script>
     $.map(getMenuCategory(), function(value, index){
-        $(".buttonGroup").append("<button onclick="+ '"changeCategoryId(' + value.id +')" '+ " id="+ "'"+value.id + "'" +">"+ value.name+"</button> ");
+        $(".buttonGroup").append("<button style='margin:5px' onclick="+ '"changeCategoryId(' + value.id +')" '+ " id="+ "'"+value.id + "'" +">"+ value.name+"</button> ");
     })
 
     renderProducts(getProducts(), 0);

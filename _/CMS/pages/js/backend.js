@@ -195,6 +195,7 @@ function UpdateProduct(){
         for (var j = 1, col; col = row.cells[j]; j++) {
             if(j==1 || j==2 || j==3){
             test= col.firstChild.value;
+            console.log(test);
             }
         }  
     }

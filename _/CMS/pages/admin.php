@@ -42,6 +42,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <a onclick="showPage('?home')">Home</a>
             <a onclick="showPage('?members')">Members</a>
             <a onclick="showPage('?orders')">Orders</a>
+            <a onclick="showPage('?categories')">Categories</a>
             <a onclick="showPage('?products')">Products</a>
             <a href="#">Lost/Found</a>
             <a onclick="showPage('?events')">Events</a>

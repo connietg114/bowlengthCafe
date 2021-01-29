@@ -4,15 +4,12 @@ require_once dirname(__FILE__).'/../../Includes/sqlQuery.php';
 
 $table = "MenuCategory";
 $id = 0;
-$name = isset($_POST['name']) ? $_POST['name'] : null;
-$description = isset($_POST['description']) ? $_POST['description'] : null;
+$name = isset($_POST['name']) ? '"'. $_POST['name'].'"': "NULL";
+$description = !isset($_POST['description']) ? '"'. $_POST['description'] .'"': "NULL";
 
-// print $name . " ". $categoryId." ".$description;
-$postItems = array($id, '"'.$name.'"', '"'.$description.'"');
-// $escaped_values = array_map('mysql_real_escape_string', array_values($postItems));
+$postItems = array($id, $name, $description);
 $values  = implode(", ", array_values($postItems));
 // echo array_keys($postItems);
-
 // print_r($postItems);
 
 $sql = "INSERT INTO $table VALUES ($values);";
