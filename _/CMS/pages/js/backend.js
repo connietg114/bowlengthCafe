@@ -267,23 +267,33 @@ function renderCategoryEdit(id){
 function editCategory(){
     var name = $(".categoryEditNameInput").val();
     var description = $(".categoryEditDescriptionInput").val();
-
-    console.log(name);
-    console.log(description);
     var arr = window.location.href.split("/")
     var id = arr[arr.length-1];
 
-    $.ajax({
-        type: 'POST',
-        url: "categories/edit.php",
-        data: {id:id, name:name, description:description },
-        success: function(items) {
-            // return items;
-            console.log(items);
-            // dataReturn = jQuery.parseJSON(items);
-        },
-        async: false
-    });
+    if (!name.match(/^[a-zA-Z ]*$/)){
+        $(".categoryEditErrorMessage").text("Name has to be letters.");
+    }else if(name.length == 0){
+        $(".categoryEditErrorMessage").text("Name cannot be empty.");
+    }
+    else if(!description.match(/^[a-zA-Z0-9 ]*$/)){
+        $(".categoryEditErrorMessage").text("Description can only be letters & numbers.");
+    }else{
+        $(".categoryEditErrorMessage").text();
+        $.ajax({
+            type: 'POST',
+            url: "categories/edit.php",
+            data: {id:id, name:name, description:description },
+            success: function(items) {
+                if(jQuery.parseJSON(items).status!="success"){
+                    alert("Fail to edit category with ID=" + id);
+                }else{
+                    alert("Category "+ id + " has been edited.");
+                }
+                // dataReturn = jQuery.parseJSON(items);
+            },
+            async: false
+        });
+    }   
 }
 
 

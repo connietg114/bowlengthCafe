@@ -22,6 +22,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 <th>Edit</th>
             </table>
             <br>
+            <button style="float:right" onclick="showPage('?addProduct')">Add Product</button>
+            <br><br>
         </div>
     </body>
 </html>
