@@ -18,7 +18,7 @@ window.onload = function() {
                 });
             }else if(splitStr[0] == "categoryEdit"){
                 $(".main").load("categoryEdit.php", function() {
-                    
+                    renderCategoryEdit(splitStr[1]);
                 });
             }
 
@@ -134,6 +134,7 @@ function getProductPriceList(id) {
 var productEditNum;
 function renderProductEdit(id) {
     var product = getProducts().filter(product => product.id == id)[0];
+    // console.log(product);
     $(".productEditName").attr("value", product.name);
     $(".productEditCategory").append("<option value = '"+product.categoryName + "'>"+product.categoryName+ "</option");
     $.map(getMenuCategory(), function(value, index){
@@ -255,6 +256,36 @@ function renderOrders(){
             "</tr>")
     })
 }
+////////////////////////////////////Category Edit Page//////////////////////////////////////////////////
+function renderCategoryEdit(id){
+    var category= getMenuCategory().filter(category => category.id == id)[0];
+    console.log(category);
+    $(".categoryEditNameInput").attr("value", category.name);
+    $(".categoryEditDescriptionInput").attr("value", category.description);
+}
+
+function editCategory(){
+    var name = $(".categoryEditNameInput").val();
+    var description = $(".categoryEditDescriptionInput").val();
+
+    console.log(name);
+    console.log(description);
+    var arr = window.location.href.split("/")
+    var id = arr[arr.length-1];
+
+    $.ajax({
+        type: 'POST',
+        url: "categories/edit.php",
+        data: {id:id, name:name, description:description },
+        success: function(items) {
+            // return items;
+            console.log(items);
+            // dataReturn = jQuery.parseJSON(items);
+        },
+        async: false
+    });
+}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 const openFeature = page => {
