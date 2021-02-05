@@ -21,16 +21,14 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 <th>Price</th>
             </table>
             <br>
+            <button class="productDetailsEditButton" onclick=""style="float:right">Edit <i class="fa fa-pen"></i></button>
+            <br><br>
         </div>
 
     </body>
 </html>
 
 <script>
-//     function renderProductDetails(id){
-//     var product = getProducts().filter(product=>product.id==id);
-//     console.log(product);
-//     $(".productDetails").html("<p>" + product.id +  product.categoryId + product.name+ product.description+ product.name + "</p>");
-// }
+
 
 </script>

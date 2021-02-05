@@ -22,11 +22,14 @@ window.onload = function() {
                 });
             }else if(splitStr[0] =="products"){
                 $(".main").load(splitStr[0] + ".php", function() {
-                    // var s = splitStr[1].replace("%20", "");
                     var id = $("." + splitStr[1]).attr("id");
+                    if(splitStr[1]=="All"){
+                        id=0;
+                    }
                     $(".productsItems").html("<table categoryId=0><th>ID</th><th>Name</th><th>Description</th><th>Image</th><th>Delete</th><th>Edit</th></table>");
                     $(".productsItems").attr("categoryId", id);
                     renderProducts(getProducts(), id);
+
                 });
             }
 
@@ -153,7 +156,7 @@ function renderProductDetails(id) {
             "<td>" + value.cost + "</td>" +
             "</tr>")
     })
-
+    $(".productDetailsEditButton").attr("onclick", 'editProduct('+product.id+')');
 }
 
 function getProductPriceList(id) {

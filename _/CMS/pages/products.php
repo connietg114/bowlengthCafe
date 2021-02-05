@@ -10,7 +10,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <div class="w3-container container"> 
             <br>
             <div class="buttonGroup">
-                <button onclick="changeCategoryId(0)">All</button>
+                <button onclick="showPage('?products/All')">All</button>
             </div>
             <br>
             <table class="productsItems" categoryId="1">
