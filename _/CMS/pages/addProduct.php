@@ -15,7 +15,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <input value= "" class="addProductName" ></input><br><br>
 
             <label>Category: </label>
-            <select class="addProductCategory">
+            <select class="categoryList">
                 <!-- <option value=""></option> -->
             </select>
 
@@ -32,14 +32,14 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         </div>
 
         <table class="addProductPriceList" id="addProductPriceList">
-            <th>No.</th>
-            <th>Attribute</th>
+        
+            <th>Attribute <button onclick="showPage('?addAttribute')"><i class='fa fa-plus'></i></button></th>
             <th>Description</th>
             <th>Price</th>
             <th>Delete</th>
             <th>Add</th>
             <tr>
-                <td>1</td>
+               
                 <td><input></input></td>
                 <td><input></input></td>
                 <td><input type="number"></input></td>
@@ -55,7 +55,11 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     </body>
 </html>
 <script>
-     $.map(getMenuCategory(), function(value, index){
-        $(".addProductCategory").append("<option value='" + value.name + "'>" + value.name + "</option>")   
-    })
+    //  $.map(getMenuCategory(), function(value, index){
+    //     $(".addProductCategory").append("<option value='" + value.name + "'>" + value.name + "</option>")   
+    // })
+
+    function addProductAddPriceRow(){
+
+    }
 </script>

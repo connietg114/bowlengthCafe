@@ -16,7 +16,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
            
             <table class="productDetailsPriceList">
                 <th>No.</th>
-                <th>Attribute</th>
+                <th>Attribute <button onclick="showPage('?addAttribute')"><i class='fa fa-plus'></i></button></th>
                 <th>Description</th>
                 <th>Price</th>
             </table>

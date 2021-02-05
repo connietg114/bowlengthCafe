@@ -20,11 +20,21 @@ window.onload = function() {
                 $(".main").load("categoryEdit.php", function() {
                     renderCategoryEdit(splitStr[1]);
                 });
+            }else if(splitStr[0] =="products"){
+                $(".main").load(splitStr[0] + ".php", function() {
+                    // var s = splitStr[1].replace("%20", "");
+                    var id = $("." + splitStr[1]).attr("id");
+                    $(".productsItems").html("<table categoryId=0><th>ID</th><th>Name</th><th>Description</th><th>Image</th><th>Delete</th><th>Edit</th></table>");
+                    $(".productsItems").attr("categoryId", id);
+                    renderProducts(getProducts(), id);
+                });
             }
 
         } else {
             $(".main").load(lastIndexStr + ".php", function() {
-
+                $.map(getMenuCategory(), function(value, index){
+                    $(".categoryList").append("<option value='" + value.name + "'>" + value.name + "</option>")   
+                })
             });
         }
     } else {
@@ -33,9 +43,9 @@ window.onload = function() {
 
 }
 
+
 function showPage(url) {
     window.location.href = url;
-    // $(".main").load(url);
 }
 
 function navigateToDetails(id) {
@@ -58,6 +68,37 @@ function getProducts() {
     });
     return dataReturn;
 }
+
+function renderProducts(array, id){
+    // console.log(array);
+    $.map(array, function(value, index){
+        if(id!= 0){
+            if(value.categoryId==id){
+                mapProducts(value);
+            }
+        }else{
+            mapProducts(value);  
+        }
+    })
+}
+
+function mapProducts(value){
+    $(".productsItems").append("<tr>" + 
+            "<td onclick='navigateToDetails("+value.id +")'>"+ value.id +"</td>" + 
+            "<td onclick='navigateToDetails("+value.id +")'>"+ value.name + "</td>" + 
+            "<td onclick='navigateToDetails("+value.id +")'>"+ (value.description || "-") + "</td>" + 
+            "<td onclick='navigateToDetails("+value.id +")'>"+ (value.image || "-") + "</td>"+ 
+            "<td onclick='deleteProduct()'><i class='fa fa-trash'></i>" + "</td>"
+            +  "<td><i onclick='editProduct("+value.id+")' class='fa fa-pen'></i>" + "</td>" +
+            "</tr>");
+}
+function deleteProduct(){
+    // console.log("delete");
+}
+function editProduct(id){
+    showPage("?productEdit/"+id);
+}
+
 //////////////////////////// Members Page //////////////////////////////////////////////////////////////////////
 
 function getCustomers() {
@@ -225,6 +266,11 @@ function postProduct(name, categoryId, description){
     });
     return dataReturn;
 }
+///////////////////// Add Product Page //////////////////
+// alert($(".addProductCategory"));
+// $.map(getMenuCategory(), function(value, index){
+//     $(".addProductCategory").append("<option value='" + value.name + "'>" + value.name + "</option>")   
+// })
 ///////////////////////////////////////Orders Page//////////////////////////////////////////////////////////////////
 // getOrders();
 function getOrders(){
@@ -285,7 +331,7 @@ function editCategory(){
             data: {id:id, name:name, description:description },
             success: function(items) {
                 if(jQuery.parseJSON(items).status!="success"){
-                    alert("Fail to edit category with ID=" + id);
+                    alert("Fail to edit category with ID=" + id);//this is not coming out!
                 }else{
                     alert("Category "+ id + " has been edited.");
                 }
