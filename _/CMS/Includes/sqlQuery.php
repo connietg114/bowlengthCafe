@@ -157,6 +157,32 @@ function createTable($conn) {
      )";
      $conn->query($sql); 
 
+     //need to delete ordertracking, productorder
+     $sql = "CREATE TABLE IF NOT EXISTS Orders(
+        id int(11) AUTO_INCREMENT PRIMARY KEY not null,
+        customerId int(11),
+        operatorId int(11) not null,
+        dateTime datetime not null,
+        pointsUsed int(11) not null,
+        tableNo int(11),
+
+       FOREIGN KEY(customerId) REFERENCES Customer(id),
+       FOREIGN KEY(operatorId) REFERENCES User(id)
+     )";
+     $conn->query($sql); 
+
+     $sql = "CREATE TABLE IF NOT EXISTS OrderLines(
+        orderId int(11) not null,
+        productAttributeId int(11) not null,
+
+        PRIMARY KEY(orderId, productAttributeId),
+       FOREIGN KEY(OrderId) REFERENCES Orders(id),
+       FOREIGN KEY(ProductAttributeId) REFERENCES ProductAttribute(id)
+     )";
+     $conn->query($sql); 
+    //INSERT INTO `OrderLines` (`orderId`, `productId`, `productAttributeId`) VALUES ('1', '1', '1'), ('1', '1', '2');
+
+
 
 
     //  $sql = "CREATE TABLE IF NOT EXISTS Product(

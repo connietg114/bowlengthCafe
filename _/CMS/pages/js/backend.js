@@ -12,7 +12,12 @@ window.onload = function() {
                 $(".main").load(splitStr[0] + ".php", function() {
                     renderProductDetails(splitStr[1]);
                 });
-            } else if (splitStr[0] == "productEdit") {
+            } else if(splitStr[0] == "orderDetails"){
+                $(".main").load(splitStr[0] + ".php", function() {
+                    renderOrderDetails(splitStr[1]);
+                });
+            }
+            else if (splitStr[0] == "productEdit") {
                 $(".main").load(splitStr[0] + ".php", function() {
                     renderProductEdit(splitStr[1]);
                 });
@@ -51,8 +56,8 @@ function showPage(url) {
     window.location.href = url;
 }
 
-function navigateToDetails(id) {
-    showPage("?productDetails/" + id);
+function navigateToDetails(page, id) {
+    showPage("?"+ page + "Details/" + id);
 }
 ///////////////////////////////// Products Page /////////////////////////////////////////////////////////////////////////
 
@@ -87,10 +92,10 @@ function renderProducts(array, id){
 
 function mapProducts(value){
     $(".productsItems").append("<tr>" + 
-            "<td onclick='navigateToDetails("+value.id +")'>"+ value.id +"</td>" + 
-            "<td onclick='navigateToDetails("+value.id +")'>"+ value.name + "</td>" + 
-            "<td onclick='navigateToDetails("+value.id +")'>"+ (value.description || "-") + "</td>" + 
-            "<td onclick='navigateToDetails("+value.id +")'>"+ (value.image || "-") + "</td>"+ 
+            "<td onclick='navigateToDetails("+'"product",'+value.id +")'>"+ value.id +"</td>" + 
+            "<td onclick='navigateToDetails("+'"product",'+value.id +")'>"+ value.name + "</td>" + 
+            "<td onclick='navigateToDetails("+'"product",'+value.id +")'>"+ (value.description || "-") + "</td>" + 
+            "<td onclick='navigateToDetails("+'"product",'+value.id +")'>"+ (value.image || "-") + "</td>"+ 
             "<td onclick='deleteProduct()'><i class='fa fa-trash'></i>" + "</td>"
             +  "<td><i onclick='editProduct("+value.id+")' class='fa fa-pen'></i>" + "</td>" +
             "</tr>");
@@ -158,6 +163,59 @@ function renderProductDetails(id) {
     })
     $(".productDetailsEditButton").attr("onclick", 'editProduct('+product.id+')');
 }
+function renderOrderDetails(id){
+    var order = getOrderDetails(id)[0];
+    // getOrders().filter(o => o.id == id)[0];
+    $("#orderDetailsId").append(order.id);
+    $("#orderDetailsCustomer").append(order.customerId);
+    $("#orderDetailsOperator").append(order.operatorId);
+    $("#orderDetailsIdDatetime").append(order.dateTime);
+    $("#orderDetailsPoints").append(order.pointsUsed);
+    $("#orderDetailsTable").append(order.tableNo);
+
+    $.map(getProductsOrdered(id), function(value, index) {
+        $(".productsOrdered").append("<tr>" +
+        "<td>" + (index + 1) + "</td>" +
+        "<td>" + value.productName + "</td>" +
+        "<td>" + value.attributeName + "</td>" +
+        "<td>" + value.description + "</td>" +
+        "<td>" + value.cost + "</td>" +
+        "</tr>"
+
+        )
+    })
+    
+}
+function getOrderDetails(id){
+    var dataReturn = {};
+    $.ajax({
+        type: 'POST',
+        url: "orderDetails/get.php",
+        data: { table: "Orders", id: id },
+        success: function(items) {
+            // console.log(items);
+            dataReturn = jQuery.parseJSON(items);
+        },
+        async: false
+    });
+    return dataReturn;
+}
+
+function getProductsOrdered(id){
+    var dataReturn = {};
+    $.ajax({
+        type: 'POST',
+        url: "orderDetails/getProductsOrdered.php",
+        data: {id: id },
+        success: function(items) {
+            console.log(items);
+            dataReturn = jQuery.parseJSON(items);
+        },
+        async: false
+    });
+    return dataReturn;
+}
+
 
 function getProductPriceList(id) {
     var dataReturn = {};
@@ -281,7 +339,7 @@ function getOrders(){
     $.ajax({
         type: 'POST',
         url: "orders/get.php",
-        data: { table: "OrderTracking" },
+        data: { table: "Orders" },
         success: function(items) {
             console.log(items);
             dataReturn = jQuery.parseJSON(items);
@@ -294,14 +352,15 @@ function getOrders(){
 function renderOrders(){
     $.map(getOrders(), function(value, index) {
         $(".orderDetails").append("<tr>" +
-            "<td>" + (index + 1) + "</td>" +
-            "<td>" + value.id + "</td>" +
-            "<td>" + value.customerId + "</td>" +
-            "<td>" + value.price + "</td>" +
-            "<td>" + value.operatorId + "</td>" +
-            "<td>" + value.dateTime + "</td>" +
-            "<td>" + value.pointsUsed + "</td>" +
-            "<td>" + value.tableNo + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + (index + 1) + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.id + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.customerId + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorId + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.dateTime + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.pointsUsed + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.tableNo + "</td>" +
+            "<td><i class='fa fa-trash'></i>" + "</td>"+  
+            "<td><i class='fa fa-pen'></i>" + "</td>" +
             "</tr>")
     })
 }

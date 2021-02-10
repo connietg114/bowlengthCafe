@@ -16,11 +16,12 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <th>No.</th>
             <th>ID</th>
             <th>Customer</th>
-            <th>Price</th>
             <th>Operator</th>
             <th>Date & Time</th>
             <th>Points used</th>
             <th>Table No.</th>
+            <th>Delete</th>
+            <th>Edit</th>
             </table>
             <br>
         </div>

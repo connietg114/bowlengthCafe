@@ -22,20 +22,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     </head>
     
     <body>
-        <?php
-        // $sql = "select * from users";
-        // $result = mysqli_query($conn, $sql);
-        // $resultCheck = mysqli_num_rows($result);
-        // if($resultCheck>0){
-        //     while($row=mysqli_fetch_assoc($result)){
-        //         echo $row["Id"].' '.$row["FirstName"] .' '. $row["LastName"] . ' '. $row["Email"].' '. $row["Uid"].' '. $row["Password"]."<br>";
-        //     }
-        // }
-
-        // updateData("firstName = 'connie'", "users", 2);
-            
-
-        ?>
         <div class="sidenav">
             <!-- show login username eg. Hi, Leo Liang -->
 
@@ -59,11 +45,6 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         </div>
 
         <div class="main">
-            <h2>Home</h2>
-            <hr>
-            <table class="showMembers">
-            </table>
-
         </div>
     </body>
 </html>
