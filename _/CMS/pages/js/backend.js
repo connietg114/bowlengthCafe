@@ -8,7 +8,12 @@ window.onload = function() {
         // console.log(lastIndexStr);
         if (lastIndexStr.includes("/")) {
             var splitStr = lastIndexStr.split("/");
-            if (splitStr[0] == "productDetails") {
+            if(splitStr[0] == "memberDetails"){
+                $(".main").load(splitStr[0] + ".php", function() {
+                    renderMemberDetails(splitStr[1]);
+                });
+            }
+            else if (splitStr[0] == "productDetails") {
                 $(".main").load(splitStr[0] + ".php", function() {
                     renderProductDetails(splitStr[1]);
                 });
@@ -116,7 +121,7 @@ function getCustomers() {
         url: "members/get.php",
         data: { table: "Customer" },
         success: function(items) {
-            console.log(items);
+            // console.log(items);
             dataReturn = jQuery.parseJSON(items);
             // console.log("Members: ");
             // console.log(dataReturn);
@@ -163,6 +168,20 @@ function renderProductDetails(id) {
     })
     $(".productDetailsEditButton").attr("onclick", 'editProduct('+product.id+')');
 }
+//////////////////
+function renderMemberDetails(id){
+    var member = getCustomers().filter(c => c.id == id)[0];
+    $("#memberDetailsId").append(member.id);
+    $("#memberDetailsName").append(member.name);
+    $("#memberDetailsEmail").append(member.email);
+    $("#memberDetailsAddress").append(member.address);
+    $("#memberDetailsPoints").append(member.points);
+    $("#memberDetailsDateJoin").append(member.dateJoin);
+    // var order = 
+    console.log(member);
+}
+
+////////////////////////////
 function renderOrderDetails(id){
     var order = getOrderDetails(id)[0];
     // getOrders().filter(o => o.id == id)[0];
@@ -215,7 +234,7 @@ function getProductsOrdered(id){
     });
     return dataReturn;
 }
-
+////////////////////////////////
 
 function getProductPriceList(id) {
     var dataReturn = {};
