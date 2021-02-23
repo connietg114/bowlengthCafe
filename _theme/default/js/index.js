@@ -277,7 +277,7 @@ function scrollFunction() {
         $("#logo").css("margin", "10px");
         $(".logoDiv").css("display", "inline-block");
 
-        $(".topnav .menu-content").css("margin-top", "0");
+        $(".topnav .menu-content").css("margin-top", "-70px");
         $(".topnav .menu-content").css("display", "inline-block");
         $(".topnav .menu-content").css("float", "right");
 
@@ -287,7 +287,7 @@ function scrollFunction() {
         $("#logo").css("margin", "none");
         $(".logoDiv").css("display", "block");
 
-        $(".topnav .menu-content").css("margin-top", "10px");
+        $(".topnav .menu-content").css("margin-top", "-60px");
         $(".topnav .menu-content").css("display", "block");
         $(".topnav .menu-content").css("float", "none");
 

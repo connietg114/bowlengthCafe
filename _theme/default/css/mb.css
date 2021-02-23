@@ -150,7 +150,8 @@ html {
 }
 
 .pageContent {
-    padding-top: 45px !important;
+    padding-top: 0px !important;
+    margin-top: -40px;
     /* -webkit-transition: 0.5s ease; */
 }
 

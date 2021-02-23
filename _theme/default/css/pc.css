@@ -37,7 +37,7 @@ html {
 }
 
 .topnav .menu-content {
-    margin-top: 40px;
+    margin-top: -60px;
     vertical-align: middle;
     text-align: center;
     -webkit-transition: 0.5s ease;
