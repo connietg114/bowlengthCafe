@@ -41,9 +41,4 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         $(".productsItems").attr("categoryId", id);
         renderProducts(getProducts(), id);
     }
-
-    
-
-    
-
 </script>

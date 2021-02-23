@@ -116,10 +116,10 @@ function getCustomers() {
         url: "members/get.php",
         data: { table: "Customer" },
         success: function(items) {
-            // console.log(items);
+            console.log(items);
             dataReturn = jQuery.parseJSON(items);
-            console.log("JSON: ");
-            console.log(dataReturn);
+            // console.log("Members: ");
+            // console.log(dataReturn);
         },
         async: false
     });

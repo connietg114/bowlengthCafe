@@ -9,8 +9,9 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <h1>Members</h1>
         <div class="w3-container container"> 
         <table class="membersCustomers">
+            <th>No.</th>
             <th>ID</th>
-            <th>Full Name</th>
+            <th>Name</th>
             <th>Email</th>
             <th>Address</th>
             <th>Memberid</th>
@@ -40,10 +41,20 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         // console.log("members.php: array")
         // console.log(array);
         $.map(array, function(value, index){
+            $(".membersCustomers").append("<tr>" +
+                "<td>" + (index + 1) + "</td>" +
+                "<td>" + value.id + "</td>" +
+                "<td>" + value.name + "</td>" +
+                "<td>" + value.email + "</td>" +
+                "<td>" + value.address+"</td>" +
+                "<td>" + (value.memberId || '-')+ "</td>" +
+                "<td>" + (value.dateJoin || '-')+ "</td>" +
+                "<td>" + (value.points || '-')+ "</td>" +
+                "<td><i class='fa fa-trash delete'"+"></i>"+"</td>"+"<td><i class='fa fa-pen'></i>" + "</td>"+ 
+                "</tr>");
+            // var rows_html = "<tr class='row"+value.id+"'><td>"+value.id+"</td><td>"+value.firstName+" "+value.lastName+"</td><td>"+value.email+"</td><td>"+value.streetAddress+" "+value.cityAddress+" "+value.zipCodeAddress+" "+value.countryAddress+"</td><td>"+value.memberId+"</td><td>"+value.dateJoin+"</td><td>"+value.points+"</td>"+"<td class = 'deleteCol'><i class='fa fa-trash delete' id='"+value.id +"' table='Customer'"+"></i>"+"</td>"+"<td class = 'editCol' onclick='edit()'><i class='fa fa-pen'></i>" + "</td>"+ "</tr>";
 
-            var rows_html = "<tr class='row"+value.id+"'><td>"+value.id+"</td><td>"+value.firstName+" "+value.lastName+"</td><td>"+value.email+"</td><td>"+value.streetAddress+" "+value.cityAddress+" "+value.zipCodeAddress+" "+value.countryAddress+"</td><td>"+value.memberId+"</td><td>"+value.dateJoin+"</td><td>"+value.points+"</td>"+"<td class = 'deleteCol'><i class='fa fa-trash delete' id='"+value.id +"' table='Customer'"+"></i>"+"</td>"+"<td class = 'editCol' onclick='edit()'><i class='fa fa-pen'></i>" + "</td>"+ "</tr>";
-
-            $(".membersCustomers").append(rows_html);
+            // $(".membersCustomers").append(rows_html);
         });
     }
 
