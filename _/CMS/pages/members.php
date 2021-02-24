@@ -8,17 +8,21 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     <body>
         <h1>Members</h1>
         <div class="w3-container container"> 
-        <table class="membersCustomers">
-            <th>No.</th>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Date Join</th>
-            <th>Points</th>
-            <th>Delete</th>
-            <th>Edit</th>
-        </table>    
+            <br>
+            <button style="float:right">Add Member</button>
+            <br><br>
+            <table class="membersCustomers">
+                <th>No.</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Date Join</th>
+                <th>Points</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </table>   
+            <br> 
         </div>
     </body>
 </html>

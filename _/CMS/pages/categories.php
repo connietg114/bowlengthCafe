@@ -9,6 +9,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <h1>Categories</h1>
         <div class="w3-container container">
             <br>
+            <button style="float:right" onclick="showPage('?addCategory')">Add Category</button>
+            <br><br>
             <table class="categoriesTable">
                 <th>No.</th>
                 <th>ID</th>
@@ -18,8 +20,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 <th>Edit</th>
             </table>
             <br>
-            <button style="float:right" onclick="showPage('?addCategory')">Add Category</button>
-            <br><br>
+            
         </div>
     </body>
 </html>

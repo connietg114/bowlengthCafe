@@ -182,7 +182,7 @@ function renderMemberDetails(id){
         $(".memberOrderDetails").append("<tr>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + (index + 1) + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.id + "</td>" +
-            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorId + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorName + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.dateTime + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.pointsUsed + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.tableNo + "</td>" +
@@ -195,14 +195,13 @@ function renderMemberDetails(id){
 
 ////////////////////////////
 function renderOrderDetails(id){
-    var order = getOrderDetails(id)[0];
-    // getOrders().filter(o => o.id == id)[0];
-    $("#orderDetailsId").append(order.id);
-    $("#orderDetailsCustomer").append(order.customerId);
-    $("#orderDetailsOperator").append(order.operatorId);
-    $("#orderDetailsIdDatetime").append(order.dateTime);
-    $("#orderDetailsPoints").append(order.pointsUsed);
-    $("#orderDetailsTable").append(order.tableNo);
+    var orderDetails = getOrders().filter(o => o.id == id)[0];
+    $("#orderDetailsId").append(orderDetails.id);
+    $("#orderDetailsCustomer").append(orderDetails.customerName);
+    $("#orderDetailsOperator").append(orderDetails.operatorName);
+    $("#orderDetailsIdDatetime").append(orderDetails.dateTime);
+    $("#orderDetailsPoints").append(orderDetails.pointsUsed);
+    $("#orderDetailsTable").append(orderDetails.tableNo);
 
     $.map(getProductsOrdered(id), function(value, index) {
         $(".productsOrdered").append("<tr>" +
@@ -216,20 +215,6 @@ function renderOrderDetails(id){
         )
     })
     
-}
-function getOrderDetails(id){
-    var dataReturn = {};
-    $.ajax({
-        type: 'POST',
-        url: "orderDetails/get.php",
-        data: { table: "Orders", id: id },
-        success: function(items) {
-            // console.log(items);
-            dataReturn = jQuery.parseJSON(items);
-        },
-        async: false
-    });
-    return dataReturn;
 }
 
 function getProductsOrdered(id){
@@ -385,8 +370,8 @@ function renderOrders(){
         $(".orderDetails").append("<tr>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + (index + 1) + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.id + "</td>" +
-            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.customerId + "</td>" +
-            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorId + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.customerName + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorName + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.dateTime + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.pointsUsed + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.tableNo + "</td>" +

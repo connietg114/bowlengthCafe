@@ -3,7 +3,10 @@ require_once dirname(__FILE__).'/../../Includes/globalVariables.php';
 require_once dirname(__FILE__).'/../../Includes/sqlQuery.php';
 
 $table = isset($_POST['table']) ? $_POST['table'] : null;
-$sql = "SELECT * FROM $table";
+$sql = "SELECT o.id, o.customerId, o.operatorId, o.dateTime, o.pointsUsed, o.tableNo, concat(c.firstName, ' ', c.lastName)as 'customerName', concat(u.firstName, ' ', u.lastName) as 'operatorName'
+FROM $table o, Customer c, User u 
+where o.customerId=c.id
+and o.operatorId=u.id";
 // echo $table;
 $result = mysqli_query($GLOBALS["conn"], $sql);
 $numOfRows = mysqli_num_rows($result);
