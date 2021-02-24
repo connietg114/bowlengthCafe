@@ -177,8 +177,20 @@ function renderMemberDetails(id){
     $("#memberDetailsAddress").append(member.address);
     $("#memberDetailsPoints").append(member.points);
     $("#memberDetailsDateJoin").append(member.dateJoin);
-    // var order = 
-    console.log(member);
+    var order = getOrders().filter(o => o.customerId == id);
+    $.map(order, function(value, index) {
+        $(".memberOrderDetails").append("<tr>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + (index + 1) + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.id + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.operatorId + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.dateTime + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.pointsUsed + "</td>" +
+            "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.tableNo + "</td>" +
+            "<td><i class='fa fa-trash'></i>" + "</td>"+  
+            "<td><i class='fa fa-pen'></i>" + "</td>" +
+            "</tr>")
+    })
+    console.log(order);
 }
 
 ////////////////////////////
@@ -360,7 +372,7 @@ function getOrders(){
         url: "orders/get.php",
         data: { table: "Orders" },
         success: function(items) {
-            console.log(items);
+            // console.log(items);
             dataReturn = jQuery.parseJSON(items);
         },
         async: false

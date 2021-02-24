@@ -16,6 +16,19 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <p id="memberDetailsPoints">Points: </p>
             <br>
             <h4>Orders</h4>
+            <!-- <button style="float:right" onclick="showPage('?addOrder')">Add Order</button> -->
+            
+            <table class="memberOrderDetails">
+            <th>No.</th>
+            <th>ID</th>
+            <th>Operator</th>
+            <th>Date & Time</th>
+            <th>Points used</th>
+            <th>Table No.</th>
+            <th>Delete</th>
+            <th>Edit</th>
+            </table>
+            <br>
         </div>
 
         

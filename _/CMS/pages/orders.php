@@ -29,8 +29,5 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
 </html>
 
 <script>
-    function alert(){
-        console.log("test");
-    }
     renderOrders();
 </script>
