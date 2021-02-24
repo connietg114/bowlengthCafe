@@ -1,7 +1,7 @@
 window.onload = function() {
     var url = window.location.href;
 
-    console.log("url : " + url);
+    // console.log("url : " + url);
     if (url.includes("?")) {
         var str = url.split("?");
         var lastIndexStr = str[str.length - 1];
@@ -139,7 +139,7 @@ function getMenuCategory() {
         url: "products/getMenuCategory.php",
         data: { table: "MenuCategory" },
         success: function(items) {
-            console.log(items);
+            // console.log(items);
             dataReturn = jQuery.parseJSON(items);
         },
         async: false
@@ -365,9 +365,13 @@ function getOrders(){
     return dataReturn;
 }
 
-function renderOrders(){
+function renderOrders(date){
     $.map(getOrders(), function(value, index) {
-        $(".orderDetails").append("<tr>" +
+       
+        if (value.dateTime > new Date(date).toISOString().slice(0, 19).replace('T', ' ')){
+
+        
+        $(".orders").append("<tr>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + (index + 1) + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.id + "</td>" +
             "<td onclick='navigateToDetails("+'"order",'+value.id +")'>" + value.customerName + "</td>" +
@@ -378,6 +382,7 @@ function renderOrders(){
             "<td><i class='fa fa-trash'></i>" + "</td>"+  
             "<td><i class='fa fa-pen'></i>" + "</td>" +
             "</tr>")
+        }
     })
 }
 ////////////////////////////////////Category Edit Page//////////////////////////////////////////////////

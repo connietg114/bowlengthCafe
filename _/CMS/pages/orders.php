@@ -10,9 +10,7 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
         <h1>Orders</h1>
         <div class="w3-container container">
         <br>
-        <button style="float:right" onclick="showPage('?addOrder')">Add Order</button>
-            <br><br>
-            <table class="orderDetails">
+            <table class="orders">
             <th>No.</th>
             <th>ID</th>
             <th>Customer</th>
@@ -24,10 +22,12 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
             <th>Edit</th>
             </table>
             <br>
+            <button style="float:right" onclick="showPage('?addOrder')">Add Order</button>
+            <br><br>
         </div>
     </body>
 </html>
 
 <script>
-    renderOrders();
+    renderOrders('2005-01-01 00:00:00');
 </script>

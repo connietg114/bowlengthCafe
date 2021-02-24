@@ -8,9 +8,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     <body>
         <h1>Categories</h1>
         <div class="w3-container container">
+           
             <br>
-            <button style="float:right" onclick="showPage('?addCategory')">Add Category</button>
-            <br><br>
             <table class="categoriesTable">
                 <th>No.</th>
                 <th>ID</th>
@@ -20,6 +19,8 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
                 <th>Edit</th>
             </table>
             <br>
+            <button style="float:right" onclick="showPage('?addCategory')">Add Category</button>
+            <br><br>
             
         </div>
     </body>
@@ -60,45 +61,41 @@ require_once dirname(__FILE__).'/../Includes/sqlQuery.php';
     }
 
     function deleteCategory(id){
-        var dataReturn;
-        $.ajax({
-            type: 'POST',
-            url: "categories/delete.php",
-            data: { id: id },
-            success: function(items) {
-                // console.log(items);
-                dataReturn = jQuery.parseJSON(items);
-                // alertmsg(dataReturn);
-                // console.log(dataReturn.status);
-                alert(dataReturn.status);
-                if(dataReturn.status=="success"){
-                    $(".categoryRow"+id).html('');
-                }
-                else{
-                    // console.log(dataReturn.status);
-                    alert("wrong");
-                }
+        var r = confirm("Are you sure you want to delete Category " + id + "? ");
+        if (r==true){
+            var dataReturn;
+            $.ajax({
+                type: 'POST',
+                url: "categories/delete.php",
+                data: { id: id },
+                success: function(items) {
+                    dataReturn = jQuery.parseJSON(items);
+                    
+                    if(dataReturn.status=="success"){
+                        $(".categoryRow"+id).html('');
+                    }
+                    else{
+                        console.log(dataReturn.status);
+                        alert("wrong");
+                    }
 
-            },
-            
-            error: function (xhr, status, error) {
-                console.log(status);
-                console.log(error);
-                // var err = eval("(" + xhr.responseText + ")");
-                // alert(err.Message);
-            },
-            async: false
-        }).done(function(result) {
-            console.log("Show the result from the PHP in the console", result);
-            // Do all you want with the result
-        }).fail(function(data) {
-                alert(data);
+                },
+                
+                error: function (xhr, status, error) {
+                    console.log(status);
+                    console.log(error);
+                   
+                },
+                async: false
+            }).done(function(result) {
+                console.log("Show the result from the PHP in the console", result);
+                // Do all you want with the result
+            }).fail(function(data) {
+                    alert(data);
             });
-        return dataReturn;
+            
+        }  
     }
 
-    function alertmsg(msg){
-        console.log(msg);
-
-    }
+    
 </script>
